@@ -1,0 +1,23 @@
+﻿:root {
+    --base-color: #F7F8FC;
+    --sidebar-color: #363740;
+    --send-img: #9D9FAC;
+    --button-color: #DADFFF;
+    --delete-button-color: #FFDADA;
+    --primary-text-color: #252733;
+    --secondary-text-color: #9C98A6;
+    --tertiary-text-color: #C5C7CD;
+    --sidebar-text-color: #A4A6B3;
+    --sidebar-text-hover-color: #DDE2FF;
+    --border-color: #DFE0EB;
+    --border-dotted-color: #363740;
+    --border-button-color-cash: #9DE185;
+    --border-buuton-color-cretid: #4D5AEA;
+    --border-button-color-debit: #6D75CD;
+    --border-button-color-vale: #EB58C2;
+}
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
