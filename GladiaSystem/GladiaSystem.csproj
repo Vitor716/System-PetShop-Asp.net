@@ -131,10 +131,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Partials\form.css" />
+    <Content Include="Content\Partials\settings.css" />
+    <Content Include="Content\Partials\sidebar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\root.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -148,6 +151,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\scripts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -164,6 +168,18 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Agenda\" />
+    <Folder Include="Views\Category\" />
+    <Folder Include="Views\Pet\" />
+    <Folder Include="Views\POS\Index\" />
+    <Folder Include="Views\POS\Payment\" />
+    <Folder Include="Views\POS\Receipt\" />
+    <Folder Include="Views\Product\" />
+    <Folder Include="Views\Settings\ChangeName\" />
+    <Folder Include="Views\Settings\ChangePassword\" />
+    <Folder Include="Views\Settings\DeleteAccount\" />
+    <Folder Include="Views\User\Adm\" />
+    <Folder Include="Views\User\Employee\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
