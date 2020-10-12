@@ -2578,3 +2578,6 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+//My script
+

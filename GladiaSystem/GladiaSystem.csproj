@@ -131,6 +131,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\Imagens\x.svg" />
     <Content Include="Content\Partials\form.css" />
     <Content Include="Content\Partials\settings.css" />
     <Content Include="Content\Partials\sidebar.css" />
@@ -174,8 +176,8 @@
     <Content Include="Views\Settings\ChangeName\ChangeName.cshtml" />
     <Content Include="Views\Settings\ChangePassword\ChangePassword.cshtml" />
     <Content Include="Views\Settings\DeleteAccount\DeleteAccount.cshtml" />
-    <Content Include="Views\User\Adm\Add.cshtml" />
     <Content Include="Views\User\Employee\Employee.cshtml" />
+    <Content Include="Views\User\Adm\Adm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
