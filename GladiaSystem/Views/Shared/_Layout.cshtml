@@ -5,34 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Dom Tchochoro</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/root.css")
     @Styles.Render("~/Content/Partials/sidebar.css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/fontawesome.css")
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-            <i class="fas fa-bars"></i>
+            <img src="~/Content/Imagens/menu.svg" alt="Menu" class="btn-dark"/>
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
-                    <a href="#">pro sidebar</a>
+                    <img src="~/Content/Imagens/logo.svg" alt="Company logo" />
                     <div id="close-sidebar">
-                        <img src="~/Content/Imagens/x.svg" alt="X" />
+                        <img src="~/Content/Imagens/x.svg" alt="Close button" class="close"/>
                     </div>
                 </div>
                 <div class="sidebar-menu">
                     <ul>
                         <li class="sidebar">
                             <a href="#">
+                                <img src="~/Content/Imagens/agenda.svg" alt="Schedule" />
                                 <span>Agenda</span>
                             </a>
                         </li>
 
                         <li class="sidebar">
                             <a href="#">
+                                <img src="~/Content/Imagens/dollar.svg" alt="Pdv dollar" />
                                 <span>PDV</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="#">
+                                <img src="~/Content/Imagens/funcregister.svg" alt="Register official" />
+                                <span>Cadastrar Funcionário</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="#">
+                                <img src="~/Content/Imagens/admregist.svg" alt="Regiter Adm" />
+                                <span>Cadastrar Administrador</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="#">
+                                <img src="~/Content/Imagens/func-pet.svg" alt="Register pet" />
+                                <span>Cadastrar Pet</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="#">
+                                <img src="~/Content/Imagens/cad-cate.svg" alt="Register category" />
+                                <span>Cadastrar Categoria</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="#">
+                                <img src="~/Content/Imagens/cad-prod.svg" alt="Register category" />
+                                <span>Cadastrar Produto</span>
+                            </a>
+                        </li>
+                        <hr />
+                        <li class="sidebar">
+                            <a href="#">
+                                <img src="~/Content/Imagens/eng.svg" alt="Register category" />
+                                <span>Configurações</span>
+                            </a>
+                        </li>
+                        <li class="sidebar">
+                            <a href="#">
+                                <img src="~/Content/Imagens/ido.svg" alt="Register category" />
+                                <span>Idiomas</span>
                             </a>
                         </li>
                     </ul>
@@ -47,14 +94,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
-    <script>
-        $("#close-sidebar").click(function () {
-            $(".page-wrapper").removeClass("toggled");
-        });
-        $("#show-sidebar").click(function () {
-            $(".page-wrapper").addClass("toggled");
-        });
-    </script>
+    @Scripts.Render("~/Scripts/scripts.js")
 </body>
 </html>
