@@ -1,6 +1,7 @@
 ﻿:root {
     --base-color: #F7F8FC;
     --sidebar-color: #363740;
+    --sidebar-selected-color: #3F4049;
     --send-img: #9D9FAC;
     --button-color: #DADFFF;
     --delete-button-color: #FFDADA;
