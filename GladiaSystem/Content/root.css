@@ -17,11 +17,19 @@
     --border-button-color-debit: #6D75CD;
     --border-button-color-vale: #EB58C2;
 }
-*{
+* {
     padding: 0;
     box-sizing: border-box;
     margin: 0;
+    font-family: 'Mulish', sans-serif;
 }
+
+/*No media querie colocar o font size correto 62,5%*/
+
+html {
+    font-size: 50%;
+}
+
 body{
     background-color: var(--base-color);
 }

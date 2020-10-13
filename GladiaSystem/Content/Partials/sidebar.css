@@ -102,7 +102,7 @@
 
     .sidebar-wrapper .sidebar-brand #close-sidebar {
         cursor: pointer;
-        font-size: 20px;
+        font-size: 2rem;
     }
 
 /*----------------------sidebar-menu-------------------------*/
@@ -113,7 +113,7 @@
 
     .sidebar-wrapper .sidebar-menu .header-menu span {
         font-weight: bold;
-        font-size: 14px;
+        font-size: 1.4rem;
         padding: 15px 20px 5px 20px;
         display: inline-block;
     }
@@ -128,7 +128,7 @@
 
     .sidebar-wrapper .sidebar-menu ul li a i {
         margin-right: 10px;
-        font-size: 12px;
+        font-size: 1.2rem;
         width: 30px;
         height: 30px;
         line-height: 30px;
@@ -165,7 +165,7 @@
 
     .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li {
         padding-left: 25px;
-        font-size: 13px;
+        font-size: 1.3rem;
     }
 
         .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
@@ -179,7 +179,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             margin-right: 10px;
-            font-size: 8px;
+            font-size: 0.8rem;
         }
 
     .sidebar-wrapper .sidebar-menu ul li a span.label,
@@ -206,7 +206,7 @@
 /*-----------------------------chiller-theme-------------------------------------------------*/
 .chiller-theme .sidebar-wrapper {
     background: var(--sidebar-color);
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
 }
 
