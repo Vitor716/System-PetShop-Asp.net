@@ -36,41 +36,42 @@
                             }
                             else
                             {
-                                <a href="#">
+                                 <a href="@Url.Action("Agenda", "Home")">
                                     <img src="~/Content/Imagens/agenda.svg" alt="Schedule" />
                                     <span>Agenda</span>
-                                </a>
+                                 </a>
+                                
                             }
                         </li>
 
                         <li class="sidebar">
                             @if (ViewBag.Selected == "pdv")
                             {
-                                <a href="#">
+                                <a id="activated" href="#">
                                     <img src="~/Content/Imagens/dollar-selected.svg" alt="Pdv dollar" />
                                     <span>PDV</span>
                                 </a>
                             }
                             else
                             {
-                                <a href="#">
-                                    <img src="~/Content/Imagens/dollar.svg" alt="Pdv dollar" />
+                                 <a href="@Url.Action("POS", "Home")">
+                                     <img src="~/Content/Imagens/dollar.svg" alt="Pdv dollar" />
                                     <span>PDV</span>
-                                </a>
+                                  </a>
                             }
-                            
+
                         </li>
                         <li class="sidebar">
                             @if (ViewBag.Selected == "func")
                             {
-                                <a href="#">
+                                <a id="activated" href="#">
                                     <img src="~/Content/Imagens/funcregister-selected.svg" alt="Register official" />
                                     <span>Cadastrar Funcionário</span>
                                 </a>
                             }
                             else
                             {
-                                <a href="#">
+                                <a href="@Url.Action("Employee", "Home")">
                                     <img src="~/Content/Imagens/funcregister.svg" alt="Register official" />
                                     <span>Cadastrar Funcionário</span>
                                 </a>
@@ -79,63 +80,65 @@
                         <li class="sidebar">
                             @if (ViewBag.Selected == "adm")
                             {
-                                <a href="#">
+                                <a id="activated" href="#">
                                     <img src="~/Content/Imagens/admregist-selected.svg" alt="Regiter Adm" />
-                                    <span>Cadastrar Administrador</span>
+                                    <span>Cadastrar Admin</span>
                                 </a>
                             }
                             else
                             {
-                                <a href="#">
+                                <a href="@Url.Action("Adm", "Home")">
                                     <img src="~/Content/Imagens/admregist.svg" alt="Regiter Adm" />
-                                    <span>Cadastrar Administrador</span>
-                                </a>
+                                    <span>Cadastrar Admin</span>
+                                 </a>
                             }
                         </li>
                         <li class="sidebar">
                             @if (ViewBag.Selected == "pet")
                             {
-                                <a href="#">
+                                <a id="activated" href="#">
                                     <img src="~/Content/Imagens/func-pet-selected.svg" alt="Register pet" />
                                     <span>Cadastrar Pet</span>
                                 </a>
                             }
                             else
                             {
-                                <a href="#">
+                                 <a href="@Url.Action("Pet", "Home")">
                                     <img src="~/Content/Imagens/func-pet.svg" alt="Register pet" />
                                     <span>Cadastrar Pet</span>
-                                </a>
+                                 </a>
+
                             }
 
                         </li>
                         <li class="sidebar">
                             @if (ViewBag.Selected == "category")
                             {
-                                <a href="#">
+                                <a id="activated" href="#">
                                     <img src="~/Content/Imagens/cad-cate-selected.svg" alt="Register category" />
                                     <span>Cadastrar Categoria</span>
                                 </a>
                             }
                             else
                             {
-                                <a href="#">
+                                 <a href="@Url.Action("Category", "Home")">
                                     <img src="~/Content/Imagens/cad-cate.svg" alt="Register category" />
                                     <span>Cadastrar Categoria</span>
-                                </a>
+                                 </a>
                             }
                         </li>
                         <li class="sidebar">
                             @if (ViewBag.Selected == "product")
                             {
-                                <a href="#">
+                                <a id="activated" href="#">
                                     <img src="~/Content/Imagens/cad-prod-selected.svg" alt="Register category" />
                                     <span>Cadastrar Produto</span>
                                 </a>
                             }
                             else
                             {
-                                <a href="#">
+
+                                <a href="@Url.Action("Product", "Home")">
                                     <img src="~/Content/Imagens/cad-prod.svg" alt="Register category" />
                                     <span>Cadastrar Produto</span>
                                 </a>
@@ -145,24 +148,24 @@
                         <li class="sidebar">
                             @if (ViewBag.Selected == "config")
                             {
-                                <a href="#">
+                                <a id="activated" href="#">
                                     <img src="~/Content/Imagens/eng-selected.svg" alt="Register category" />
                                     <span>Configurações</span>
                                 </a>
                             }
                             else
                             {
-                                <a href="#">
-                                    <img src="~/Content/Imagens/eng.svg" alt="Register category" />
-                                    <span>Configurações</span>
-                                </a>
+                                 <a href="@Url.Action("ChangePassword", "Home")">
+                                     <img src="~/Content/Imagens/eng.svg" alt="Register category" />
+                                     <span>Configurações</span>
+                                 </a>
                             }
 
                         </li>
                         <li class="sidebar">
                             @if (ViewBag.Selected == "language")
                             {
-                                <a href="#">
+                                <a id="activated" href="#">
                                     <img src="~/Content/Imagens/ido-selected.svg" alt="Register category" />
                                     <span>Idiomas</span>
                                 </a>
@@ -173,6 +176,7 @@
                                     <img src="~/Content/Imagens/ido.svg" alt="Register category" />
                                     <span>Idiomas</span>
                                 </a>
+
                             }
 
                         </li>

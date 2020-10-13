@@ -165,19 +165,19 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Adm.cshtml" />
+    <Content Include="Views\Home\Agenda.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
+    <Content Include="Views\Home\ChangeName.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Home\DeleteAccount.cshtml" />
+    <Content Include="Views\Home\Employee.cshtml" />
+    <Content Include="Views\Home\Payment.cshtml" />
+    <Content Include="Views\Home\Pet.cshtml" />
+    <Content Include="Views\Home\POS.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\Receipt.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Agenda\Agenda.cshtml" />
-    <Content Include="Views\Category\Category.cshtml" />
-    <Content Include="Views\Pet\Pet.cshtml" />
-    <Content Include="Views\POS\Index\Index.cshtml" />
-    <Content Include="Views\POS\Payment\Payment.cshtml" />
-    <Content Include="Views\POS\Receipt\Receipt.cshtml" />
-    <Content Include="Views\Product\Product.cshtml" />
-    <Content Include="Views\Settings\ChangeName\ChangeName.cshtml" />
-    <Content Include="Views\Settings\ChangePassword\ChangePassword.cshtml" />
-    <Content Include="Views\Settings\DeleteAccount\DeleteAccount.cshtml" />
-    <Content Include="Views\User\Employee\Employee.cshtml" />
-    <Content Include="Views\User\Adm\Adm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
