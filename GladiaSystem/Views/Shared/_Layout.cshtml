@@ -9,6 +9,7 @@
     @Styles.Render("~/Content/Partials/sidebar.css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/fontawesome.css")
+    @Styles.Render("~/Content/Partials/header.css")
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -185,6 +186,12 @@
             </div>
         </nav>
         <main class="page-content">
+            <header>
+                <h2>@ViewBag.Title</h2>
+                <span></span>
+                <small id="personName">@ViewBag.Name Ferdinando Silva</small>
+                <img class="img-fluid" src="~/Content/Imagens/fakePictureProfile.svg"/>
+            </header>
             @RenderBody()
         </main>
     </div>
