@@ -16,7 +16,6 @@
 #close-sidebar {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
@@ -45,6 +44,12 @@
 
 .page-wrapper.toggled #show-sidebar {
     left: -40px;
+}
+
+#activated {
+    background-color: var(--sidebar-selected-color);
+    color: var(--sidebar-text-hover-color);
+    border-left: 2px solid var(--sidebar-text-hover-color);
 }
 /*----------------sidebar-wrapper----------------*/
 
@@ -121,20 +126,20 @@
         padding: 8px 30px 8px 20px;
     }
 
-        .sidebar-wrapper .sidebar-menu ul li a i {
-            margin-right: 10px;
-            font-size: 12px;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            border-radius: 4px;
-        }
+    .sidebar-wrapper .sidebar-menu ul li a i {
+        margin-right: 10px;
+        font-size: 12px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 4px;
+    }
 
-        .sidebar-wrapper .sidebar-menu ul li a:hover > i::before {
-            display: inline-block;
-            animation: swing ease-in-out 0.5s 1 alternate;
-        }
+    .sidebar-wrapper .sidebar-menu ul li a:hover > i::before {
+        display: inline-block;
+        animation: swing ease-in-out 0.5s 1 alternate;
+    }
 
     .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
         font-family: "Font Awesome 5 Free";
@@ -198,9 +203,7 @@
         transform: rotate(90deg);
         right: 17px;
     }
-
 /*-----------------------------chiller-theme-------------------------------------------------*/
-
 .chiller-theme .sidebar-wrapper {
     background: var(--sidebar-color);
     font-size: 16px;
@@ -292,3 +295,4 @@ hr {
     border-color: #3A3F48;
     border-top: 0.20px solid #3A3F48 !important;
 }
+
