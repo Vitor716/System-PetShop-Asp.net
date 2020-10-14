@@ -5,5 +5,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Adm</h2>
+<main>
+    <form action="/save-classes" id="create-class" method="POST">
+        <fieldset>
+            <legend>
+                Dados do administrador
+            </legend>
+            <hr class="form-hr" />
+            <div class="input-block">
+                <label for="name">Nome completo</label>
+                <input name="name" id="name" required />
+            </div>
 
+            <div class="input-block">
+                <label for="avatar">
+                    Email
+                </label>
+                <input name="email"
+                       id="email"
+                       type="email"
+                       required />
+            </div>
+
+            <div class="input-block">
+                <label for="senha">
+                    Senha
+                </label>
+                <input name="senha"
+                       id="senha"
+                       type="senha"
+                       required />
+            </div>
+
+            <div class="textarea-block">
+                <div class="up-img">
+                    <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" />
+                    <p class="send-img">Envie sua foto</p>
+                </div>
+            </div>
+
+            <button class="sub-button" type="submit">Cadastrar</button>
+        </fieldset>
+    </form>
+</main>

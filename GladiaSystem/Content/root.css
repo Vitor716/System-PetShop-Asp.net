@@ -2,7 +2,7 @@
     --base-color: #F7F8FC;
     --sidebar-color: #363740;
     --sidebar-selected-color: #3F4049;
-    --send-img: #9D9FAC;
+    --send-img: #E8E9EF;
     --button-color: #DADFFF;
     --delete-button-color: #FFDADA;
     --primary-text-color: #252733;
@@ -16,12 +16,14 @@
     --border-buuton-color-cretid: #4D5AEA;
     --border-button-color-debit: #6D75CD;
     --border-button-color-vale: #EB58C2;
+    --input-color: #FAFAFC;
+    --send-img-text: #595C70;
 }
 * {
     padding: 0;
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Mulish';
 }
 
 /*No media querie colocar o font size correto 62,5%*/
