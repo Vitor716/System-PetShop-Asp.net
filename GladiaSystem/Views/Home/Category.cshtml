@@ -5,5 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Category</h2>
+<main>
+    <form action="/save-classes" id="create-class" method="POST">
+        <fieldset>
+            <legend>Dados da categoria</legend>
+            <hr class="form-hr" />
+            <div class="input-block">
+                <label for="name">Nome da categoria</label>
+                <input name="name" id="name" required />
+            </div>
+
+            <div class="dog-area">
+                <div class="up-img-dog">
+                    <img src="~/Content/Imagens/dog-img.svg" class="img-fluid" alt="Upload img" />
+                </div>
+            </div>
+
+            <button class="sub-button" type="submit">Cadastrar</button>
+        </fieldset>
+    </form>
+</main>
 

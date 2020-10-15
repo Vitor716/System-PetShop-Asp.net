@@ -207,7 +207,7 @@
 .chiller-theme .sidebar-wrapper {
     background: var(--sidebar-color);
     font-size: 1.6rem;
-    font-weight: 400;
+    font-weight:400;
 }
 
     .chiller-theme .sidebar-wrapper .sidebar-header,
@@ -290,9 +290,10 @@
     padding-top: 10px;
     margin-left: 10px;
 }
+
 hr {
     background: #3A3F48;
     border-color: #3A3F48;
-    border-top: 0.20px solid #3A3F48 !important;
+    border-top: 0.20px solid #3A3F48;
 }
 
