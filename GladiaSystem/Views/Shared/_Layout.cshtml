@@ -12,18 +12,19 @@
     @Styles.Render("~/Content/Partials/header.css")
     @Styles.Render("~/Content/Partials/form.css")
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-            <img src="~/Content/Imagens/menu.svg" alt="Menu" class="btn-dark"/>
+            <img src="~/Content/Imagens/menu.svg" alt="Menu" class="btn-dark" />
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
                     <img src="~/Content/Imagens/logo.svg" alt="Company logo" />
                     <div id="close-sidebar">
-                        <img src="~/Content/Imagens/x.svg" alt="Close button" class="close"/>
+                        <img src="~/Content/Imagens/x.svg" alt="Close button" class="close" />
                     </div>
                 </div>
                 <div class="sidebar-menu">
@@ -38,11 +39,11 @@
                             }
                             else
                             {
-                                 <a href="@Url.Action("Agenda", "Home")">
+                                <a href="@Url.Action("Agenda", "Home")">
                                     <img src="~/Content/Imagens/agenda.svg" alt="Schedule" />
                                     <span>Agenda</span>
-                                 </a>
-                                
+                                </a>
+
                             }
                         </li>
 
@@ -56,10 +57,10 @@
                             }
                             else
                             {
-                                 <a href="@Url.Action("POS", "Home")">
-                                     <img src="~/Content/Imagens/dollar.svg" alt="Pdv dollar" />
+                                <a href="@Url.Action("POS", "Home")">
+                                    <img src="~/Content/Imagens/dollar.svg" alt="Pdv dollar" />
                                     <span>PDV</span>
-                                  </a>
+                                </a>
                             }
 
                         </li>
@@ -92,7 +93,7 @@
                                 <a href="@Url.Action("Adm", "Home")">
                                     <img src="~/Content/Imagens/admregist.svg" alt="Regiter Adm" />
                                     <span>Cadastrar Admin</span>
-                                 </a>
+                                </a>
                             }
                         </li>
                         <li class="sidebar">
@@ -105,10 +106,10 @@
                             }
                             else
                             {
-                                 <a href="@Url.Action("Pet", "Home")">
+                                <a href="@Url.Action("Pet", "Home")">
                                     <img src="~/Content/Imagens/func-pet.svg" alt="Register pet" />
                                     <span>Cadastrar Pet</span>
-                                 </a>
+                                </a>
 
                             }
 
@@ -123,10 +124,10 @@
                             }
                             else
                             {
-                                 <a href="@Url.Action("Category", "Home")">
+                                <a href="@Url.Action("Category", "Home")">
                                     <img src="~/Content/Imagens/cad-cate.svg" alt="Register category" />
                                     <span>Cadastrar Categoria</span>
-                                 </a>
+                                </a>
                             }
                         </li>
                         <li class="sidebar">
@@ -157,10 +158,10 @@
                             }
                             else
                             {
-                                 <a href="@Url.Action("ChangePassword", "Home")">
-                                     <img src="~/Content/Imagens/eng.svg" alt="Register category" />
-                                     <span>Configurações</span>
-                                 </a>
+                                <a href="@Url.Action("ChangePassword", "Home")">
+                                    <img src="~/Content/Imagens/eng.svg" alt="Register category" />
+                                    <span>Configurações</span>
+                                </a>
                             }
 
                         </li>
@@ -191,12 +192,10 @@
                 <h2>@ViewBag.Title</h2>
                 <span></span>
                 <small id="personName">@ViewBag.Name Ferdinando Silva</small>
-                <img class="img-fluid" src="~/Content/Imagens/fakePictureProfile.svg"/>
+                <img class="img-fluid" src="~/Content/Imagens/fakePictureProfile.svg" />
             </header>
             @RenderBody()
         </main>
-
-
     </div>
 
     @Scripts.Render("~/bundles/jquery")
