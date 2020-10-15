@@ -4,5 +4,39 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ChangeName</h2>
+<div class="container">
+    <div class="change-photo" id="small-card">
+        <div class="info">
+            <img src="~/Content/Imagens/fakePictureProfile.svg" alt="Avatar photo" class="avatar-img" />
+            <p class="avatar-name">Ferdinando Silva</p>
+            <p class="text-email">Email </p>
+            <p class="desc-email">Ferdinando.silva@gmail.com</p>
+        </div>
+        <button class="sub-button" type="file">
+            Alterar foto
+            <img src="~/Content/Imagens/up-dark.svg" alt="upload img" class="upload-img" />
+        </button>
+    </div>
+    <div class="big-container" id="bigger-card">
+        <div class="change-container">
+            <a href="@Url.Action("ChangePassword", "Home")"
+               class="link-a"><span>Alterar senha </span></a>
+            <a href="@Url.Action("ChangeName", "Home")"
+                 id="activated-down"
+               class="link-a"><span>Alterar nome</span></a>
+            <a href="@Url.Action("DeleteAccount", "Home")"
+               class="link-a"><span class="change">Apagar conta </span></a>
+        </div>
+        <hr class="divide-hr" />
+        <div class="input-block">
+            <label for="nome">Nome</label>
+            <input name="nome" id="nome" type="text" required />
+        </div>
+        <div class="input-block">
+            <label for="confNome">Confirmar nome</label>
+            <input name="confNome" id="nome" type="text" required />
+        </div>
 
+        <button class="sub-button" id="att-button" type="submit">Atualizar</button>
+    </div>
+</div>

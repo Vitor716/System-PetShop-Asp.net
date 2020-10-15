@@ -42,7 +42,7 @@ textarea :focus{
 .select-block label,
 .input-block label,
 .textarea-block label {
-    font: 400 1.4rem Mulish;
+    font: 400 1.8rem Mulish;
     color: var(--secondary-text-color);
 }
 
