@@ -44,5 +44,13 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+        public ActionResult ChangeName()
+        {
+            return View();
+        }
+        public ActionResult DeleteAccount()
+        {
+            return View();
+        }
     }
 }

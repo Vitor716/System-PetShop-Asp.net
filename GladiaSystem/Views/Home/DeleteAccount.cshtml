@@ -4,5 +4,39 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DeleteAccount</h2>
+<div class="container">
+    <div class="change-photo" id="small-card">
+        <div class="info">
+            <img src="~/Content/Imagens/fakePictureProfile.svg" alt="Avatar photo" class="avatar-img" />
+            <p class="avatar-name">Ferdinando Silva</p>
+            <p class="text-email">Email </p>
+            <p class="desc-email">Ferdinando.silva@gmail.com</p>
+        </div>
+        <button class="sub-button" type="file">
+            Alterar foto
+            <img src="~/Content/Imagens/up-dark.svg" alt="upload img" class="upload-img" />
+        </button>
+    </div>
+    <div class="big-container" id="bigger-card">
+        <div class="change-container">
+            <a href="@Url.Action("ChangePassword", "Home")"
+               class="link-a"><span>Alterar senha </span></a>
+            <a href="@Url.Action("ChangeName", "Home")"
+               class="link-a"><span>Alterar nome</span></a>
+            <a href="@Url.Action("DeleteAccount", "Home")"
+               id="activated-down"
+               class="link-a"><span class="change">Apagar conta </span></a>
+        </div>
+        <hr class="divide-hr" />
+        <div class="input-block">
+            <label for="email">Email</label>
+            <input name="email" id="email" type="text" required />
+        </div>
+        <div class="input-block">
+            <label for="senha">Senha</label>
+            <input name="senha" id="senha" type="password" required />
+        </div>
 
+        <button class="sub-button" id="delete-button" type="submit">Deletar</button>
+    </div>
+</div>

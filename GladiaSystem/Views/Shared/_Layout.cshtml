@@ -11,6 +11,7 @@
     @Styles.Render("~/Content/fontawesome.css")
     @Styles.Render("~/Content/Partials/header.css")
     @Styles.Render("~/Content/Partials/form.css")
+    @Styles.Render("~/Content/Partials/config.css")
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
 </head>
@@ -32,7 +33,7 @@
                         <li class="sidebar">
                             @if (ViewBag.Selected == "agenda")
                             {
-                                <a id="activated" href="#">
+                                <a id="activated">
                                     <img src="~/Content/Imagens/agenda-selected.svg" alt="Schedule" />
                                     <span>Agenda</span>
                                 </a>
