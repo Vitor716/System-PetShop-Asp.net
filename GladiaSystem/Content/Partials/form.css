@@ -24,10 +24,13 @@ main {
 }
 
 input,
-textarea{
+textarea {
     font-weight: 500;
     font-size: 1.6rem;
-    color: gray;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 100%;
+    height: 100px;
 }
 
 .select-block label,
@@ -91,5 +94,46 @@ textarea{
 .up-img {
     display: grid;
     place-items: center;
+}
 
+#email-label {
+    display: block;
+    margin-top: 5%;
+
+}
+
+#up-img-tiny {
+    height: 0%;
+    padding: 9%;
+}
+
+.port-pet {
+    height: 60px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+#pequeno {
+    width: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    order: -1;
+}
+
+#grande {
+    width: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    order: -1;
+}
+
+.label-radial {
+    margin-left: -45%;
+    font: 400 1.4rem Mulish;
+    color: var(--secondary-text-color);
 }

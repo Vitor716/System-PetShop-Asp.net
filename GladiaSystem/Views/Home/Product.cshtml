@@ -26,20 +26,38 @@
             </div>
 
             <div class="input-block">
-                <label for="senha">
-                    Senha
+                <label for="currency-field">Preço</label>
+                <input type="text"
+                       name="currency-field"
+                       id="currency-field"
+                       pattern="^\R$\d{1,3}(,\d{3})*(\.\d+)?R$"
+                       value=""
+                       data-type="currency"
+                       placeholder="R$">
+            </div>
+
+            <div class="input-block">
+                <label for="quant">
+                    Quantidade
                 </label>
-                <input name="senha"
-                       id="senha"
-                       type="senha"
+                <input name="quant"
+                       id="quant"
+                       type="number"
                        required />
             </div>
 
             <div class="textarea-block">
-                <div class="up-img">
+                <div id="up-img-tiny" class="up-img">
                     <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" />
                     <p class="send-img">Envie sua foto</p>
                 </div>
+            </div>
+
+            <div class="input-block">
+                <label id="email-label" for="avatar">
+                    Email
+                </label>
+                <textarea name="bio" id="bio" required></textarea>
             </div>
 
             <button class="sub-button" type="submit">Cadastrar</button>

@@ -11,36 +11,38 @@
             <legend>Dados do Pet</legend>
             <hr class="form-hr" />
             <div class="input-block">
-                <label for="name">Nome completo</label>
+                <label for="name">Nome do Pet</label>
                 <input name="name" id="name" required />
             </div>
 
             <div class="input-block">
-                <label for="avatar">
-                    Email
+                <label for="owner">
+                    Dono do Pet
                 </label>
-                <input name="email"
-                       id="email"
-                       type="email"
+                <input name="owner"
+                       id="owner"
+                       type="text"
                        required />
             </div>
 
             <div class="input-block">
-                <label for="senha">
-                    Senha
+                <label for="port">
+                    Porte do animal
                 </label>
-                <input name="senha"
-                       id="senha"
-                       type="senha"
-                       required />
-            </div>
-
-            <div class="textarea-block">
-                <div class="up-img">
-                    <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" />
-                    <p class="send-img">Envie sua foto</p>
+                <div class="port-pet">
+                    <input type="radio" name="port" id="pequeno" value="pequeno">
+                    <label class="label-radial" for="pequeno">
+                        Pequeno
+                    </label>
+                </div>
+                <div class="port-pet">
+                    <input  type="radio" name="port" id="grande" value="grande">
+                    <label class="label-radial" for="grande">
+                        Grande
+                    </label>
                 </div>
             </div>
+            
 
             <button class="sub-button" type="submit">Cadastrar</button>
         </fieldset>
