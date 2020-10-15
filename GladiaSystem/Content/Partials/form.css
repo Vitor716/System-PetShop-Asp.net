@@ -33,6 +33,12 @@ textarea {
     height: 100px;
 }
 
+input,
+textarea :focus{
+    outline:none;
+}
+
+
 .select-block label,
 .input-block label,
 .textarea-block label {
@@ -113,7 +119,7 @@ textarea {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 3%;
 }
@@ -123,17 +129,20 @@ textarea {
     margin-top: auto;
     margin-bottom: auto;
     order: -1;
+    margin-left: 10%;
 }
 
 #grande {
     width: 20px;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 10%;
     order: -1;
 }
 
 .label-radial {
-    margin-left: -45%;
-    font: 400 1.4rem Mulish;
+    margin-right:10%;
+    font-weight: 400;
+    font-size: 1.4rem;
     color: var(--secondary-text-color);
 }

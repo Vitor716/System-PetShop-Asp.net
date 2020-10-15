@@ -90,4 +90,3 @@ function formatCurrency(input, blur) {
     input[0].setSelectionRange(caret_pos, caret_pos);
 }
 
-

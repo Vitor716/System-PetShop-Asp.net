@@ -26,6 +26,14 @@
             </div>
 
             <div class="input-block">
+                <label for="phone">
+                    Telefone do Dono
+                </label>
+                <input type="tel" class="phone" id="phone" name="phone" require />
+
+            </div>
+
+            <div class="input-block">
                 <label for="port">
                     Porte do animal
                 </label>
@@ -36,16 +44,30 @@
                     </label>
                 </div>
                 <div class="port-pet">
-                    <input  type="radio" name="port" id="grande" value="grande">
+                    <input type="radio" name="port" id="grande" value="grande">
                     <label class="label-radial" for="grande">
                         Grande
                     </label>
                 </div>
             </div>
-            
+
+            <div class="input-block">
+                <label id="email-label" for="avatar">
+                    Descrição (Opcional)
+                </label>
+                <textarea name="bio" id="bio" required></textarea>
+            </div>
 
             <button class="sub-button" type="submit">Cadastrar</button>
         </fieldset>
     </form>
 </main>
 
+<script src="~/Scripts/cleave.js"></script>
+<script src="~/Scripts/cleave-phone.br.js"></script>
+<script>
+    var cleave = new Cleave('#phone', {
+        phone: true,
+        phoneRegionCode: 'BR'
+    });
+</script>
