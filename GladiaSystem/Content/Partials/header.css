@@ -18,11 +18,11 @@ header span {
     width: 1px;
     height: 40px;
     background: var(--border-color);
-    margin-right: -25%;
+    margin-right: -7%;
 }
 
 header #personName {
-    margin-right: -25%;
+    margin-right: -10%;
     font-size: 1.4rem;
     font-weight: 600;
 }
