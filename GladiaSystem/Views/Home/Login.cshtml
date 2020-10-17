@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Início - Dom Tchochoro</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/root.css")
+    @Styles.Render("~/Content/Partials/sidebar.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome.css")
+    @Styles.Render("~/Content/Partials/login.css")
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <main>
+        <img src="~/Content/Imagens/dom.svg" class="logo" />
+        <p class="login">Fazer Login</p>
+
+        <form action="/save-classes" id="login" method="POST">
+
+
+            <div class="input-block">
+                <label for="email">Email</label>
+                <input name="email" id="email" type="email" required />
+            </div>
+
+            <div class="input-block">
+                <label for="password">Senha</label>
+                <input name="password" id="password" type="password" required />
+            </div>
+
+
+            <button class="login-btn" type="submit"><img src="~/Content/Imagens/arrow.svg" alt="Seta"></button>
+
+        </form>
+    </main>
+</body>
+</html>

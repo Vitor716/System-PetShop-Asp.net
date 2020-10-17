@@ -11,6 +11,11 @@ namespace GladiaSystem.Controllers
     {
         // GET: Home
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public ActionResult Adm()
         {
             return View();
