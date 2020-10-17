@@ -1,9 +1,45 @@
 ﻿
-@{
+@{ 
     ViewBag.Title = "Receipt";
     ViewBag.Selected = "receipt";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Receipt</h2>
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/root.css")
+@Styles.Render("~/Content/Partials/sidebar.css")
+@Scripts.Render("~/bundles/modernizr")
+@Styles.Render("~/Content/fontawesome.css")
+@Styles.Render("~/Content/Partials/pos.css")
+@Styles.Render("~/Content/Partials/header.css")
+@Styles.Render("~/Content/Partials/form.css")
+@Styles.Render("~/Content/Partials/config.css")
+@Styles.Render("~/Content/Partials/agenda.css")
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+
+<main class="page-content">
+    <header>
+        <a href="@Url.Action("POS", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
+        <span></span>
+        <small id="personName">@ViewBag.Name Ferdinando Silva</small>
+        <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
+    </header>
+
+    <div>
+        <div class="header-logo">
+            <img src="~/Content/Imagens/icon-logo.svg" alt="Logo icon" />
+            <p class="data-title">07-09-2020</p>
+        </div>
+        <hr />
+        <p></p>
+        <div>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+        <button></button>
+    </div>
+</main>
 

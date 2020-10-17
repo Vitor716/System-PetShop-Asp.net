@@ -38,6 +38,8 @@
     background-color: var(--delete-button-color);
 }
 .sub-button{
+    display: flex;
+    justify-content: center;
     padding: 5%;
     margin-top: 60%;
 }

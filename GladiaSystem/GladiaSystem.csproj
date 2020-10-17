@@ -141,6 +141,7 @@
     <Content Include="Content\Partials\config.css" />
     <Content Include="Content\Partials\form.css" />
     <Content Include="Content\Partials\header.css" />
+    <Content Include="Content\Partials\pos.css" />
     <Content Include="Content\Partials\settings.css" />
     <Content Include="Content\Partials\sidebar.css" />
     <Content Include="favicon.ico" />
@@ -272,11 +273,9 @@
     <Content Include="Views\Home\ChangePassword.cshtml" />
     <Content Include="Views\Home\DeleteAccount.cshtml" />
     <Content Include="Views\Home\Employee.cshtml" />
-    <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\Pet.cshtml" />
     <Content Include="Views\Home\POS.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
-    <Content Include="Views\Home\Receipt.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -287,6 +286,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\Payment.cshtml" />
+    <Content Include="Views\Home\Receipt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

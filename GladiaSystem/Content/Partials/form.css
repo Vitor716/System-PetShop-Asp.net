@@ -94,6 +94,7 @@ textarea :focus{
     color: var(--send-img-text);
     text-align: center;
     justify-content: center;
+    cursor:pointer;
 
 }
 

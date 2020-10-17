@@ -1,9 +1,74 @@
 ﻿
 @{
-    ViewBag.Title = "PDV";
-    ViewBag.Selected = "pdv";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "POS";
+    ViewBag.Selected = "pos";
+    Layout = null;
 }
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/root.css")
+@Styles.Render("~/Content/Partials/sidebar.css")
+@Scripts.Render("~/bundles/modernizr")
+@Styles.Render("~/Content/fontawesome.css")
+@Styles.Render("~/Content/Partials/header.css")
+@Styles.Render("~/Content/Partials/form.css")
+@Styles.Render("~/Content/Partials/config.css")
+@Styles.Render("~/Content/Partials/agenda.css")
+@Styles.Render("~/Content/Partials/pos.css")
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-<h2>POS</h2>
+<main class="page-content">
+    <header>
+        <a href="@Url.Action("Agenda", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
+        <span></span>
+        <small id="personName">@ViewBag.Name Ferdinando Silva</small>
+        <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
+    </header>
 
+
+
+    <div class="container">
+        <div class="input-container">
+            <input class="input-add" type="number" placeholder="Adicionar produto" name="Adicionar produto">
+            <img src="~/Content/Imagens/barcode.svg" class="bar-code" alt="delete" />
+        </div>
+
+        <div class="info-container">
+            <div class="container-payment">
+                <p class="info-text">Informações da compra </p>
+                <div class="item-text">
+                    <div class="about-text">
+                        <p class="opacity-text">1X 53459p093453</p>
+                        <p class="item-name">SABONETE PALMOVILE</p>
+                    </div>
+                    <p class="price">R$ 10,00</p>
+                    <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
+                </div>
+                <hr class="divide" />
+                <div class="item-text">
+                    <div class="about-text">
+                        <p class="opacity-text">1X 53459p093453</p>
+                        <p class="item-name">DESODORANTE AEROSOL.... </p>
+                    </div>
+                    <p class="price">R$ 10,00</p>
+                    <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
+                </div>
+                <hr class="divide" />
+                <div class="item-text">
+                    <div class="about-text">
+                        <p class="opacity-text">1X 53459p093453</p>
+                        <p class="item-name">COLEIRA ANTIALÉRGICO</p>
+                    </div>
+                    <p class="price">R$ 10,00</p>
+                    <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
+                </div>
+            </div>
+            <div class="container-payment values">
+                <p class="simple-text">Subtotal: R$ 50,00 </p>
+                <p class="simple-text">Pagamentos: R$ 0,00 </p>
+                <p class="tot-pay">Total a pagar: </p>
+                <p class="tot-pay">R$ 50,00</p>
+            </div>
+        </div>
+        <button class="sub-button" type="submit"><a href="@Url.Action("Payment", "Home")">Pagar pedido<img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
+    </div>
+</main>
