@@ -1,5 +1,5 @@
 ﻿
-@{ 
+@{
     ViewBag.Title = "Receipt";
     ViewBag.Selected = "receipt";
     Layout = null;
@@ -17,29 +17,50 @@
 @Styles.Render("~/Content/Partials/agenda.css")
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-
+<title>Recibo - Dom Tchochoro</title>
 <main class="page-content">
     <header>
-        <a href="@Url.Action("POS", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
+        <a href="@Url.Action("Payment", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
         <span></span>
         <small id="personName">@ViewBag.Name Ferdinando Silva</small>
         <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
     </header>
 
-    <div>
+    <div class="container-receipt">
         <div class="header-logo">
-            <img src="~/Content/Imagens/icon-logo.svg" alt="Logo icon" />
+            <img src="~/Content/Imagens/icon-logo.svg" alt="Logo icon" class="logo-icon" />
             <p class="data-title">07-09-2020</p>
         </div>
-        <hr />
-        <p></p>
-        <div>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+        <hr class="divide" />
+        <p class="center-text">58924735-#6669</p>
+        <div class="content-receipt">
+            <div class="item-text">
+                <div class="about-text">
+                    <p class="opacity-text">1X 53459p093453</p>
+                    <p class="item-name">SABONETE PALMOVILE</p>
+                </div>
+                <p class="price">R$ 10,00</p>
+            </div>
+            <div class="item-text">
+                <div class="about-text">
+                    <p class="opacity-text">1X 53459p093453</p>
+                    <p class="item-name">SABONETE PALMOVILE</p>
+                </div>
+                <p class="price">R$ 10,00</p>
+            </div>
+            <div class="item-text">
+                <div class="about-text">
+                    <p class="opacity-text">1X 53459p093453</p>
+                    <p class="item-name">SABONETE PALMOVILE</p>
+                </div>
+                <p class="price">R$ 10,00</p>
+            </div>
+            <div class="text-price">
+                <span>Total</span>
+                <span>R$ 90,00</span>
+            </div>
         </div>
-        <button></button>
+        <button class="next-button" type="submit"><a href="@Url.Action("POS", "Home")">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
     </div>
 </main>
 
