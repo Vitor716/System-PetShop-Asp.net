@@ -1,0 +1,190 @@
+﻿.arrow{
+    padding-left: 3%;
+}
+
+.container-payment {
+    width: 96vw;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 4%;
+  
+}
+.info-container{
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.values{
+    margin-top: 4%;
+    padding-top: 3%;
+    padding-left: 4%;
+}
+
+.simple-text{
+    color: var(--primary-text-color);
+    font:400 1.8rem Mulish;
+}
+
+.tot-pay {
+    color: var(--primary-text-color);
+    font: 600 2.4rem Mulish;
+}
+.input-container{
+    display: flex;
+    justify-content: center;
+    margin: 4%;
+}
+.input-add {
+    font: 500 1.6rem Mulish;
+    border: 1px solid var(--border-color);
+    border-radius: 8px 0 0 8px;
+    width: 85vw;
+    height: 53px;
+    padding: 4%;
+}
+
+.bar-code {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0 8px 8px 0;
+
+}
+
+.info-text {
+    font: 700 2.4rem Mulish;
+    color: var( --primary-text-color);
+    margin: 0;
+}
+
+.divide {
+    border: 0.2px solid var(--border-color);
+    margin: 0;
+}
+.item-text{
+   display: flex;
+   justify-content: space-between;
+   margin: 4%;
+  
+}
+.item-name {
+    margin-top: 10%;
+    color: var(--primary-text-color);
+    font:400 2rem Mulish
+}
+
+.price {
+    margin-top: auto;
+    color: var(--primary-text-color);
+    font: 400 2rem Mulish
+}
+
+.sub-button {
+    margin-top: 30%;
+    margin-bottom: 10%;
+}
+
+.opacity-text {
+    color: var(--tertiary-text-color);
+    font:400 1.5rem Mulish;
+}
+
+.delete {
+    margin-top: auto;
+}
+
+.button-container {
+    width: 95vw;
+    margin-bottom: 3%;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 100px 100px;
+    grid-gap: 4%;
+    grid-template-areas: "d cd" "cc v";
+}
+
+.btn-money {
+    grid-area: d;
+    background-color: white;
+    border: 1px solid var(--border-button-color-cash);
+    border-radius: 8px;
+    font: 400 2.2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.btn-card {
+    grid-area: cc;
+    background-color: white;
+    border: 1px solid var(--border-buuton-color-cretid);
+    border-radius: 8px;
+    font: 400 2.2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.btn-cardDebit {
+    background-color: white;
+    border: 1px solid var(--border-button-color-debit);
+    border-radius: 8px;
+    font: 400 2.2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.vale {
+    background-color: white;
+    border: 1px solid var( --border-button-color-vale);
+    border-radius: 8px;
+    font: 400 2.2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.container-default {
+    margin-bottom: 3%;
+    justify-content: center;
+    width: 95vw;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 5%;
+}
+.separeted{
+    display: flex;
+    justify-content: space-between;
+}
+
+.value-buy {
+    font: 700 2.4rem Mulish;
+    color: var(--primary-text-color);
+    margin-bottom: 50%;
+}
+
+.sub-money {
+    font: 600 2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.value-pay {
+    font: 600 2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.title-pay {
+    font: 700 2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+#currency-field{
+    background-color: white;
+}
+
+.header-logo{
+    display: flex;
+    justify-content:space-between;
+}

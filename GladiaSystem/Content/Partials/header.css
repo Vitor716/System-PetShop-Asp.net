@@ -27,11 +27,10 @@ header #personName {
     font-weight: 600;
 }
 
-header img {
+header .avatar-picture{
     width: 60px;
     height: 60px;
     border: 2px solid var(--border-color);
     border-radius: 180px;
     padding: 3px;
 }
-
