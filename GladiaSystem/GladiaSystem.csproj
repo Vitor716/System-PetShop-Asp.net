@@ -141,6 +141,7 @@
     <Content Include="Content\Partials\config.css" />
     <Content Include="Content\Partials\form.css" />
     <Content Include="Content\Partials\header.css" />
+    <Content Include="Content\Partials\login.css" />
     <Content Include="Content\Partials\pos.css" />
     <Content Include="Content\Partials\settings.css" />
     <Content Include="Content\Partials\sidebar.css" />
@@ -288,6 +289,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\Receipt.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
