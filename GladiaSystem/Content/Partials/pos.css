@@ -10,8 +10,11 @@
     padding: 4%;
   
 }
-.info-container{
+.content{
+    margin: 4%;
+}
 
+.info-container {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -82,7 +85,16 @@
     font: 400 2rem Mulish
 }
 
-.sub-button {
+.next-button {
+    width: 100%;
+    border-radius: 8px;
+    border-style: none;
+    color: var(--primary-text-color);
+    background-color: var(--button-color);
+    font: 700 2.4rem Mulish;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
     margin-top: 30%;
     margin-bottom: 10%;
 }
@@ -97,7 +109,7 @@
 }
 
 .button-container {
-    width: 95vw;
+    width: 100%;
     margin-bottom: 3%;
     justify-content: center;
     background-color: white;
@@ -105,7 +117,7 @@
     border-radius: 8px;
     padding: 5%;
     display: grid;
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 140px 140px;
     grid-template-rows: 100px 100px;
     grid-gap: 4%;
     grid-template-areas: "d cd" "cc v";
@@ -148,7 +160,7 @@
 .container-default {
     margin-bottom: 3%;
     justify-content: center;
-    width: 95vw;
+    width: 100%;
     background-color: white;
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -184,7 +196,45 @@
     background-color: white;
 }
 
-.header-logo{
+.header-logo {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+.data-title{
+    font: 400 2.4rem Mulish;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.container-receipt {
+    margin: 2%;
+    padding: 4%;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.center-text{
+    font:600 1.8rem Mulish;
+    margin-top: 3%;
+    display: flex;
+    justify-content:center;
+}
+
+.content-receipt{
+    margin-top: 2%;
+}
+
+.text-price{
+    font:700 2.4rem Mulish;
+    display: flex;
+    justify-content: space-between;
+    margin: 4%;
+
+}
+
+.logo-icon{
+    height: 70px;
+    width: 70px;
 }

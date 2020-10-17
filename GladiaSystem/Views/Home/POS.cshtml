@@ -16,6 +16,7 @@
 @Styles.Render("~/Content/Partials/pos.css")
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
+<title>PDV - Dom Tchochoro</title>
 <main class="page-content">
     <header>
         <a href="@Url.Action("Agenda", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
@@ -69,6 +70,6 @@
                 <p class="tot-pay">R$ 50,00</p>
             </div>
         </div>
-        <button class="sub-button" type="submit"><a href="@Url.Action("Payment", "Home")">Pagar pedido<img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
+        <button class="next-button" type="submit"><a href="@Url.Action("Payment", "Home")">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
     </div>
 </main>
