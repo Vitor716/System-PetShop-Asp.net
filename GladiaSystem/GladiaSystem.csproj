@@ -122,6 +122,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -139,8 +140,10 @@
     <Content Include="Content\Imagens\x.svg" />
     <Content Include="Content\Partials\agenda.css" />
     <Content Include="Content\Partials\config.css" />
+    <Content Include="Content\Partials\error.css" />
     <Content Include="Content\Partials\form.css" />
     <Content Include="Content\Partials\header.css" />
+    <Content Include="Content\Partials\home.css" />
     <Content Include="Content\Partials\login.css" />
     <Content Include="Content\Partials\pos.css" />
     <Content Include="Content\Partials\settings.css" />
@@ -290,6 +293,8 @@
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\Receipt.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

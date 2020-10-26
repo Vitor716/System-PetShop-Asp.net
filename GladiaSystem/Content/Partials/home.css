@@ -1,0 +1,37 @@
+﻿.graphs {
+    width: 90vw;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.firt-graph {
+    margin-top: 5vh;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: transparent;
+    height: 35vh;
+}
+
+.second-graph {
+    margin-top: 5vh;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: transparent;
+    height: 35vh;
+}
+
+.third-graph {
+    margin-top: 5vh;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: transparent;
+    height: 35vh;
+}
+
+.fourth-graph {
+    margin-top: 5vh;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: transparent;
+    height: 35vh;
+}

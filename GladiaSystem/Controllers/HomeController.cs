@@ -9,7 +9,13 @@ namespace GladiaSystem.Controllers
 {
     public class HomeController : Controller
     {
+        [HandleError]
         // GET: Home
+        public ActionResult Home()
+        {
+            return View();
+        }
+
         public ActionResult Login()
         {
             return View();
