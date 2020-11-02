@@ -36,3 +36,17 @@ html {
 body{
     background-color: var(--base-color);
 }
+
+@media (min-width: 1297px) {
+    html {
+        font-size: 100%;
+    }
+
+    #email {
+        height: 4.4rem;
+    }
+
+    #password {
+        height: 4.4rem;
+    }
+}

@@ -84,3 +84,38 @@ form {
     margin-left: auto;
     margin-right: auto;
 }
+
+#photo {
+    background-color: var(--border-color);
+    display: none;
+    height: 100vh;
+    width: 75vw;
+}
+
+@media (min-width: 768px) {
+    #photo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main {
+        margin-left: 0;
+        margin-right: 0;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #form-left {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #image {
+        width: 50px;
+        height: 50px;
+    }
+}
