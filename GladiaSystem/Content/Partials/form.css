@@ -147,3 +147,21 @@ textarea :focus{
     font-size: 1.4rem;
     color: var(--secondary-text-color);
 }
+
+
+@media (min-width: 1297px) {
+    .page-content {
+        max-width: 80%;
+    }
+
+    .sub-button {
+        margin-top: 12%;
+    }
+
+    .up-img-dog {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

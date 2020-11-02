@@ -34,3 +34,16 @@ header .avatar-picture{
     border-radius: 180px;
     padding: 3px;
 }
+
+@media (min-width: 1297px) {
+    header {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 7%;
+    }
+
+    main {
+        max-width: 90%;
+    }
+}
