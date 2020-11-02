@@ -20,26 +20,34 @@
 </head>
 <body>
     <main>
-        <img src="~/Content/Imagens/dom.svg" class="logo" />
-        <p class="login">Fazer Login</p>
+        <div id="form-left">
+            <img src="~/Content/Imagens/dom.svg" class="logo" />
+            <p class="login">Fazer Login</p>
 
-        <form action="/save-classes" id="login" method="POST">
-
-
-            <div class="input-block">
-                <label for="email">Email</label>
-                <input name="email" id="email" type="email" required />
-            </div>
-
-            <div class="input-block">
-                <label for="password">Senha</label>
-                <input name="password" id="password" type="password" required />
-            </div>
+            <form action="/save-classes" id="login" method="POST">
 
 
-            <button class="login-btn" type="submit"><img src="~/Content/Imagens/arrow.svg" alt="Seta"></button>
+                <div class="input-block">
+                    <label for="email">Email</label>
+                    <input name="email" id="email" type="email" required />
+                </div>
 
-        </form>
+                <div class="input-block">
+                    <label for="password">Senha</label>
+                    <input name="password" id="password" type="password" required />
+                </div>
+
+
+                <button class="login-btn" type="submit">
+                    <img src="~/Content/Imagens/arrow.svg" alt="Seta" >
+                </button>
+
+            </form>
+        </div>
+
+        <div id="photo">
+            <img src="~/Content/Imagens/login.svg" ondragstart="return false;" id="iage" class="img-fluid" />
+        </div>
     </main>
 </body>
 </html>
