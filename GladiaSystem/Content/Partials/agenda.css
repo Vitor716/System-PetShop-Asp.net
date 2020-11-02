@@ -90,3 +90,19 @@
         font-size: 1.4rem;
     }
 }
+
+@media (min-width: 1297px) {
+
+    .item {
+        padding-top: 15px;
+    }
+
+    .item .status {
+        width: 20px;
+    }
+
+    .item .delete {
+        width: 20px;
+    }
+}
+

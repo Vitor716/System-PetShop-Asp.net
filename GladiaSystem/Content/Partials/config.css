@@ -72,7 +72,6 @@
 .info {
     display: grid;
     place-items: center;
-
 }
 .change-container{
     display: flex;
@@ -103,4 +102,37 @@ a:hover,
 a::selection{
     text-decoration: none;
     color: var(--primary-text-color);
+}
+
+@media (min-width: 1297px) {
+
+    .sub-button {
+        margin-top: 12%;
+        padding: 3%;
+        display: flex;
+        align-items: center;
+        font-size: 1.6rem;
+    }
+
+    .container {
+        flex-wrap: nowrap;
+        align-items: normal;        
+    }
+
+    .big-container {
+        margin-top: 0;
+        width: 114%;
+    }
+
+    .change-photo {
+        margin-right: 70px;
+    }
+
+    #delete-button {
+        margin-top: 43%;
+    }
+
+    #att-button {
+        margin-top: 38%;
+    }
 }

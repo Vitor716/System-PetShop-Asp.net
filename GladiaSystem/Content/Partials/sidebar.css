@@ -54,7 +54,7 @@
 /*----------------sidebar-wrapper----------------*/
 
 .sidebar-wrapper {
-    width: 270px;
+    width: 310px;
     height: 100%;
     max-height: 100%;
     position: fixed;
@@ -297,3 +297,8 @@ hr {
     border-top: 0.20px solid #3A3F48;
 }
 
+@media (min-width: 1297px) {
+    .close{
+        display:none;
+    }
+}
