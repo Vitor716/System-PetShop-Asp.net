@@ -33,6 +33,24 @@
                 <div class="sidebar-menu">
                     <ul>
                         <li class="sidebar">
+                            @if (ViewBag.Selected == "Home")
+                            {
+                                <a id="activated">
+                                    <img src="~/Content/Imagens/home.svg" alt="Schedule" />
+                                    <span>Home</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Home", "Home")">
+                                    <img src="~/Content/Imagens/home-default.svg" alt="Schedule" />
+                                    <span>Home</span>
+                                </a>
+
+                            }
+                        </li>
+
+                        <li class="sidebar">
                             @if (ViewBag.Selected == "agenda")
                             {
                                 <a id="activated">
