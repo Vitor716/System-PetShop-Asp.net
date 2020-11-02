@@ -1,0 +1,76 @@
+﻿.card-parent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#small-card {
+   margin-top: 2%;
+}
+
+.avatar-img {
+    display: flex;
+    justify-content: center;
+}
+p {
+   justify-self: flex-start;
+}
+#title-prod {
+    margin-top: 5%;
+    font: 700 3rem Mulish;
+    color: var(--primary-text-color);
+}
+
+#marc-prod {
+    margin-top: 2%;
+    font: 300 2.1rem Mulish;
+    color: var(--tertiary-text-color);
+}
+
+#desc-prod {
+    font: 400 2.1rem Mulish;
+    color: var(--second-text-color);
+}
+
+#tp-prod {
+    margin-top: 2%;
+    font: 600 2.1rem Mulish;
+    color: var(--primary-text-color);
+}
+
+#price-prod {
+    margin-top: 2%;
+    font: 700 2.2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+#quant-prod {
+    font: 700 2.2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+#min-prod {
+    font: 700 2.2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.sub-button {
+    margin-top: 30%;
+}
+
+.search-img{
+    height:12px;
+    width: 12px;
+}
+
+#input-prod {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    padding: 10%;
+}
+
+#search-bar{
+    height: 35px;
+}

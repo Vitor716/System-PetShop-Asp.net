@@ -71,5 +71,9 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+        public ActionResult ProductList()
+        {
+            return View();
+        }
     }
 }
