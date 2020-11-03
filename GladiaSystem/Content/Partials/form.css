@@ -131,6 +131,7 @@ textarea :focus{
     margin-bottom: auto;
     order: -1;
     margin-left: 10%;
+    margin-top: -6px;
 }
 
 #grande {
@@ -163,5 +164,19 @@ textarea :focus{
         justify-content: center;
         align-items: center;
     }
+    #pequeno {
+       margin-top: -6px;
+    }
+    #grande {
+        margin-top: -6px;
+    }
+}
 
+@media (max-width: 414px){
+    #pequeno {
+        margin: auto;
+    }
+    #grande {
+        margin: auto;
+    }
 }

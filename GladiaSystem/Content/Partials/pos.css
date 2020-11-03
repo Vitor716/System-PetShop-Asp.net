@@ -165,6 +165,15 @@
     border-radius: 8px;
     padding: 5%;
 }
+.container-up {
+    margin-bottom: 3%;
+    justify-content: center;
+    width: 100%;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 5%;
+}
 .separeted{
     display: flex;
     justify-content: space-between;
@@ -236,4 +245,52 @@
 .logo-icon{
     height: 70px;
     width: 70px;
+}
+
+@media (min-width: 1297px) {
+    .container {
+        flex-wrap: wrap;
+        align-items: normal;
+    }
+    .container-payment {
+        width: 80vw;
+    }
+    .next-button {
+        width: 80vw;
+        margin-top: 15%;
+        padding: 3%;
+        font: 700 2.1rem Mulish;
+        margin-bottom: 0;
+        margin-top:2%;
+        grid-area: c;
+    }
+    .input-add {
+        width: 75vw;
+    }
+    .button-container {
+        background-color: inherit;
+        border: none;
+    }
+    .content {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template:
+            "b b" 
+            "b b" 
+            "b b" 
+            "b b"
+            "b b"
+    }
+    .container-default{
+        grid-area: a;
+    }
+    .button-container{
+        grid-area: b;
+    }
+    .container-up {
+        grid-area: d;
+    }
 }
