@@ -247,50 +247,161 @@
     width: 70px;
 }
 
+/*Payment*/
+
+section {
+    margin-top: -4%;
+    display: grid;
+    height: 76vh;
+    grid-template-columns: 1fr 63vw;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "a b" "c b" "d e" "f e" "g g";
+    grid-gap: 20px;
+}
+
+.money {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid var(--border-button-color-cash);
+    border-radius: 8px;
+    grid-area: a;
+    font: 500 1.8rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.credit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid var(--border-buuton-color-cretid);
+    border-radius: 8px;
+    grid-area: c;
+    font: 500 1.8rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.debit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid var(--border-button-color-debit);
+    border-radius: 8px;
+    grid-area: d;
+    font: 500 1.8rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.val {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid var(--border-button-color-vale);
+    border-radius: 8px;
+    grid-area: f;
+    font: 500 1.8rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.buy-value {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    grid-area: b;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "b b" 
+        "s t";
+    grid-gap: 220px;
+}
+
+.money-change {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    grid-area: e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.total-value {
+    grid-area: g;
+}
+
+#buy-value {
+    grid-area: b;
+    margin-left: 25px;
+    margin-top: 20px;
+    font: 600 2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+#sub-value {
+    grid-area: s;
+    margin-left: 35px;
+    font: 500 2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+#total-value {
+    grid-area: t;
+    justify-self: center;
+    font: 500 2rem Mulish;
+    color: var(--primary-text-color);
+}
+
+#change {
+    font: 600 2rem Mulish;
+    color: var(--primary-text-color);
+    margin-left: 30px;
+    margin-bottom: -181px;
+    margin-top: 20px;
+}
+
+#change-text {
+    font: 500 1.8rem Mulish;
+    color: var(--primary-text-color);
+    margin-left: 30px;
+}
+
+#change-total {
+    font: 600 2rem Mulish;
+    color: var(--primary-text-color);
+    margin-left: 30px;
+    margin-bottom: 16px;
+}
+
+#paid{
+    font: 700 2.6rem Mulish;
+    color: var(--primary-text-color);
+}
+
+.inpbutton {
+    display: flex;
+    justify-content: space-between;
+}
+
+#value-input {
+    height: 70px;
+    width: 40%;
+    color: var(--secondary-text-color);
+}
+
+.btn-final {
+    width: 40%;
+    border-style: none;
+    border-radius: 8px;
+    background-color: var(--button-color);
+    font: 700 1.8rem Mulish;
+    color: var(--primary-text-color);
+}
+
 @media (min-width: 1297px) {
-    .container {
-        flex-wrap: wrap;
-        align-items: normal;
-    }
-    .container-payment {
-        width: 80vw;
-    }
-    .next-button {
-        width: 80vw;
-        margin-top: 15%;
-        padding: 3%;
-        font: 700 2.1rem Mulish;
-        margin-bottom: 0;
-        margin-top:2%;
-        grid-area: c;
-    }
-    .input-add {
-        width: 75vw;
-    }
-    .button-container {
-        background-color: inherit;
-        border: none;
-    }
-    .content {
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template-columns: 1fr 1fr ;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        grid-template:
-            "b b" 
-            "b b" 
-            "b b" 
-            "b b"
-            "b b"
-    }
-    .container-default{
-        grid-area: a;
-    }
-    .button-container{
-        grid-area: b;
-    }
-    .container-up {
-        grid-area: d;
-    }
 }

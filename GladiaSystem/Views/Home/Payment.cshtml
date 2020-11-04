@@ -26,38 +26,36 @@
         <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
     </header>
 
+    <section>
+        <div class="money">
+            <span id="money">Dinheiro</span>
+        </div>
+        <div class="credit">
+            <span id="credit">Cartão de Crétido</span>
+        </div>
+        <div class="debit">
+            <span id="debit">Cartão de Débito</span>
+        </div>
+        <div class="val">
+            <span id="val">Vale</span>
+        </div>
+        <div class="buy-value">
+            <span id="buy-value">Valor da compra</span>
+            <span id="sub-value">Subtotal: R$ 50,00</span>
+            <span id="total-value">Valor Pago: R$ 0,00</span>
+        </div>
+        <div class="money-change">
+            <span id="change">Troco</span>
+            <span id="change-text">Devolva o troco para continuar</span>
+            <span id="change-total">Valor do troco: R$ 0,00</span>
+        </div>
+        <div class="total-value">
+            <p id="paid">Valor pago:</p>
+            <div class="inpbutton">
+                <input id="value-input" value="R$ 10,00"/>
+                <button class="btn-final">Finalizar</button>
+            </div>
+        </div>
+    </section>
 
-    <div class="content">
-        <div class="button-container">
-            <button class="btn-money">Dinheiro</button>
-            <button class="btn-card">Cartão de Crédito</button>
-            <button class="btn-cardDebit">Cartão de Débito</button>
-            <button class="vale">Vale</button>
-        </div>
-        <div class="container-up">
-            <p class="value-buy">Valor da compra</p>
-            <div class="separeted">
-                <span class="sub-money">Subtotal: R$ 50,00</span>
-                <span class="value-pay">Valor Pago: R$ 0,00</span>
-            </div>
-        </div>
-        <div class="container-default">
-            <p class="value-buy">Troco</p>
-            <p class="sub-money">Devolva o troco para continuar</p>
-            <p class="sub-money">Valo do troco: R$ 0,00 </p>
-        </div>
-        <div>
-            <div class="input-block">
-                <p class="title-pay">Valor pago:</p>
-                <input type="text"
-                       name="currency-field"
-                       id="currency-field"
-                       pattern="^\R$\d{1,3}(,\d{3})*(\.\d+)?R$"
-                       value=""
-                       data-type="currency"
-                       placeholder="R$" />
-            </div>
-        </div>
-        <button class="next-button" type="submit"><a href="@Url.Action("Receipt", "Home")">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
-    </div>
 </main>
