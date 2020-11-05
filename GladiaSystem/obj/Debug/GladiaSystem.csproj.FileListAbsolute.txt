@@ -472,3 +472,33 @@ C:\Users\Vitor\Desktop\TCM NOVISSIMO\System-PetShop-Asp.net\GladiaSystem\obj\Deb
 C:\Users\Vitor\Desktop\TCM NOVISSIMO\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.csproj.CopyComplete
 C:\Users\Vitor\Desktop\TCM NOVISSIMO\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.dll
 C:\Users\Vitor\Desktop\TCM NOVISSIMO\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.pdb
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\GladiaSystem.dll.config
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\GladiaSystem.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\GladiaSystem.pdb
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\Antlr3.Runtime.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\Newtonsoft.Json.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.Helpers.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.Mvc.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.Optimization.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.Razor.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.WebPages.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.WebPages.Razor.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\WebGrease.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.Helpers.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.Mvc.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.Optimization.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.Razor.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.WebPages.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\System.Web.WebPages.Razor.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\Newtonsoft.Json.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\Antlr3.Runtime.pdb
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.csprojAssemblyReference.cache
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.csproj.CoreCompileInputs.cache
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.csproj.CopyComplete
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.dll
+C:\Users\Vitor\Desktop\TCM MAIS QUE NOVO\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.pdb

@@ -27,18 +27,19 @@
     </header>
 
     <section>
-        <div class="money">
-            <span id="money">Dinheiro</span>
-        </div>
-        <div class="credit">
-            <span id="credit">Cartão de Crétido</span>
-        </div>
-        <div class="debit">
-            <span id="debit">Cartão de Débito</span>
-        </div>
-        <div class="val">
-            <span id="val">Vale</span>
-        </div>
+            <div class="money">
+                <span id="money">Dinheiro</span>
+            </div>
+            <div class="credit">
+                <span id="credit">Cartão de Crétido</span>
+            </div>
+            <br />
+            <div class="debit">
+                <span id="debit">Cartão de Débito</span>
+            </div>
+            <div class="val">
+                <span id="val">Vale</span>
+            </div>
         <div class="buy-value">
             <span id="buy-value">Valor da compra</span>
             <span id="sub-value">Subtotal: R$ 50,00</span>
@@ -52,8 +53,8 @@
         <div class="total-value">
             <p id="paid">Valor pago:</p>
             <div class="inpbutton">
-                <input id="value-input" value="R$ 10,00"/>
-                <button class="btn-final">Finalizar</button>
+                <input id="value-input" value="R$ 10,00" />
+                <button class="btn-final" type="submit"><a href="@Url.Action("Receipt", "Home")">Finalizar</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
             </div>
         </div>
     </section>
