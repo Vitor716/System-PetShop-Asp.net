@@ -2,6 +2,11 @@
     width: 90vw;
     margin-right: auto;
     margin-left: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "a b" "c d";
+    grid-gap: 60px;
 }
 
 .firt-graph {
@@ -10,6 +15,7 @@
     border-radius: 8px;
     background: transparent;
     height: 35vh;
+    grid-area: a;
 }
 
 .second-graph {
@@ -18,6 +24,7 @@
     border-radius: 8px;
     background: transparent;
     height: 35vh;
+    grid-area: b;
 }
 
 .third-graph {
@@ -26,6 +33,7 @@
     border-radius: 8px;
     background: transparent;
     height: 35vh;
+    grid-area: c;
 }
 
 .fourth-graph {
@@ -34,4 +42,11 @@
     border-radius: 8px;
     background: transparent;
     height: 35vh;
+    grid-area: d;
+}
+
+@media (min-width: 1297px) {
+    .graphs {
+        width: 60vw;
+    }
 }
