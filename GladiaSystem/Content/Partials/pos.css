@@ -84,8 +84,7 @@
     color: var(--primary-text-color);
     font: 400 2rem Mulish
 }
-
-.next-button {
+.finish-button {
     width: 100%;
     border-radius: 8px;
     border-style: none;
@@ -97,6 +96,18 @@
     padding: 5%;
     margin-top: 30%;
     margin-bottom: 10%;
+}
+.next-button {
+    width: 100%;
+    border-radius: 8px;
+    border-style: none;
+    color: var(--primary-text-color);
+    background-color: var(--button-color);
+    font: 700 2.4rem Mulish;
+    display: flex;
+    justify-content: center;
+    padding: 4%;
+    margin-top: 3%;
 }
 
 .opacity-text {
@@ -314,11 +325,10 @@ section {
     grid-area: b;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 4fr 1fr;
     grid-template-areas: 
         "b b" 
         "s t";
-    grid-gap: 220px;
 }
 
 .money-change {
@@ -361,7 +371,6 @@ section {
     font: 600 2rem Mulish;
     color: var(--primary-text-color);
     margin-left: 30px;
-    margin-bottom: -181px;
     margin-top: 20px;
 }
 
@@ -404,4 +413,95 @@ section {
 }
 
 @media (min-width: 1297px) {
+    .container {
+        flex-wrap: wrap;
+        align-items: normal;
+    }
+
+    .container-payment {
+        width: 80vw;
+    }
+    .finish-button {
+        margin-top: 15%;
+        padding: 3%;
+        font: 700 2.1rem Mulish;
+        margin-bottom: 0;
+        margin-top: 2%;
+    }
+
+    .next-button {
+        width: 80vw;
+        margin-top: 15%;
+        padding: 3%;
+        font: 700 2.1rem Mulish;
+        margin-bottom: 0;
+        margin-top: 2%;
+    }
+
+    .input-add {
+        width: 75vw;
+    }
+
+    .button-container {
+        background-color: inherit;
+        border: none;
+    }
+
+}
+
+@media (max-width: 1297px) {
+    section {
+        display: initial;
+        margin: 2%;
+        padding: 1%;
+    }
+
+    .money-change {
+        margin-top: 4%;
+        margin-bottom: 4%;
+        display: grid;
+        grid-gap: 110px;
+        height: 302px;
+    }
+    #change {
+        margin-bottom: -181px;
+    }
+    #change-text {
+        margin-top: -64px;
+    }
+    .val {
+        margin-bottom: 4%;
+    }
+
+    .money {
+        display: inline-flex;
+        height: 10%;
+        width: 47%;
+        margin-bottom: 2%;
+    }
+    .credit {
+        display: inline-flex;
+        height: 10%;
+        width: 47%;
+        margin-left: 5%;
+    }
+    .debit {
+        display: inline-flex;
+        height: 10%;
+        width: 47%;
+    }
+    .val {
+        display: inline-flex;
+        height: 10%;
+        width: 47%;
+        margin-left: 5%;
+    }
+    .buy-value {
+        grid-gap: 220px;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    #sub-value {
+        margin-left: 30px;
+    }
 }
