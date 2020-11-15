@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls.WebParts;
 using GladiaSystem.Database;
+using System.Collections.ObjectModel;
 
 namespace GladiaSystem.Controllers
 {
@@ -54,14 +55,15 @@ namespace GladiaSystem.Controllers
             return View(category);
         }
 
+        Queries queries = new Queries();
+
         [HttpPost]
         public ActionResult CadCategory(Category category)
         {
-            Queries.
-            return View(category);
+            queries.RegisterCategory(category);
+            return Redirect("Category");
         }
 
-    
         public ActionResult Product()
         {
             return View();
