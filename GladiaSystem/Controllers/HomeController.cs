@@ -1,9 +1,11 @@
-﻿using System;
+﻿using GladiaSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls.WebParts;
+using GladiaSystem.Database;
 
 namespace GladiaSystem.Controllers
 {
@@ -43,9 +45,23 @@ namespace GladiaSystem.Controllers
         }
         public ActionResult Category()
         {
-            return View();
+            Category category = new Category();
+            return View(category);
         }
 
+        public ActionResult Teste(Category category)
+        {
+            return View(category);
+        }
+
+        [HttpPost]
+        public ActionResult CadCategory(Category category)
+        {
+            Queries.
+            return View(category);
+        }
+
+    
         public ActionResult Product()
         {
             return View();

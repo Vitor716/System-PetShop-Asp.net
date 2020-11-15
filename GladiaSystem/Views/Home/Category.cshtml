@@ -1,4 +1,4 @@
-﻿
+﻿@model GladiaSystem.Models.Category
 @{
     ViewBag.Title = "Cadastro Categoria";
     ViewBag.Selected = "category";
@@ -6,13 +6,16 @@
 }
 
 <main>
-    <form action="/save-classes" id="create-class" method="POST">
+    @using (Html.BeginForm("CadCategory", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
         <fieldset>
             <legend>Dados da categoria</legend>
             <hr class="form-hr" />
             <div class="input-block">
                 <label for="name">Nome da categoria</label>
-                <input name="name" id="name" required />
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
             </div>
 
             <div class="dog-area">
@@ -23,6 +26,9 @@
 
             <button class="sub-button" type="submit">Cadastrar</button>
         </fieldset>
-    </form>
+        @section Scripts{
+            @Scripts.Render("~/bundles/jqueryval");
+        }
+    }
 </main>
 
