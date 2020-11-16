@@ -8,7 +8,7 @@ namespace GladiaSystem.Database
 {
     public class Connection
     {
-        MySqlConnection con = new MySqlConnection("Server=localhost;Database=;user=root;pwd=1234567");
+        MySqlConnection con = new MySqlConnection("Server=localhost;Database=;user=gladia;pwd=123456");
         public static string message;
 
 
