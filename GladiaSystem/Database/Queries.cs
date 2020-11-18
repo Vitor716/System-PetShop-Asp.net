@@ -12,12 +12,11 @@ namespace GladiaSystem.Database
     public class Queries
     {
         Connection con = new Connection();
-        MySqlCommand cmd = new MySqlCommand();
 
         public void RegisterCategory(Category category)
         {
 
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES (@name);", con.ConnetionDB());
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES (@name);", con.ConnectionDB());
             cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = category.name;
           
             cmd.ExecuteNonQuery();
@@ -25,15 +24,11 @@ namespace GladiaSystem.Database
 
         }
 
-        public User TestUser(User user)
+        public string Login(User user)
         {
-
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_user where user_nome =@name AND user_password =@password", con.ConnetionDB());
-            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = user.name;
+            MySqlCommand cmd = new MySqlCommand("SELECT user_lvl FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
             cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
-
-            var UserName = user.name;
-            var UserPass = user.password;
 
             MySqlDataReader reader;
 
@@ -45,18 +40,15 @@ namespace GladiaSystem.Database
                 {
                     User dto = new User();
                     {
-                        dto.name = Convert.ToString(reader["NOME_USUARIO"]);
-                        dto.password = Convert.ToString(reader["SENHA"]);
+                        return dto.userLvl = Convert.ToString(reader[0]);
                     }
-
                 }
             }
             else
             {
-                user.name = null;
-                user.password = null;
+                user.userLvl = null;
             }
-            return user;
+            return "error";
         }
     }
 }

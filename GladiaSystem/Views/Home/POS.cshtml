@@ -16,10 +16,24 @@
 @Styles.Render("~/Content/Partials/pos.css")
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
+@if (Session["access"] == null)
+{
+    <script>alert('Hacker saia imediatamente')</script>
+    <script>window.location.href="localhost/error/"</script>
+}
+
 <title>PDV - Dom Tchochoro</title>
+
 <main class="page-content">
     <header>
-        <a href="@Url.Action("Agenda", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
+        @if (Session["access"] == "1")
+        {
+            <a href="@Url.Action("Home", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
+        }
+        else
+        {
+            <a href="@Url.Action("Login", "Login")"><img src="~/Content/Imagens/x-circle.svg" alt="Close" /></a>
+        }
         <span></span>
         <small id="personName">@ViewBag.Name Ferdinando Silva</small>
         <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />

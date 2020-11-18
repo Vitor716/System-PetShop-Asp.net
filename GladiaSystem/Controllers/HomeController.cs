@@ -36,6 +36,13 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session.Remove("access");
+            return RedirectToAction("Login", "Login");
+        }
+
         public ActionResult Employee()
         {
             return View();
@@ -44,14 +51,10 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
         public ActionResult Category()
         {
             Category category = new Category();
-            return View(category);
-        }
-
-        public ActionResult Teste(Category category)
-        {
             return View(category);
         }
 
