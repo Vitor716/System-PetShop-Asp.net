@@ -15,7 +15,8 @@
             <div class="input-block">
                 <label for="name">Nome da categoria</label>
                 @Html.EditorFor(model => model.name)
-                @Html.ValidationMessageFor(model => model.name)
+                
+                @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })    
             </div>
 
             <div class="dog-area">

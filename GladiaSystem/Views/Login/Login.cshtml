@@ -1,4 +1,4 @@
-﻿@model GladiaSystem.Models.User 
+﻿@model GladiaSystem.Models.User
 
 @{
     Layout = null;
@@ -21,40 +21,39 @@
 
 </head>
 <body>
-    @using (Html.BeginForm("CheckUser", "Login", FormMethod.Post))
-    {
-        @Html.ValidationSummary(true)
-        <main>
-            <div id="form-left">
-                <img src="~/Content/Imagens/dom.svg" class="logo" />
-                <p class="login">Fazer Login</p>
+    <main>
+        <div id="form-left">
+            <img src="~/Content/Imagens/dom.svg" class="logo" />
+            <p class="login">Fazer Login</p>
 
-
+            @using (Html.BeginForm("LoginUser", "Login", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
                 <div class="input-block">
-                    @Html.LabelFor(m => m.email)
-                    @Html.EditorFor(model => model.name)
-                    @Html.ValidationMessageFor(model => model.name)
+                    <label for="email">Email</label>
+                    @Html.EditorFor(model => model.email)
+                    @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="input-block">
-                    @Html.LabelFor(m => m.password)
+                    <label for="password">Senha</label>
                     @Html.EditorFor(model => model.password)
-                    @Html.ValidationMessageFor(model => model.password)
+                    @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
                 </div>
 
-
-                <button class="login-btn" type="submit" value="Login">
+                <button class="login-btn" type="submit">
                     <img src="~/Content/Imagens/arrow.svg" alt="Seta">
                 </button>
-            </div>
+                @section Scripts{
+                    @Scripts.Render("~/bundles/jqueryval");
+                }
+            }
 
-            <div id="photo">
-                <img src="~/Content/Imagens/login.svg" ondragstart="return false;" id="iage" class="img-fluid" />
-            </div>
-        </main>
-        @section Scripts{
-            @Scripts.Render("~/bundles/jqueryval");
-        }
-    }
+        </div>
+
+        <div id="photo">
+            <img src="~/Content/Imagens/login.svg" ondragstart="return false;" id="iage" class="img-fluid" />
+        </div>
+    </main>
 </body>
 </html>

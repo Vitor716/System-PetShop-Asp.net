@@ -17,10 +17,16 @@
 @Styles.Render("~/Content/Partials/agenda.css")
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
+@if (Session["access"] == null)
+{
+    <script>alert('Hacker saia imediatamente')</script>
+    <script>window.location.href="localhost/error/"</script>
+}
+
 <title>Recibo - Dom Tchochoro</title>
 <main class="page-content">
     <header>
-        <a href="@Url.Action("Payment", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
+        <a href="@Url.Action("Pos", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
         <span></span>
         <small id="personName">@ViewBag.Name Ferdinando Silva</small>
         <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
