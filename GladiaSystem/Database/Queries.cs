@@ -24,5 +24,39 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
 
         }
+
+        public User TestUser(User user)
+        {
+
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_user where user_nome =@name AND user_password =@password", con.ConnetionDB());
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = user.name;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+
+            var UserName = user.name;
+            var UserPass = user.password;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.name = Convert.ToString(reader["NOME_USUARIO"]);
+                        dto.password = Convert.ToString(reader["SENHA"]);
+                    }
+
+                }
+            }
+            else
+            {
+                user.name = null;
+                user.password = null;
+            }
+            return user;
+        }
     }
 }

@@ -1,0 +1,60 @@
+﻿@model GladiaSystem.Models.User 
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Início - Dom Tchochoro</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/root.css")
+    @Styles.Render("~/Content/Partials/sidebar.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome.css")
+    @Styles.Render("~/Content/Partials/login.css")
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    @using (Html.BeginForm("CheckUser", "Login", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <main>
+            <div id="form-left">
+                <img src="~/Content/Imagens/dom.svg" class="logo" />
+                <p class="login">Fazer Login</p>
+
+
+                <div class="input-block">
+                    @Html.LabelFor(m => m.email)
+                    @Html.EditorFor(model => model.name)
+                    @Html.ValidationMessageFor(model => model.name)
+                </div>
+
+                <div class="input-block">
+                    @Html.LabelFor(m => m.password)
+                    @Html.EditorFor(model => model.password)
+                    @Html.ValidationMessageFor(model => model.password)
+                </div>
+
+
+                <button class="login-btn" type="submit" value="Login">
+                    <img src="~/Content/Imagens/arrow.svg" alt="Seta">
+                </button>
+            </div>
+
+            <div id="photo">
+                <img src="~/Content/Imagens/login.svg" ondragstart="return false;" id="iage" class="img-fluid" />
+            </div>
+        </main>
+        @section Scripts{
+            @Scripts.Render("~/bundles/jqueryval");
+        }
+    }
+</body>
+</html>
