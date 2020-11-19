@@ -17,7 +17,7 @@ namespace GladiaSystem.Controllers
         // GET: Login
         public ActionResult Login()
         {
-            User user = new User();
+            var user = new User();
             return View(user);
         }
 
