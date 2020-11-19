@@ -1,18 +1,22 @@
-﻿﻿.card-parent {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-#small-card {
-    margin-top: 2%;
+﻿﻿
+.none {
+    /*Css for fix card grid dont change*/
 }
 
 .avatar-img {
     display: flex;
     justify-content: center;
 }
+.card-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#small-card {
+    margin-top: 2%;
+}
+
 
 p {
     justify-self: flex-start;
@@ -24,6 +28,15 @@ p {
     color: var(--primary-text-color);
 }
 
+.icon-photo {
+    height: 100%;
+    width: 80%;
+    padding: 5%;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: white;
+    display: block;
+}
 #marc-prod {
     margin-top: 2%;
     font: 300 2.1rem Mulish;
@@ -75,4 +88,29 @@ p {
 
 #search-bar {
     height: 35px;
+}
+
+@media (min-width: 1297px) {
+    .card-grid {
+        display: grid;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        grid-template-columns: 6fr 6fr 6fr;
+        place-items: center;
+        margin-top: 3%;
+        grid-gap: 55px;
+    }
+    #small-card {
+        margin: 3px;
+        
+    }
+    #input-prod{
+        padding: 0%;
+    }
+    .icon-photo {
+        height: 99%;
+        width: 103%;
+        padding: 12px;
+    }
 }

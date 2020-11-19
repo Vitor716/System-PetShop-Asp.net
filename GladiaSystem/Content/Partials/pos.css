@@ -391,7 +391,9 @@ section {
     font: 700 2.6rem Mulish;
     color: var(--primary-text-color);
 }
-
+.min-header {
+    margin-bottom: 1%;
+}
 .inpbutton {
     display: flex;
     justify-content: space-between;
@@ -420,6 +422,9 @@ section {
 
     .container-payment {
         width: 80vw;
+        height: 63%;
+        padding: 5%;
+        margin-top: -110px;
     }
     .finish-button {
         margin-top: 15%;
@@ -432,19 +437,25 @@ section {
     .next-button {
         width: 80vw;
         margin-top: 15%;
-        padding: 3%;
+        padding: 2%;
         font: 700 2.1rem Mulish;
         margin-bottom: 0;
-        margin-top: 2%;
+        margin-top: 1%;
     }
 
     .input-add {
-        width: 75vw;
+        width: 77vw;
+        padding: 3%;
     }
 
     .button-container {
         background-color: inherit;
         border: none;
+    }
+    .values {
+        padding-top: 2%;
+        margin-top: 2%;
+        height: 20%;
     }
 
 }
@@ -463,6 +474,7 @@ section {
         grid-gap: 110px;
         height: 302px;
     }
+    
     #change {
         margin-bottom: -181px;
     }
