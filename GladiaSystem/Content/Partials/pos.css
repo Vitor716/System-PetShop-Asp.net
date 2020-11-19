@@ -1,4 +1,4 @@
-﻿.arrow{
+﻿.arrow {
     padding-left: 3%;
 }
 
@@ -8,9 +8,9 @@
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 4%;
-  
 }
-.content{
+
+.content {
     margin: 4%;
 }
 
@@ -21,26 +21,28 @@
     flex-direction: column;
 }
 
-.values{
+.values {
     margin-top: 4%;
     padding-top: 3%;
     padding-left: 4%;
 }
 
-.simple-text{
+.simple-text {
     color: var(--primary-text-color);
-    font:400 1.8rem Mulish;
+    font: 400 1.8rem Mulish;
 }
 
 .tot-pay {
     color: var(--primary-text-color);
     font: 600 2.4rem Mulish;
 }
-.input-container{
+
+.input-container {
     display: flex;
     justify-content: center;
     margin: 4%;
 }
+
 .input-add {
     font: 500 1.6rem Mulish;
     border: 1px solid var(--border-color);
@@ -54,7 +56,6 @@
     background-color: white;
     border: 1px solid var(--border-color);
     border-radius: 0 8px 8px 0;
-
 }
 
 .info-text {
@@ -67,16 +68,17 @@
     border: 0.2px solid var(--border-color);
     margin: 0;
 }
-.item-text{
-   display: flex;
-   justify-content: space-between;
-   margin: 4%;
-  
+
+.item-text {
+    display: flex;
+    justify-content: space-between;
+    margin: 4%;
 }
+
 .item-name {
     margin-top: 10%;
     color: var(--primary-text-color);
-    font:400 2rem Mulish
+    font: 400 2rem Mulish
 }
 
 .price {
@@ -84,6 +86,7 @@
     color: var(--primary-text-color);
     font: 400 2rem Mulish
 }
+
 .finish-button {
     width: 100%;
     border-radius: 8px;
@@ -97,6 +100,7 @@
     margin-top: 30%;
     margin-bottom: 10%;
 }
+
 .next-button {
     width: 100%;
     border-radius: 8px;
@@ -112,7 +116,7 @@
 
 .opacity-text {
     color: var(--tertiary-text-color);
-    font:400 1.5rem Mulish;
+    font: 400 1.5rem Mulish;
 }
 
 .delete {
@@ -176,6 +180,7 @@
     border-radius: 8px;
     padding: 5%;
 }
+
 .container-up {
     margin-bottom: 3%;
     justify-content: center;
@@ -185,7 +190,8 @@
     border-radius: 8px;
     padding: 5%;
 }
-.separeted{
+
+.separeted {
     display: flex;
     justify-content: space-between;
 }
@@ -211,7 +217,7 @@
     color: var(--primary-text-color);
 }
 
-#currency-field{
+#currency-field {
     background-color: white;
 }
 
@@ -220,7 +226,8 @@
     justify-content: space-between;
     margin-bottom: 3%;
 }
-.data-title{
+
+.data-title {
     font: 400 2.4rem Mulish;
     margin-top: auto;
     margin-bottom: auto;
@@ -234,26 +241,25 @@
     border-radius: 8px;
 }
 
-.center-text{
-    font:600 1.8rem Mulish;
+.center-text {
+    font: 600 1.8rem Mulish;
     margin-top: 3%;
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
 
-.content-receipt{
+.content-receipt {
     margin-top: 2%;
 }
 
-.text-price{
-    font:700 2.4rem Mulish;
+.text-price {
+    font: 700 2.4rem Mulish;
     display: flex;
     justify-content: space-between;
     margin: 4%;
-
 }
 
-.logo-icon{
+.logo-icon {
     height: 70px;
     width: 70px;
 }
@@ -326,9 +332,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 4fr 1fr;
-    grid-template-areas: 
-        "b b" 
-        "s t";
+    grid-template-areas: "b b" "s t";
 }
 
 .money-change {
@@ -387,9 +391,13 @@ section {
     margin-bottom: 16px;
 }
 
-#paid{
+#paid {
     font: 700 2.6rem Mulish;
     color: var(--primary-text-color);
+}
+
+.min-header {
+    margin-bottom: 1%;
 }
 
 .inpbutton {
@@ -420,7 +428,11 @@ section {
 
     .container-payment {
         width: 80vw;
+        height: 63%;
+        padding: 5%;
+        margin-top: -110px;
     }
+
     .finish-button {
         margin-top: 15%;
         padding: 3%;
@@ -432,14 +444,15 @@ section {
     .next-button {
         width: 80vw;
         margin-top: 15%;
-        padding: 3%;
+        padding: 2%;
         font: 700 2.1rem Mulish;
         margin-bottom: 0;
-        margin-top: 2%;
+        margin-top: 1%;
     }
 
     .input-add {
-        width: 75vw;
+        width: 77vw;
+        padding: 3%;
     }
 
     .button-container {
@@ -447,6 +460,11 @@ section {
         border: none;
     }
 
+    .values {
+        padding-top: 2%;
+        margin-top: 2%;
+        height: 20%;
+    }
 }
 
 @media (max-width: 1297px) {
@@ -463,12 +481,15 @@ section {
         grid-gap: 110px;
         height: 302px;
     }
+
     #change {
         margin-bottom: -181px;
     }
+
     #change-text {
         margin-top: -64px;
     }
+
     .val {
         margin-bottom: 4%;
     }
@@ -479,23 +500,27 @@ section {
         width: 47%;
         margin-bottom: 2%;
     }
+
     .credit {
         display: inline-flex;
         height: 10%;
         width: 47%;
         margin-left: 5%;
     }
+
     .debit {
         display: inline-flex;
         height: 10%;
         width: 47%;
     }
+
     .val {
         display: inline-flex;
         height: 10%;
         width: 47%;
         margin-left: 5%;
     }
+
     .buy-value {
         grid-gap: 220px;
         grid-template-rows: 1fr 1fr;
