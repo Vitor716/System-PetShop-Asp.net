@@ -99,26 +99,25 @@
 
 .item .status {
     width: 10px;
-    height 10px;
 }
 
 .item .delete{
     width: 10px;
-    height 10px;
 }
 
 .client {
-    margin-left: -4%;
-    margin-right: 5%;
+    margin-left: -3%;
 }
 
 .pet {
-    margin-left: -12%;
-    margin-right: -1%;
+    margin-right: 5%;
 }
 
 .date {
-    margin-right: -4%;
+}
+
+.delete{
+    margin-right: 9%;
 }
 
 .item p{

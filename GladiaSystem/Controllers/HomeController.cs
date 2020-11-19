@@ -40,11 +40,8 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CreateAgenda(Agenda agenda)
         {
-            if (ModelState.IsValid)
-            {
-                return View(agenda);
-            }
-            return View(agenda);
+            queries.RegisterAgenda(agenda);
+            return Redirect("Agenda");
         }
 
         public ActionResult POS()
