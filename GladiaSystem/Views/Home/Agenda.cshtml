@@ -1,4 +1,4 @@
-﻿
+﻿@model GladiaSystem.Models.Agenda
 @{
     ViewBag.Title = "Agenda";
     ViewBag.Selected = "agenda";
@@ -6,7 +6,7 @@
 }
 <div class="create">
     <img src="~/Content/Imagens/plus.svg" id="plus" data-toggle="modal" data-target="#exampleModal">
-    <span id="create-text" data-toggle="modal" data-target="#exampleModal" >Criar</span>
+    <span id="create-text" data-toggle="modal" data-target="#exampleModal">Criar</span>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -19,44 +19,53 @@
                 </button>
             </div>
             <div class="modal-body">
+                @using (Html.BeginForm("CreateAgenda", "Home", FormMethod.Post))
+                {
+                <fieldset>
+                    <legend>Dados do Agendamento</legend>
+                    <hr class="form-hr" />
+                    <div class="input-block">
+                        <label for="client">Nome do Cliente</label>
+                        @Html.EditorFor(model => model.ClientName)
+                        @Html.ValidationMessageFor(m => m.ClientName, "", new { @class = "text-danger" })
+                    </div>
 
-                <form name="agenda" id="create-class" method="POST">
-                    <fieldset>
-                        <legend>Dados do Agendamento</legend>
-                        <hr class="form-hr" />
-                        <div class="input-block">
-                            <label for="client">Nome do Cliente</label>
-                            <input name="client" id="client" required />
-                        </div>
+                    <hr class="form-hr" />
+                    <div class="input-block">
+                        <label for="pet">Nome do Pet</label>
+                        @Html.EditorFor(model => model.Pet)
+                        @Html.ValidationMessageFor(m => m.Pet, "", new { @class = "text-danger" })
+                    </div>
 
-                        <hr class="form-hr" />
-                        <div class="input-block">
-                            <label for="pet">Nome do Pet</label>
-                            <input name="pet" id="pet" required />
-                        </div>
+                    <hr class="form-hr" />
+                    <div class="input-block">
+                        <label for="day">Dia</label>
+                        @Html.EditorFor(model => model.Day)
+                        @Html.ValidationMessageFor(m => m.Day, "", new { @class = "text-danger" })
+                    </div>
 
-                        <hr class="form-hr" />
-                        <div class="input-block">
-                            <label for="day">Dia</label>
-                            <input name="day" id="day" required />
-                        </div>
+                    <hr class="form-hr" />
+                    <div class="input-block">
+                        <label for="pet">Hora do agendamento</label>
+                        @Html.EditorFor(model => model.Hour)
+                        @Html.ValidationMessageFor(m => m.Hour, "", new { @class = "text-danger" })
+                    </div>
 
-                        <hr class="form-hr" />
-                        <div class="input-block">
-                            <label for="time">Hora</label>
-                            <input name="time" id="time" required />
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btn-cancel-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" id="btn-create-modal" class="btn btn-primary">Criar</button>
+                    </div>
 
-            <div class="modal-footer">
-                <button type="button" id="btn-cancel-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" id="btn-create-modal" class="btn btn-primary" form="agenda" >Criar</button>
+                </fieldset>
+                }
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
 
 <div class="agenda">
 

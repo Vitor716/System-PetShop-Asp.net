@@ -19,6 +19,8 @@ namespace GladiaSystem.Controllers
             return View();
         }
 
+        Queries queries = new Queries();
+
         public ActionResult Login()
         {
             return View();
@@ -28,10 +30,23 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
         public ActionResult Agenda()
         {
-            return View();
+            var agenda = new Agenda();
+            return View(agenda);
         }
+
+        [HttpPost]
+        public ActionResult CreateAgenda(Agenda agenda)
+        {
+            if (ModelState.IsValid)
+            {
+                return View(agenda);
+            }
+            return View(agenda);
+        }
+
         public ActionResult POS()
         {
             return View();
@@ -58,8 +73,6 @@ namespace GladiaSystem.Controllers
             return View(category);
         }
 
-        Queries queries = new Queries();
-
         [HttpPost]
         public ActionResult CadCategory(Category category)
         {
@@ -71,18 +84,22 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
         public ActionResult ChangePassword()
         {
             return View();
         }
+
         public ActionResult ChangeName()
         {
             return View();
         }
+
         public ActionResult DeleteAccount()
         {
             return View();
         }
+
         public ActionResult Payment()
         {
             return View();
@@ -92,6 +109,7 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
         public ActionResult ProductList()
         {
             return View();
