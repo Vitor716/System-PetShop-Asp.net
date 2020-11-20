@@ -39,6 +39,13 @@
 
                     <hr class="form-hr" />
                     <div class="input-block">
+                        <label for="day">Descrição</label>
+                        @Html.EditorFor(model => model.Desc)
+                        @Html.ValidationMessageFor(m => m.Desc, "", new { @class = "text-danger" })
+                    </div>
+
+                    <hr class="form-hr" />
+                    <div class="input-block">
                         <label for="day">Dia</label>
                         @Html.EditorFor(model => model.Day)
                         @Html.ValidationMessageFor(m => m.Day, "", new { @class = "text-danger" })
@@ -72,6 +79,7 @@
     <div class="header">
         <h4 class="cli">Cliente</h4>
         <h4>Nome do pet</h4>
+        <h4>Descrição</h4>
         <h4>Data</h4>
         <h4 class="status">Status</h4>
     </div>
@@ -80,6 +88,7 @@
     <div class="item">
         <p class="client">GustaGay</p>
         <p class="pet">Xuxu</p>
+        <p class="description">Banho</p>
         <div class="date">
             <p class="date">May 26</p>
             <p class="time">6:30 PM</p>
@@ -93,6 +102,7 @@
     <div class="item">
         <p class="client">GustaGay</p>
         <p class="pet">Xuxu</p>
+        <p class="description">Banho</p>
         <div class="date">
             <p class="date">May 26</p>
             <p class="time">6:30 PM</p>
@@ -106,6 +116,7 @@
     <div class="item">
         <p class="client">GustaGay</p>
         <p class="pet">Xuxu</p>
+        <p class="description">Banho</p>
         <div class="date">
             <p class="date">May 26</p>
             <p class="time">6:30 PM</p>
@@ -119,6 +130,7 @@
     <div class="item">
         <p class="client">GustaGay</p>
         <p class="pet">Xuxu</p>
+        <p class="description">Banho</p>
         <div class="date">
             <p class="date">May 26</p>
             <p class="time">6:30 PM</p>

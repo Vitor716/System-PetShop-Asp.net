@@ -50,5 +50,27 @@ namespace GladiaSystem.Database
             }
             return "error";
         }
+
+        public void RegisterAgenda(Agenda agenda)
+        {
+            DateTime actualTime = DateTime.Now;
+            if(actualTime < agenda.Day)
+            {
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_status`, `agenda_date`, `agenda_cli`, `agenda_pet`, `agenda_hour`, `agenda_desc`) VALUES ('0', @day, @nameCli, @pet, @hour, @desc);", con.ConnectionDB());
+                cmd.Parameters.Add("@nameCli", MySqlDbType.VarChar).Value = agenda.ClientName;
+                cmd.Parameters.Add("@pet", MySqlDbType.VarChar).Value = agenda.Pet;
+                cmd.Parameters.Add("@day", MySqlDbType.VarChar).Value = agenda.Day;
+                cmd.Parameters.Add("@hour", MySqlDbType.VarChar).Value = agenda.Hour;
+                cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = agenda.Desc;
+
+                cmd.ExecuteNonQuery();
+                con.DisconnectDB();
+            }
+            else
+            {
+                
+            }
+
+        }
     }
 }
