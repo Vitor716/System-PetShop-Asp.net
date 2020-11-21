@@ -17,9 +17,9 @@ namespace GladiaSystem.Database
             {
                 con.Open();
             }
-            catch (Exception erro)
+            catch (Exception error)
             {
-                message = "Something when error!" + erro.Message;
+                message = "Something when error!" + error.Message;
             }
             return con;
         }
@@ -30,9 +30,9 @@ namespace GladiaSystem.Database
             {
                 con.Close();
             }
-            catch (Exception erro)
+            catch (Exception error)
             {
-                message = "Something when error!" + erro.Message;
+                message = "Something when error!" + error.Message;
             }
             return con;
         }
