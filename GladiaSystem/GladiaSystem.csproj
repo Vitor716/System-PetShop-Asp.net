@@ -357,6 +357,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
+    <Folder Include="Views\Image\" />
+    <Folder Include="Views\RegisterAdm\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

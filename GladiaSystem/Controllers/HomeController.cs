@@ -28,7 +28,15 @@ namespace GladiaSystem.Controllers
 
         public ActionResult Adm()
         {
-            return View();
+            User adm = new User();
+            return View(adm);
+        }
+
+        [HttpPost]
+        public ActionResult CadAdm(User adm)
+        {
+            queries.RegisterAdm(adm);
+            return Redirect("Adm");
         }
 
         public ActionResult Agenda()
@@ -57,8 +65,17 @@ namespace GladiaSystem.Controllers
 
         public ActionResult Employee()
         {
-            return View();
+            User employee = new User();
+            return View(employee);
         }
+
+        [HttpPost]
+        public ActionResult CadEmployee(User employee)
+        {
+            queries.RegisterEmployee(employee);
+            return Redirect("Employee");
+        }
+
         public ActionResult Pet()
         {
             return View();

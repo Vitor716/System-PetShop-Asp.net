@@ -23,6 +23,30 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
 
         }
+        
+        public void RegisterEmployee(User employee)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '0');", con.ConnectionDB());
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = employee.name;
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = employee.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = employee.password;
+            cmd.Parameters.Add("@img", MySqlDbType.VarChar).Value = employee.img;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
+        public void RegisterAdm(User adm)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '1');", con.ConnectionDB());
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = adm.name;
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = adm.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = adm.password;
+            cmd.Parameters.Add("@img", MySqlDbType.VarChar).Value = adm.img;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
 
         public string Login(User user)
         {
