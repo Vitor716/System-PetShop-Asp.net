@@ -19,6 +19,8 @@
     --input-color: #FAFAFC;
     --send-img-text: #595C70;
     --border-down-color: #2F80ED;
+    --error-text-color: #FF4242;
+    --success-text-color: #3CBA39;
 }
 * {
     padding: 0;

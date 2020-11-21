@@ -11,12 +11,24 @@
         @Html.ValidationSummary(true)
         <fieldset>
             <legend>Dados da categoria</legend>
+
             <hr class="form-hr" />
+            @if (ViewData["Error"] != null)
+            {
+                <div>
+                    <p class="error-red"><strong>Erro:</strong> @ViewData["Error"].ToString()</p>
+                </div>
+            }
+            @if (TempData["Success"] != null)
+            {
+                <div>
+                    <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
+                </div>
+            }
             <div class="input-block">
                 <label for="name">Nome da categoria</label>
                 @Html.EditorFor(model => model.name)
-                
-                @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })    
+                @Html.ValidationMessageFor(m => m.name, "", new { @class = "error-red"})
             </div>
 
             <div class="dog-area">

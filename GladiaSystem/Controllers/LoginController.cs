@@ -30,7 +30,6 @@ namespace GladiaSystem.Controllers
 
             if( acessLevel == "0")
             {
-                //pdv e iniciar sessao com access level 0 e tirar seta 
                 Session["access"] = "0";
                 return RedirectToAction("Pos", "Home");
             }
@@ -38,12 +37,10 @@ namespace GladiaSystem.Controllers
             {
                 Session["access"] = "1";
                 return RedirectToAction("Home", "Home");
-                //home e iniciar sessao com access level 1
             }
             else
             {
                 return Redirect("Login");
-                //Recarrega a página ou tela de erro
             }
         }
 

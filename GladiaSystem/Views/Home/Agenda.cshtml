@@ -21,49 +21,50 @@
             <div class="modal-body">
                 @using (Html.BeginForm("CreateAgenda", "Home", FormMethod.Post))
                 {
-                <fieldset>
-                    <legend>Dados do Agendamento</legend>
-                    <hr class="form-hr" />
-                    <div class="input-block">
-                        <label for="client">Nome do Cliente</label>
-                        @Html.EditorFor(model => model.ClientName)
-                        @Html.ValidationMessageFor(m => m.ClientName, "", new { @class = "text-danger" })
-                    </div>
+                    <fieldset>
+                        <legend>Dados do Agendamento</legend>
+                        <hr class="form-hr" />
 
-                    <hr class="form-hr" />
-                    <div class="input-block">
-                        <label for="pet">Nome do Pet</label>
-                        @Html.EditorFor(model => model.Pet)
-                        @Html.ValidationMessageFor(m => m.Pet, "", new { @class = "text-danger" })
-                    </div>
+                        <div class="input-block">
+                            <label for="client">Nome do Cliente</label>
+                            @Html.EditorFor(model => model.ClientName)
+                            @Html.ValidationMessageFor(m => m.ClientName, "", new { @class = "error-red" })
+                        </div>
 
-                    <hr class="form-hr" />
-                    <div class="input-block">
-                        <label for="day">Descrição</label>
-                        @Html.EditorFor(model => model.Desc)
-                        @Html.ValidationMessageFor(m => m.Desc, "", new { @class = "text-danger" })
-                    </div>
+                        <hr class="form-hr" />
+                        <div class="input-block">
+                            <label for="pet">Nome do Pet</label>
+                            @Html.EditorFor(model => model.Pet)
+                            @Html.ValidationMessageFor(m => m.Pet, "", new { @class = "error-red" })
+                        </div>
 
-                    <hr class="form-hr" />
-                    <div class="input-block">
-                        <label for="day">Dia</label>
-                        @Html.EditorFor(model => model.Day)
-                        @Html.ValidationMessageFor(m => m.Day, "", new { @class = "text-danger" })
-                    </div>
+                        <hr class="form-hr" />
+                        <div class="input-block">
+                            <label for="day">Descrição</label>
+                            @Html.EditorFor(model => model.Desc)
+                            @Html.ValidationMessageFor(m => m.Desc, "", new { @class = "error-red" })
+                        </div>
 
-                    <hr class="form-hr" />
-                    <div class="input-block">
-                        <label for="pet">Hora do agendamento</label>
-                        @Html.EditorFor(model => model.Hour)
-                        @Html.ValidationMessageFor(m => m.Hour, "", new { @class = "text-danger" })
-                    </div>
+                        <hr class="form-hr" />
+                        <div class="input-block">
+                            <label for="day">Dia</label>
+                            @Html.EditorFor(model => model.Day)
+                            @Html.ValidationMessageFor(m => m.Day, "", new { @class = "error-red" })
+                        </div>
 
-                    <div class="modal-footer">
-                        <button type="button" id="btn-cancel-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="submit" id="btn-create-modal" class="btn btn-primary">Criar</button>
-                    </div>
+                        <hr class="form-hr" />
+                        <div class="input-block">
+                            <label for="pet">Hora do agendamento</label>
+                            @Html.EditorFor(model => model.Hour)
+                            @Html.ValidationMessageFor(m => m.Hour, "", new { @class = "error-red" })
+                        </div>
 
-                </fieldset>
+                        <div class="modal-footer">
+                            <button type="button" id="btn-cancel-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" id="btn-create-modal" class="btn btn-primary">Criar</button>
+                        </div>
+
+                    </fieldset>
                 }
             </div>
         </div>
@@ -72,6 +73,19 @@
 
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval");
+}
+
+@if (TempData.ContainsKey("Error"))
+{
+    <div>
+        <p class="error-red"><strong>Erro:</strong> @TempData["Error"].ToString()</p>
+    </div>
+}
+@if (TempData.ContainsKey("Success"))
+{
+    <div>
+        <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
+    </div>
 }
 
 <div class="agenda">

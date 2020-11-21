@@ -40,8 +40,17 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CreateAgenda(Agenda agenda)
         {
-            queries.RegisterAgenda(agenda);
-            return Redirect("Agenda");
+            bool agendaValid = ModelState.IsValid && (DateTime.Now < agenda.Day);
+            if ( agendaValid )
+            {
+                queries.RegisterAgenda(agenda);
+                TempData["Success"] = "Agendamento feito! 😄";
+            }
+            else
+            {
+                TempData["Error"] = "Opss, algo deu errado 😢";
+            }
+            return RedirectToAction("Agenda");
         }
 
         public ActionResult POS()
@@ -59,6 +68,7 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
         public ActionResult Pet()
         {
             return View();
@@ -73,8 +83,17 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CadCategory(Category category)
         {
-            queries.RegisterCategory(category);
-            return Redirect("Category");
+            if (ModelState.IsValid)
+            {
+                queries.RegisterCategory(category);
+                TempData["Success"] = "Feito! 😄";
+                return RedirectToAction("Category");
+            }
+            else
+            {
+                ViewData["Error"] = "Opss, algo deu errado 😢.";
+                return View(category);
+            }
         }
 
         public ActionResult Product()

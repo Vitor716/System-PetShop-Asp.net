@@ -71,6 +71,15 @@ textarea :focus{
     background-color: var(--send-img);
 }
 
+.error-red, text-danger {
+    color: var(--error-text-color);
+    font-size: 1.4rem;
+}
+
+.success-green{
+    font-size: 1.4rem;
+}
+
 .sub-button {
     margin-top: 3%;
     width: 100%;

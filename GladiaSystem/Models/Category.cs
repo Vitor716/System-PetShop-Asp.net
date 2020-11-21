@@ -11,7 +11,6 @@ namespace GladiaSystem.Models
     {
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "O Nome é obrigatório!")]
-        [RegularExpression(@"^[a-zA-Z0-9 ]+$", ErrorMessage = "Insira um nome válido")]
         public string name { get; set; }
     }
 }
