@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -10,20 +11,25 @@ namespace GladiaSystem.Models
 {
     public class User
     {
-
         [Required(ErrorMessage = "O Nome é obrigatório!")]
         [RegularExpression(@"^[a-zA-Z0-9 ]+$", ErrorMessage = "Insira um nome válido")]
         public string name { get; set; }
 
         [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*", ErrorMessage = "Insira um email válido")]
         [Required(ErrorMessage = "O Email é obrigatório!")]
-        public string email{ get; set; }
+        public string email { get; set; }
 
-        [RegularExpression(@"([a-zA-Z]{1,})([@$!%*#?&]{1,})([0-9]{1,})", ErrorMessage = "Insira uma senha válida")]
+        [RegularExpression(@"([a-zA-Z]{1,})([@$!%*#?&]{1,})([0-9]{1,})", ErrorMessage = "Insira uma senha válida (Uma letra maiúscula e um número e carácter especial)")]
         [Required(ErrorMessage = "A Senha é obrigatória!")]
-        public string password{ get; set; }
+        [DataType(DataType.Password)]
+        public string password { get; set; }
 
-        [Required(ErrorMessage = "A Senha é obrigatória!")]
+        [DisplayName("Upload image")]
+        [Required(ErrorMessage = "A imagem é obrigatória!")]
+        public string img { get; set; }
+
+        public HttpPostedFileBase imgFile { get; set; }
+
         public string userLvl { get; set; }
     }
 }
