@@ -13,6 +13,18 @@
                 Dados do administrador
             </legend>
             <hr class="form-hr" />
+            @if (TempData.ContainsKey("Error"))
+            {
+                <div>
+                    <p class="error-red"><strong>Erro:</strong> @TempData["Error"].ToString()</p>
+                </div>
+            }
+            @if (TempData.ContainsKey("Success"))
+            {
+                <div>
+                    <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
+                </div>
+            }
             <div class="input-block">
                 <label for="name">Nome completo</label>
                 @Html.EditorFor(model => model.name)
