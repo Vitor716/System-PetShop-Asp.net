@@ -1,11 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using GladiaSystem.Models;
-using GladiaSystem.Database;
-
 
 namespace GladiaSystem.Database
 {
@@ -64,13 +59,46 @@ namespace GladiaSystem.Database
                 {
                     User dto = new User();
                     {
-                        return dto.userLvl = Convert.ToString(reader[0]);
+                        dto.userLvl = Convert.ToString(reader[0]);
+                        reader.Close();
+                        return dto.userLvl;
                     }
                 }
             }
             else
             {
                 user.userLvl = null;
+            }
+            reader.Close();
+            return "error";
+        }
+
+        public string GetUserName(User user)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT user_name FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.name = Convert.ToString(reader[0]);
+                        reader.Close();
+                        return dto.name;
+                    }
+                }
+            }
+            else
+            {
+                user.userLvl = null;
+                return "error";
             }
             return "error";
         }

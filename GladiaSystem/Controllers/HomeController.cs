@@ -35,11 +35,19 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CadAdm(User adm)
         {
-            queries.RegisterAdm(adm);
-            return Redirect("Adm");
+            if (ModelState.IsValid)
+            {
+                queries.RegisterAdm(adm);
+                TempData["Success"] = "Feito! 😄";
+            }
+            else
+            {
+                ViewData["Error"] = "Opss, algo deu errado 😢.";
+            }
+            return RedirectToAction("Adm");
         }
     
-    public ActionResult Agenda()
+        public ActionResult Agenda()
         {
             var agenda = new Agenda();
             return View(agenda);
@@ -69,6 +77,7 @@ namespace GladiaSystem.Controllers
         public ActionResult Logout()
         {
             Session.Remove("access");
+            Session.Abandon();
             return RedirectToAction("Login", "Login");
         }
 
@@ -81,13 +90,37 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CadEmployee(User employee)
         {
-            queries.RegisterEmployee(employee);
-            return Redirect("Employee");
+            //bool userUnic = CheckUserUnic();
+            if (ModelState.IsValid)
+            {
+                queries.RegisterEmployee(employee);
+                TempData["Success"] = "Feito! 😄";
+            }
+            else
+            {
+                ViewData["Error"] = "Opss, algo deu errado 😢.";
+            }
+            return RedirectToAction("Employee");
         }
 
         public ActionResult Pet()
         {
-            return View();
+            Pet pet = new Pet();
+            return View(pet);
+        }
+
+        [HttpPost]
+        public ActionResult RegisterPet(Pet pet)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            else
+            {
+
+            }
+            return RedirectToAction("Pet");
         }
 
         public ActionResult Category()
@@ -97,7 +130,7 @@ namespace GladiaSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadCategory(Category category)
+        public ActionResult RegisterCategory(Category category)
         {
             if (ModelState.IsValid)
             {

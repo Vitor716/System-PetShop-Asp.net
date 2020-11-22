@@ -19,16 +19,13 @@ namespace GladiaSystem.Models
         [Required(ErrorMessage = "O Email é obrigatório!")]
         public string email { get; set; }
 
-        [RegularExpression(@"([a-zA-Z]{1,})([@$!%*#?&]{1,})([0-9]{1,})", ErrorMessage = "Insira uma senha válida (Uma letra maiúscula e um número e carácter especial)")]
+        [RegularExpression(@"([a-zA-Z]{1,})([0-9]{1,})", ErrorMessage = "Insira uma senha válida (Uma letra maiúscula e um número)")]
         [Required(ErrorMessage = "A Senha é obrigatória!")]
         [DataType(DataType.Password)]
         public string password { get; set; }
 
         [DisplayName("Upload image")]
-        [Required(ErrorMessage = "A imagem é obrigatória!")]
         public string img { get; set; }
-
-        public HttpPostedFileBase imgFile { get; set; }
 
         public string userLvl { get; set; }
     }

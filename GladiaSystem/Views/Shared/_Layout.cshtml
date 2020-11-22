@@ -210,7 +210,7 @@
 
                         </li>
                         <li class="sidebar">
-                            <a href="#">
+                            <a href="@Url.Action("Logout", "Home")">
                                 <img src="~/Content/Imagens/log-out.svg" alt="Log out" />
                                 <span>Sair</span>
                             </a>
@@ -219,11 +219,12 @@
                 </div>
             </div>
         </nav>
+
         <main class="page-content">
             <header>
                 <h2>@ViewBag.Title</h2>
                 <span></span>
-                <small id="personName">@ViewBag.Name @Request.Cookies["user"]</small>
+                <small id="personName">@Session["name"]</small>
                 <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
             </header>
             @RenderBody()
