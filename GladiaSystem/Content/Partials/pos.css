@@ -78,7 +78,11 @@
 .item-name {
     margin-top: 10%;
     color: var(--primary-text-color);
-    font: 400 2rem Mulish
+    font: 400 2rem Mulish;
+    width:290px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .price {
