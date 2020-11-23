@@ -1,4 +1,4 @@
-﻿
+﻿@model GladiaSystem.Models.Pet
 @{
     ViewBag.Title = "Cadastro Pet";
     ViewBag.Selected = "pet";
@@ -6,31 +6,43 @@
 }
 
 <main>
-    <form action="/save-classes" id="create-class" method="POST">
+    @using (Html.BeginForm("RegisterPet", "Home", FormMethod.Post))
+    {
         <fieldset>
             <legend>Dados do Pet</legend>
             <hr class="form-hr" />
+            @if (ViewData["Error"] != null)
+            {
+                <div>
+                    <p class="error-red"><strong>Erro:</strong> @ViewData["Error"].ToString()</p>
+                </div>
+            }
+            @if (TempData["Success"] != null)
+            {
+                <div>
+                    <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
+                </div>
+            }
             <div class="input-block">
                 <label for="name">Nome do Pet</label>
-                <input name="name" id="name" required />
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "error-red" })
             </div>
 
             <div class="input-block">
                 <label for="owner">
                     Dono do Pet
                 </label>
-                <input name="owner"
-                       id="owner"
-                       type="text"
-                       required />
+                @Html.EditorFor(model => model.Owner)
+                @Html.ValidationMessageFor(m => m.Owner, "", new { @class = "error-red" })
             </div>
 
             <div class="input-block">
                 <label for="phone">
                     Telefone do Dono (xx xxxx-xxxx)
                 </label>
-                <input type="tel" class="phone" id="phone" name="phone" require />
-
+                @Html.EditorFor(model => model.Tel, "", new { @class = "phone", id = "phone", @name = "phone" })
+                @Html.ValidationMessageFor(m => m.Tel, "", new { @class = "error-red" })
             </div>
 
             <div class="input-block">
@@ -38,35 +50,42 @@
                     Porte do animal
                 </label>
                 <div class="port-pet">
-                    <input type="radio" name="port" id="pequeno" value="pequeno">
-                    <label class="label-radial" for="pequeno">
-                        Pequeno
-                    </label>
+                    @{string Pequeno = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Pequeno");}
+                    @Html.RadioButtonFor(model => model.Size, "Pequeno", new { id = Pequeno, name = "size", value = "Pequeno", @class = "label-radial" })
+                    <label for="pequeno">Pequeno</label>
                 </div>
                 <div class="port-pet">
-                    <input type="radio" name="port" id="grande" value="grande">
-                    <label class="label-radial" for="grande">
-                        Grande
-                    </label>
+                    @{string Medio = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Medio");}
+                    @Html.RadioButtonFor(model => model.Size, "Medio", new { id = Medio, name = "size", value = "Medio", @class = "label-radial" })
+                    <label for="medio">Médio</label>
                 </div>
+                <div class="port-pet">
+                    @{string Grande = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Grande");}
+                    @Html.RadioButtonFor(model => model.Size, "Grande", new { id = Grande, name = "size", value = "Grande", @class = "label-radial" })
+                    <label for="grande">Grande</label>
+                </div>
+                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "error-red" })
             </div>
-
             <div class="input-block">
                 <label id="email-label" for="avatar">
                     Descrição (Opcional)
                 </label>
-                <textarea name="bio" id="bio" required></textarea>
+                @Html.TextAreaFor(model => model.Desc)
+                @Html.ValidationMessageFor(m => m.Desc, "", new { @class = "error-red" })
             </div>
 
             <button class="sub-button" type="submit">Cadastrar</button>
         </fieldset>
-    </form>
+        @section Scripts{
+            @Scripts.Render("~/bundles/jqueryval");
+        }
+    }
 </main>
 
 <script src="~/Scripts/cleave.js"></script>
 <script src="~/Scripts/cleave-phone.br.js"></script>
 <script>
-    var cleave = new Cleave('#phone', {
+    var cleave = new Cleave('#Tel', {
         phone: true,
         phoneRegionCode: 'BR'
     });

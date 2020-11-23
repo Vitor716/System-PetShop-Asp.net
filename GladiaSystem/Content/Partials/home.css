@@ -73,8 +73,9 @@
     width: 30px;
 }
 
-@media (min-width: 1297px) {
+@media (min-width: 730px) {
     .graphs {
         width: 60vw;
     }
+
 }

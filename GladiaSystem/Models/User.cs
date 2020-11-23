@@ -28,5 +28,7 @@ namespace GladiaSystem.Models
         public string img { get; set; }
 
         public string userLvl { get; set; }
+
+        public string userID { get; set; }
     }
 }

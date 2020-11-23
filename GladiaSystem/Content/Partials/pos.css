@@ -271,7 +271,7 @@
 /*Payment*/
 
 section {
-    margin-top: -4%;
+    margin-top: 0%;
     display: grid;
     height: 76vh;
     grid-template-columns: 1fr 63vw;
