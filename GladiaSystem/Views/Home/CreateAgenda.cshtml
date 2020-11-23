@@ -1,0 +1,96 @@
+﻿@model GladiaSystem.Models.Agenda
+
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/root.css")
+@Styles.Render("~/Content/Partials/sidebar.css")
+@Scripts.Render("~/bundles/modernizr")
+@Styles.Render("~/Content/fontawesome.css")
+@Styles.Render("~/Content/Partials/header.css")
+@Styles.Render("~/Content/Partials/form.css")
+@Styles.Render("~/Content/Partials/config.css")
+@Styles.Render("~/Content/Partials/agenda.css")
+@Styles.Render("~/Content/Partials/home.css")
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<div class="create">
+    <img src="~/Content/Imagens/plus.svg" id="plus" data-toggle="modal" data-target="#exampleModal">
+    <span id="create-text" data-toggle="modal" data-target="#exampleModal">Criar</span>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Criar agendamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("CreateAgenda", "Home", FormMethod.Post))
+                {
+                    <fieldset>
+                        <legend>Dados do Agendamento</legend>
+                        <hr class="form-hr" />
+
+                        <div class="input-block">
+                            <label for="client">Nome do Cliente</label>
+                            @Html.EditorFor(model => model.ClientName)
+                            @Html.ValidationMessageFor(m => m.ClientName, "", new { @class = "error-red" })
+                        </div>
+
+                        <hr class="form-hr" />
+                        <div class="input-block">
+                            <label for="pet">Nome do Pet</label>
+                            @Html.EditorFor(model => model.Pet)
+                            @Html.ValidationMessageFor(m => m.Pet, "", new { @class = "error-red" })
+                        </div>
+
+                        <hr class="form-hr" />
+                        <div class="input-block">
+                            <label for="day">Descrição</label>
+                            @Html.EditorFor(model => model.Desc)
+                            @Html.ValidationMessageFor(m => m.Desc, "", new { @class = "error-red" })
+                        </div>
+
+                        <hr class="form-hr" />
+                        <div class="input-block">
+                            <label for="day">Dia</label>
+                            @Html.EditorFor(model => model.Day)
+                            @Html.ValidationMessageFor(m => m.Day, "", new { @class = "error-red" })
+                        </div>
+
+                        <hr class="form-hr" />
+                        <div class="input-block">
+                            <label for="pet">Hora do agendamento</label>
+                            @Html.EditorFor(model => model.Hour)
+                            @Html.ValidationMessageFor(m => m.Hour, "", new { @class = "error-red" })
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" id="btn-cancel-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" id="btn-create-modal" class="btn btn-primary">Criar</button>
+                        </div>
+
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
+
+@if (TempData.ContainsKey("Error"))
+{
+    <div>
+        <p class="error-red"><strong>Erro:</strong> @TempData["Error"].ToString()</p>
+    </div>
+}
+@if (TempData.ContainsKey("Success"))
+{
+    <div>
+        <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
+    </div>
+}

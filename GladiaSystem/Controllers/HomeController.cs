@@ -46,11 +46,24 @@ namespace GladiaSystem.Controllers
             }
             return RedirectToAction("Adm");
         }
-    
+
         public ActionResult Agenda()
         {
-            var agenda = new Agenda();
-            return View(agenda);
+            var ShowAgenda = new Queries();
+            var AllAgenda = ShowAgenda.ListAgenda();
+            return View(AllAgenda);
+        }
+
+        public ActionResult DeleteAgenda(int codAgenda)
+        {
+            Console.WriteLine(codAgenda);
+            queries.DeleteItemAgenda(codAgenda);
+            return RedirectToAction("Agenda");
+        }
+
+        public PartialViewResult CreateAgenda()
+        {
+            return PartialView();
         }
 
         [HttpPost]
