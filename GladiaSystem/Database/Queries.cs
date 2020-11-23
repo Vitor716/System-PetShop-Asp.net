@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using GladiaSystem.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GladiaSystem.Database
 {
@@ -19,7 +21,6 @@ namespace GladiaSystem.Database
 
         }
         
-
         public void RegisterPet(Pet pet)
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_pet` (`pet_name`, `pet_owner`, `pet_tell`, `pet_size`, `pet_desc`) VALUES (@Name, @Owner, @Tel , @Size, @Desc);", con.ConnectionDB());
@@ -125,7 +126,7 @@ namespace GladiaSystem.Database
             DateTime actualTime = DateTime.Now;
             if(actualTime < agenda.Day)
             {
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_status`, `agenda_date`, `agenda_cli`, `agenda_pet`, `agenda_hour`, `agenda_desc`) VALUES ('0', @day, @nameCli, @pet, @hour, @desc);", con.ConnectionDB());
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_date`, `agenda_cli`, `agenda_pet`, `agenda_hour`, `agenda_desc`) VALUES (@day, @nameCli, @pet, @hour, @desc);", con.ConnectionDB());
                 cmd.Parameters.Add("@nameCli", MySqlDbType.VarChar).Value = agenda.ClientName;
                 cmd.Parameters.Add("@pet", MySqlDbType.VarChar).Value = agenda.Pet;
                 cmd.Parameters.Add("@day", MySqlDbType.VarChar).Value = agenda.Day;
@@ -138,6 +139,7 @@ namespace GladiaSystem.Database
           
 
         }
+
         public string GetUserID(User user)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT user_id FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
@@ -174,6 +176,42 @@ namespace GladiaSystem.Database
         {
             MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_user` WHERE (`user_id` = @user_id );", con.ConnectionDB());
             cmd.Parameters.Add("@user_id", MySqlDbType.VarChar).Value = deleteID;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
+        public List<Agenda> ListAgenda()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT left(agenda_date,10) as agenda_date,agenda_id,agenda_cli,agenda_pet,right(agenda_hour,8) as agenda_hour,agenda_desc FROM db_asp.tbl_agenda;", con.ConnectionDB());
+            var DadosAlunos = cmd.ExecuteReader();
+            return ListAllAgenda(DadosAlunos);
+        }
+
+        public List<Agenda> ListAllAgenda(MySqlDataReader dt)
+        {
+            var AllAgenda = new List<Agenda>();
+            while (dt.Read())
+            {
+                var AlunoTemp = new Agenda()
+                {
+                    ID = int.Parse(dt["agenda_id"].ToString()),
+                    ClientName = dt["agenda_cli"].ToString(),
+                    Pet = dt["agenda_pet"].ToString(),
+                    Day = DateTime.Parse(dt["agenda_date"].ToString()),
+                    Hour = DateTime.Parse(dt["agenda_hour"].ToString()),
+                    Desc = dt["agenda_desc"].ToString(),
+                };
+                AllAgenda.Add(AlunoTemp);
+            }
+            dt.Close();
+            return AllAgenda;
+        }
+
+        public void DeleteItemAgenda(int codItem)
+        {
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_agenda` WHERE (`agenda_id` = @codAgenda);", con.ConnectionDB());
+            cmd.Parameters.Add("@codAgenda", MySqlDbType.VarChar).Value = codItem;
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
