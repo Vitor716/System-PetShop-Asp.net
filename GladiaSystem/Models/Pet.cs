@@ -16,7 +16,7 @@ namespace GladiaSystem.Models
 
         [Display(Name = "Celular (xx xxxx-xxxx)")]
         [Required(ErrorMessage = "O campo celular é obrigatório")]
-        public string Tell { get; set; }
+        public string Tel { get; set; }
 
         [Required(ErrorMessage = "O campo tamanho é obrigatório")]
         public string Size { get; set; }

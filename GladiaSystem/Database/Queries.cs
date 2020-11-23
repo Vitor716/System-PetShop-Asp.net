@@ -18,6 +18,21 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
 
         }
+        
+
+        public void RegisterPet(Pet pet)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_pet` (`pet_name`, `pet_owner`, `pet_tell`, `pet_size`, `pet_desc`) VALUES (@Name, @Owner, @Tel , @Size, @Desc);", con.ConnectionDB());
+            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = pet.Name;
+            cmd.Parameters.Add("@Owner", MySqlDbType.VarChar).Value = pet.Owner;
+            cmd.Parameters.Add("@Tel", MySqlDbType.VarChar).Value = pet.Tel;
+            cmd.Parameters.Add("@Size", MySqlDbType.VarChar).Value = pet.Size;
+            cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = pet.Desc;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+
+        }
 
         public void RegisterEmployee(User employee)
         {
@@ -98,8 +113,10 @@ namespace GladiaSystem.Database
             else
             {
                 user.userLvl = null;
+                reader.Close();
                 return "error";
             }
+            reader.Close();
             return "error";
         }
 
@@ -118,11 +135,48 @@ namespace GladiaSystem.Database
                 cmd.ExecuteNonQuery();
                 con.DisconnectDB();
             }
+          
+
+        }
+        public string GetUserID(User user)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT user_id FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.userID = Convert.ToString(reader[0]);
+                        reader.Close();
+                        return dto.userID;
+                    }
+                }
+            }
             else
             {
-                
+                user.userLvl = null;
+                reader.Close();
+                return "error";
             }
+            reader.Close();
+            return "error";
+        }
 
+        public void DeleteAccount(string deleteID)
+        {
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_user` WHERE (`user_id` = @user_id );", con.ConnectionDB());
+            cmd.Parameters.Add("@user_id", MySqlDbType.VarChar).Value = deleteID;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
         }
     }
 }

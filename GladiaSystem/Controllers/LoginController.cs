@@ -28,8 +28,9 @@ namespace GladiaSystem.Controllers
         {
             string acessLevel = queries.Login(user);
             Session["name"] = queries.GetUserName(user);
+            Session["userID"] = queries.GetUserID(user);
 
-            if( acessLevel == "0")
+            if ( acessLevel == "0")
             {
                 Session["access"] = "0";
                 return RedirectToAction("Pos", "Home");

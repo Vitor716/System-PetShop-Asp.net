@@ -35,7 +35,15 @@ header .avatar-picture{
     padding: 3px;
 }
 
+
 @media (min-width: 1297px) {
+    #header-margin {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 5%;
+    }
+
     header {
         margin-top: 0;
         margin-right: 0;

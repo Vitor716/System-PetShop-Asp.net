@@ -28,15 +28,10 @@
                class="link-a"><span class="change">Apagar conta </span></a>
         </div>
         <hr class="divide-hr" />
-        <div class="input-block">
-            <label for="email">Email</label>
-            <input name="email" id="email" type="text" required />
+        <div>
+            <img src="~/Content/Imagens/deletePag.svg" alt="Alternate Text" class="img-fluid" />
         </div>
-        <div class="input-block">
-            <label for="senha">Senha</label>
-            <input name="senha" id="senha" type="password" required />
-        </div>
+        <input type="button" class="sub-button" id="delete-button" title="Delete" value="Deletar" onclick="location.href='@Url.Action("Delete", "Home")'" />
 
-        <button class="sub-button" id="delete-button" type="submit">Deletar</button>
     </div>
 </div>

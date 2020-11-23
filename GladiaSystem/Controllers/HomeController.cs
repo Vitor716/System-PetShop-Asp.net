@@ -112,14 +112,9 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterPet(Pet pet)
         {
-            if (ModelState.IsValid)
-            {
-
-            }
-            else
-            {
-
-            }
+           
+            queries.RegisterPet(pet);
+            TempData["Success"] = "Feito! 😄";
             return RedirectToAction("Pet");
         }
 
@@ -164,6 +159,14 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult Delete()
+        {
+            string deleteID = (string)Session["userID"];
+            queries.DeleteAccount(deleteID);
+            return RedirectToAction("Login" , "Login");
+        }
+
 
         public ActionResult Payment()
         {
