@@ -12,10 +12,13 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/root.css")
     @Styles.Render("~/Content/partials/error.css")
+    @Styles.Render("~/Content/partials/form.css")
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <center>
-        <img src="~/Content/Imagens/error-404.svg" class="img-fluid" style="height:100vh; width:100vw;" />
-    </center>
+    <Main class="not-found">
+        <img src="~/Content/Imagens/error-404.svg" class="img-fluid" style="height:70vh; width:100vw;" />
+        <button class="sub-button" onclick="location.href='@Url.Action("Login", "Login")';return false;" type="submit">Voltar para o Login</button>
+    </Main>
 </body>
 </html>
