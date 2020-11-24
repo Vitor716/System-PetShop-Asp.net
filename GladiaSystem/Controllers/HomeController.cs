@@ -155,8 +155,18 @@ namespace GladiaSystem.Controllers
 
         public ActionResult Product()
         {
+            Product product = new Product();
             return View();
         }
+
+        [HttpPost]
+        public ActionResult RegisterProd(Product product)
+        {
+            queries.RegisterProd(product);
+            TempData["Success"] = "Feito! 😄";
+            return RedirectToAction("Product");
+        }
+
 
         public ActionResult ChangePassword()
         {

@@ -41,7 +41,7 @@
                 <label for="phone">
                     Telefone do Dono (xx xxxx-xxxx)
                 </label>
-                @Html.EditorFor(model => model.Tel, "", new { @class = "phone", id = "phone", @name = "phone" })
+                @Html.EditorFor(model => model.Tel, "", new { @class = "phone", @name = "phone" })
                 @Html.ValidationMessageFor(m => m.Tel, "", new { @class = "error-red" })
             </div>
 

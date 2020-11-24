@@ -21,6 +21,20 @@ namespace GladiaSystem.Database
 
         }
         
+        public void RegisterProd(Product product)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`) VALUES (@Name, @Desc , @Brand, @Price , @Quant, @QuantMin);", con.ConnectionDB());
+            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = product.Name;
+            cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = product.Desc;
+            cmd.Parameters.Add("@Brand", MySqlDbType.VarChar).Value = product.Brand;
+            cmd.Parameters.Add("@Price", MySqlDbType.VarChar).Value = product.Price;
+            cmd.Parameters.Add("@Quant", MySqlDbType.VarChar).Value = product.Quant;
+            cmd.Parameters.Add("@QuantMin", MySqlDbType.VarChar).Value = product.QuantMin;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
         public void RegisterPet(Pet pet)
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_pet` (`pet_name`, `pet_owner`, `pet_tell`, `pet_size`, `pet_desc`) VALUES (@Name, @Owner, @Tel , @Size, @Desc);", con.ConnectionDB());
