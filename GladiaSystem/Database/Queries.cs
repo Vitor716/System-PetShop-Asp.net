@@ -135,24 +135,39 @@ namespace GladiaSystem.Database
             return "error";
         }
 
-        public void RegisterAgenda(Agenda agenda)
+
+        public string GetUserEmail(User user)
         {
-            DateTime actualTime = DateTime.Now;
-            if(actualTime < agenda.Day)
+            MySqlCommand cmd = new MySqlCommand("SELECT user_email FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
             {
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_date`, `agenda_cli`, `agenda_pet`, `agenda_hour`, `agenda_desc`) VALUES (@day, @nameCli, @pet, @hour, @desc);", con.ConnectionDB());
-                cmd.Parameters.Add("@nameCli", MySqlDbType.VarChar).Value = agenda.ClientName;
-                cmd.Parameters.Add("@pet", MySqlDbType.VarChar).Value = agenda.Pet;
-                cmd.Parameters.Add("@day", MySqlDbType.VarChar).Value = agenda.Day;
-                cmd.Parameters.Add("@hour", MySqlDbType.VarChar).Value = agenda.Hour;
-                cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = agenda.Desc;
-
-                cmd.ExecuteNonQuery();
-                con.DisconnectDB();
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.email = Convert.ToString(reader[0]);
+                        reader.Close();
+                        return dto.email;
+                    }
+                }
             }
-          
-
+            else
+            {
+                user.userLvl = null;
+                reader.Close();
+                return "error";
+            }
+            reader.Close();
+            return "error";
         }
+
 
         public string GetUserID(User user)
         {
@@ -186,6 +201,26 @@ namespace GladiaSystem.Database
             return "error";
         }
 
+
+        public void RegisterAgenda(Agenda agenda)
+        {
+            DateTime actualTime = DateTime.Now;
+            if (actualTime < agenda.Day)
+            {
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_date`, `agenda_cli`, `agenda_pet`, `agenda_hour`, `agenda_desc`) VALUES (@day, @nameCli, @pet, @hour, @desc);", con.ConnectionDB());
+                cmd.Parameters.Add("@nameCli", MySqlDbType.VarChar).Value = agenda.ClientName;
+                cmd.Parameters.Add("@pet", MySqlDbType.VarChar).Value = agenda.Pet;
+                cmd.Parameters.Add("@day", MySqlDbType.VarChar).Value = agenda.Day;
+                cmd.Parameters.Add("@hour", MySqlDbType.VarChar).Value = agenda.Hour;
+                cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = agenda.Desc;
+
+                cmd.ExecuteNonQuery();
+                con.DisconnectDB();
+            }
+
+
+        }
+
         public void DeleteAccount(string deleteID)
         {
             MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_user` WHERE (`user_id` = @user_id );", con.ConnectionDB());
@@ -194,6 +229,30 @@ namespace GladiaSystem.Database
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
         }
+
+
+        public void ChangePass(string password, string userID)
+        {
+            MySqlCommand cmd = new MySqlCommand("UPDATE `db_asp`.`tbl_user` SET `user_password` = @password WHERE (`user_id` = @user_id);", con.ConnectionDB());
+            cmd.Parameters.Add("@user_id", MySqlDbType.VarChar).Value = userID;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+
+        }
+
+        public void ChangeName(string name, string userID)
+        {
+            MySqlCommand cmd = new MySqlCommand("UPDATE `db_asp`.`tbl_user` SET `user_name` = @name WHERE (`user_id` = @user_id);", con.ConnectionDB());
+            cmd.Parameters.Add("@user_id", MySqlDbType.VarChar).Value = userID;
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+
+        }
+
 
         public List<Agenda> ListAgenda()
         {
