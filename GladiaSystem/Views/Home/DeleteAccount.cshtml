@@ -8,9 +8,9 @@
     <div class="change-photo" id="small-card">
         <div class="info">
             <img src="~/Content/Imagens/fakePictureProfile.svg" alt="Avatar photo" class="avatar-img" />
-            <p class="avatar-name">Ferdinando Silva</p>
+            <p class="avatar-name">@Session["name"]</p>
             <p class="text-email">Email </p>
-            <p class="desc-email">Ferdinando.silva@gmail.com</p>
+            <p class="desc-email">@Session["email"]</p>
         </div>
         <button class="sub-button" type="file">
             Alterar foto

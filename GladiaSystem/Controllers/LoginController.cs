@@ -28,6 +28,7 @@ namespace GladiaSystem.Controllers
         {
             string acessLevel = queries.Login(user);
             Session["name"] = queries.GetUserName(user);
+            Session["email"] = queries.GetUserEmail(user);
             Session["userID"] = queries.GetUserID(user);
 
             if ( acessLevel == "0")

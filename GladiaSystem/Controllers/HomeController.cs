@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls.WebParts;
 using GladiaSystem.Database;
 using System.Collections.ObjectModel;
+using System.Web.UI.WebControls;
 
 namespace GladiaSystem.Controllers
 {
@@ -125,7 +126,6 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterPet(Pet pet)
         {
-           
             queries.RegisterPet(pet);
             TempData["Success"] = "Feito! 😄";
             return RedirectToAction("Pet");
@@ -170,12 +170,36 @@ namespace GladiaSystem.Controllers
 
         public ActionResult ChangePassword()
         {
-            return View();
+            User changePassword = new User();
+            return View(changePassword);
+        }
+
+        [HttpPost]
+        public ActionResult ChangePass(User changePassword)
+        {
+            if(changePassword.password == changePassword.confPassword)
+            {
+                string session = (string)Session["userID"];
+                queries.ChangePass(changePassword.password, session);
+            }
+            return RedirectToAction("ChangePassword", "Home");
         }
 
         public ActionResult ChangeName()
         {
-            return View();
+            User changeName = new User();
+            return View(changeName);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeNam(User changeName)
+        {
+            if (changeName.name == changeName.confName )
+            {
+                string session = (string)Session["userID"];
+                queries.ChangeName(changeName.name, session);
+            }
+            return RedirectToAction("Login", "Login");
         }
 
         public ActionResult DeleteAccount()
