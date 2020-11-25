@@ -31,6 +31,8 @@ namespace GladiaSystem.Controllers
             Session["email"] = queries.GetUserEmail(user);
             Session["userID"] = queries.GetUserID(user);
 
+            bool model = ModelState.IsValid;
+
             if ( acessLevel == "0")
             {
                 Session["access"] = "0";
