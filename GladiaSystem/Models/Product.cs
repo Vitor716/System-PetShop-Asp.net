@@ -33,6 +33,9 @@ namespace GladiaSystem.Models
         [Required(ErrorMessage = "O campo quantidade minima é obrigatório")]
         public string QuantMin{ get; set; }
 
+        [Display(Name = "Categoria")]
+        public int CategoryID { get; set; }
+
         [Display(Name = "Imagem")]
         public string img { get; set; }
 
