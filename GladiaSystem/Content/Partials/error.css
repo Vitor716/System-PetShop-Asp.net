@@ -1,8 +1,4 @@
 ﻿.not-found {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
     width: 100vw;
     height: 70vh;
 }

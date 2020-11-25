@@ -18,11 +18,13 @@
 
 </head>
 <body>
-    @if (Session["access"] == null || Session["access"] == "0")
+
+    @*@if (Session["access"] == null || Session["access"] == "0")
     {
         <script>alert('Hacker saia imediatamente')</script>
         <script>window.location.href = "localhost/error/"</script>
-    }
+    }*@
+
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <img src="~/Content/Imagens/menu.svg" alt="Menu" class="btn-dark" />
