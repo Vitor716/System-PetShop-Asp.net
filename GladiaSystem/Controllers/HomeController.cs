@@ -36,15 +36,9 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CadAdm(User adm)
         {
-            if (ModelState.IsValid)
-            {
-                queries.RegisterAdm(adm);
-                TempData["Success"] = "Feito! 😄";
-            }
-            else
-            {
-                ViewData["Error"] = "Opss, algo deu errado 😢.";
-            }
+        
+            queries.RegisterAdm(adm);
+            TempData["Success"] = "Feito! 😄";
             return RedirectToAction("Adm");
         }
 
@@ -104,16 +98,8 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CadEmployee(User employee)
         {
-            //bool userUnic = CheckUserUnic();
-            if (ModelState.IsValid)
-            {
-                queries.RegisterEmployee(employee);
-                TempData["Success"] = "Feito! 😄";
-            }
-            else
-            {
-                ViewData["Error"] = "Opss, algo deu errado 😢.";
-            }
+            queries.RegisterEmployee(employee);
+            TempData["Success"] = "Feito! 😄";
             return RedirectToAction("Employee");
         }
 
