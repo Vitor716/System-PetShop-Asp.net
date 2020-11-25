@@ -23,13 +23,14 @@ namespace GladiaSystem.Database
         
         public void RegisterProd(Product product)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`) VALUES (@Name, @Desc , @Brand, @Price , @Quant, @QuantMin);", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`, `fk_category`) VALUES( @Name, @Desc, @Brand, @Price, @Quant, @QuantMin, @CategoryID);", con.ConnectionDB());
             cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = product.Name;
             cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = product.Desc;
             cmd.Parameters.Add("@Brand", MySqlDbType.VarChar).Value = product.Brand;
             cmd.Parameters.Add("@Price", MySqlDbType.VarChar).Value = product.Price;
             cmd.Parameters.Add("@Quant", MySqlDbType.VarChar).Value = product.Quant;
             cmd.Parameters.Add("@QuantMin", MySqlDbType.VarChar).Value = product.QuantMin;
+            cmd.Parameters.Add("@CategoryID", MySqlDbType.VarChar).Value = product.CategoryID;
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
@@ -253,6 +254,29 @@ namespace GladiaSystem.Database
 
         }
 
+        public List<Category> ListCategory()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT category_name,category_id FROM db_asp.tbl_category;", con.ConnectionDB());
+            var categoryData = cmd.ExecuteReader();
+            return ListAllCategory(categoryData);
+        }
+
+        private List<Category> ListAllCategory(MySqlDataReader categoryData)
+        {
+            var AllCategory = new List<Category>();
+           
+            while (categoryData.Read())
+            {
+                var tempCategory = new Category()
+                {
+                    name = categoryData["category_name"].ToString(),
+                    ID = int.Parse(categoryData["category_id"].ToString()),
+                };
+                AllCategory.Add(tempCategory);
+            }
+            categoryData.Close();
+            return AllCategory;
+        }
 
         public List<Agenda> ListAgenda()
         {

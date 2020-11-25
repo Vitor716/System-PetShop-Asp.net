@@ -156,7 +156,10 @@ namespace GladiaSystem.Controllers
         public ActionResult Product()
         {
             Product product = new Product();
-            return View();
+
+            ViewBag.ListCategory = queries.ListCategory();
+
+            return View(product);
         }
 
         [HttpPost]

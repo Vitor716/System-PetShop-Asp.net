@@ -1,16 +1,16 @@
 ﻿@model GladiaSystem.Models.User
+
 @{
-    ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_LetsGo.cshtml";
+    Layout = null;
 }
 
 
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Início - Dom Tchochoro</title>
-
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/root.css")
     @Styles.Render("~/Content/Partials/sidebar.css")
@@ -32,7 +32,7 @@
                 <div class="input-block">
                     <label for="email">Email</label>
                     @Html.EditorFor(model => model.email)
-                    @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.email).ToHtmlString()))
+                    @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="input-block">
@@ -44,11 +44,11 @@
                 <button class="login-btn" type="submit">
                     <img src="~/Content/Imagens/arrow.svg" alt="Seta">
                 </button>
+            }
 
                 @section Scripts{
                     @Scripts.Render("~/bundles/jqueryval");
                 }
-            }
         </div>
 
         <div id="photo">

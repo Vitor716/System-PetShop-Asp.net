@@ -49,6 +49,17 @@ textarea :focus{
     color: var(--secondary-text-color);
 }
 
+#categories {
+    border: solid 1px var(--border-color);
+    font-size: 1.6rem;
+    color: var(--primary-text-color);
+    font-weight: 500;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    margin-bottom: 4%;
+    border-radius: 0.8rem;
+}
+
 .input-block input,
 .select-block select,
 .textarea-block .up-img {
