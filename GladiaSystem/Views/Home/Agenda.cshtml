@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Agenda";
 }
-
-<table class="table">
+@Styles.Render("~/Content/agenda.css")
+<table class="table" id="tableBorder">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ClientName)

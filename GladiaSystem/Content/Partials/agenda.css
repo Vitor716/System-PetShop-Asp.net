@@ -3,7 +3,15 @@
     flex-direction: column;
     margin-bottom: 0;
 }
+#tableBorder {
+    font: 500 1.4rem Mulish;
+}
 
+.table {
+    background-color: white;
+    border: 1px;
+    border-color: var(--border-color);
+}
 .create {
     background-color: white;
     border: 1px solid var(--border-color);
