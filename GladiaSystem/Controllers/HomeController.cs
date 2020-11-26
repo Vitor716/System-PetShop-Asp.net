@@ -193,6 +193,8 @@ namespace GladiaSystem.Controllers
 
         public ActionResult ChangePassword()
         {
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
             User changePassword = new User();
             return View(changePassword);
         }
@@ -210,6 +212,8 @@ namespace GladiaSystem.Controllers
 
         public ActionResult ChangeName()
         {
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
             User changeName = new User();
             return View(changeName);
         }
@@ -225,8 +229,106 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("Login", "Login");
         }
 
+        [HttpPost]
+        public ActionResult ChangePhoto(User user)
+        {
+            WebImage photo = null;
+            var newFileName = "";
+            var imagePath = "";
+            string sessionID = (string)Session["userID"];
+
+            photo = WebImage.GetImageFromRequest();
+            if (photo != null)
+            {
+                newFileName = Guid.NewGuid().ToString() + "_" +
+                Path.GetFileName(photo.FileName);
+                imagePath = @"/" + newFileName;
+
+                photo.Save(@"~/Images" + imagePath);
+                imagePath = photo.FileName;
+            }
+
+            queries.ChangePhoto(imagePath,sessionID);
+            TempData["Success"] = "Feito! 😄";
+            return RedirectToAction("DeleteAccount");
+        }
+
+        [HttpPost]
+        public ActionResult ChangePhotoName(User user)
+        {
+            WebImage photo = null;
+            var newFileName = "";
+            var imagePath = "";
+            string sessionID = (string)Session["userID"];
+
+            photo = WebImage.GetImageFromRequest();
+            if (photo != null)
+            {
+                newFileName = Guid.NewGuid().ToString() + "_" +
+                Path.GetFileName(photo.FileName);
+                imagePath = @"/" + newFileName;
+
+                photo.Save(@"~/Images" + imagePath);
+                imagePath = photo.FileName;
+            }
+
+            queries.ChangePhoto(imagePath, sessionID);
+            TempData["Success"] = "Feito! 😄";
+            return RedirectToAction("ChangeName");
+        }
+
+        [HttpPost]
+        public ActionResult ChangePhotoPassword(User user)
+        {
+            WebImage photo = null;
+            var newFileName = "";
+            var imagePath = "";
+            string sessionID = (string)Session["userID"];
+
+            photo = WebImage.GetImageFromRequest();
+            if (photo != null)
+            {
+                newFileName = Guid.NewGuid().ToString() + "_" +
+                Path.GetFileName(photo.FileName);
+                imagePath = @"/" + newFileName;
+
+                photo.Save(@"~/Images" + imagePath);
+                imagePath = photo.FileName;
+            }
+
+            queries.ChangePhoto(imagePath, sessionID);
+            TempData["Success"] = "Feito! 😄";
+            return RedirectToAction("ChangePassword");
+        }
+
+        [HttpPost]
+        public ActionResult ChangePhotoDelete(User user)
+        {
+            WebImage photo = null;
+            var newFileName = "";
+            var imagePath = "";
+            string sessionID = (string)Session["userID"];
+
+            photo = WebImage.GetImageFromRequest();
+            if (photo != null)
+            {
+                newFileName = Guid.NewGuid().ToString() + "_" +
+                Path.GetFileName(photo.FileName);
+                imagePath = @"/" + newFileName;
+
+                photo.Save(@"~/Images" + imagePath);
+                imagePath = photo.FileName;
+            }
+
+            queries.ChangePhoto(imagePath, sessionID);
+            TempData["Success"] = "Feito! 😄";
+            return RedirectToAction("DeleteAccount");
+        }
+
         public ActionResult DeleteAccount()
         {
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
             return View();
         }
 

@@ -7,15 +7,20 @@
 <div class="container">
     <div class="change-photo" id="small-card">
         <div class="info">
-            <img src="~/Content/Imagens/fakePictureProfile.svg" alt="Avatar photo" class="avatar-img" />
+            <img src=@ViewBag.Img alt="Avatar photo" class="avatar-img" />
             <p class="avatar-name">@Session["name"]</p>
             <p class="text-email">Email </p>
             <p class="desc-email">@Session["email"]</p>
         </div>
-        <button class="sub-button" type="file">
-            Alterar foto
-            <img src="~/Content/Imagens/up-dark.svg" alt="upload img" class="upload-img" />
-        </button>
+        @using (Html.BeginForm("ChangePhotoPassword", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="imgFile" required>
+            <button class="sub-button" type="submit">Alterar foto</button>
+            @section Scripts{
+                @Scripts.Render("~/bundles/jqueryval");
+            }
+        }
+
     </div>
     <div class="big-container" id="bigger-card">
         <div class="change-container">
