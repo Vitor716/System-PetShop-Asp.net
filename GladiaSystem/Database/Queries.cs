@@ -166,6 +166,16 @@ namespace GladiaSystem.Database
 
         }
 
+        public void ChangePhoto(string imagePath, string session)
+        {
+            MySqlCommand cmd = new MySqlCommand("UPDATE `db_asp`.`tbl_user` SET `user_img` = @img WHERE (`user_id` = @session);", con.ConnectionDB());
+            cmd.Parameters.Add("@img", MySqlDbType.VarChar).Value = imagePath;
+            cmd.Parameters.Add("@session", MySqlDbType.VarChar).Value = session;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
         public void RegisterCategory(Category category)
         {
 
