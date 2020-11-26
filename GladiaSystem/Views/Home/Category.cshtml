@@ -7,12 +7,14 @@
 
 <main>
     @using (Html.BeginForm("RegisterCategory", "Home", FormMethod.Post))
-    {
-        @Html.ValidationSummary(true)
+    { 
+
+            @Html.ValidationSummary(true)
         <fieldset>
             <legend>Dados da categoria</legend>
 
             <hr class="form-hr" />
+         
             @if (ViewData["Error"] != null)
             {
                 <div>
@@ -25,11 +27,16 @@
                     <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
                 </div>
             }
+
+
+
             <div class="input-block">
                 <label for="name">Nome da categoria</label>
                 @Html.EditorFor(model => model.name)
-                @Html.ValidationMessageFor(m => m.name, "", new { @class = "error-red"})
+                @Html.ValidationMessageFor(m => m.name, "", new { @class = "error-red" })
+
             </div>
+
 
             <div class="dog-area">
                 <div class="up-img-dog">
@@ -41,7 +48,9 @@
         </fieldset>
         @section Scripts{
             @Scripts.Render("~/bundles/jqueryval");
+            
+         }
+            
         }
-    }
 </main>
 

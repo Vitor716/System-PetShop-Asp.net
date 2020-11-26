@@ -339,5 +339,22 @@ namespace GladiaSystem.Database
             dt.Close();
             return AllAgenda;
         }
+        public bool CategoryExists(Category category)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_category WHERE category_name = @name", con.ConnectionDB());
+            cmd.Parameters.AddWithValue("@name", category.name);
+            MySqlDataReader reader;
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Close();
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                return false;
+            }
+        }
     }
 }

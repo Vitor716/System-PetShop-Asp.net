@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace GladiaSystem.Models
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "O Nome é obrigatório!")]
         public string name { get; set; }
+       
     }
 }

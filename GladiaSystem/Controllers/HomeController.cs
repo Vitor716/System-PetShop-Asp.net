@@ -160,7 +160,8 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterCategory(Category category)
         {
-            if (ModelState.IsValid)
+            Queries queries = new Queries();
+            if (ModelState.IsValid && !queries.CategoryExists(category))
             {
                 queries.RegisterCategory(category);
                 TempData["Success"] = "Feito! 😄";
