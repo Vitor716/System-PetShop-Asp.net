@@ -28,8 +28,8 @@
     <header>
         <a href="@Url.Action("Pos", "Home")"><img src="~/Content/Imagens/send-back.svg" alt="Send back" class="send-img" /></a>
         <span></span>
-        <small id="personName">@ViewBag.Name Ferdinando Silva</small>
-        <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
+        <small id="personName">@Session["name"]</small>
+        <img class="img-fluid avatar-picture" src=@ViewBag.Img />
     </header>
 
     <div class="container-receipt">

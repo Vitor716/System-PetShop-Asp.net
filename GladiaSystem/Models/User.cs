@@ -33,7 +33,6 @@ namespace GladiaSystem.Models
         [DataType(DataType.Password)]
         public string confPassword { get; set; }
 
-        [DisplayName("Upload image")]
         public string img { get; set; }
 
         public string userLvl { get; set; }

@@ -8,6 +8,8 @@ using System.Web.UI.WebControls.WebParts;
 using GladiaSystem.Database;
 using System.Collections.ObjectModel;
 using System.Web.UI.WebControls;
+using System.Web.Helpers;
+using System.IO;
 
 namespace GladiaSystem.Controllers
 {
@@ -36,8 +38,22 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CadAdm(User adm)
         {
-        
-            queries.RegisterAdm(adm);
+            WebImage photo = null;
+            var newFileName = "";
+            var imagePath = "";
+
+            photo = WebImage.GetImageFromRequest();
+            if (photo != null)
+            {
+                newFileName = Guid.NewGuid().ToString() + "_" +
+                Path.GetFileName(photo.FileName);
+                imagePath = @"/" + newFileName;
+
+                photo.Save(@"~/Images" + imagePath);
+                imagePath = photo.FileName;
+            }
+
+            queries.RegisterAdm(adm, imagePath);
             TempData["Success"] = "Feito! 😄";
             return RedirectToAction("Adm");
         }
@@ -79,6 +95,8 @@ namespace GladiaSystem.Controllers
 
         public ActionResult POS()
         {
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
             return View();
         }
 
@@ -91,6 +109,7 @@ namespace GladiaSystem.Controllers
 
         public ActionResult Employee()
         {
+
             User employee = new User();
             return View(employee);
         }
@@ -98,7 +117,22 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CadEmployee(User employee)
         {
-            queries.RegisterEmployee(employee);
+            WebImage photo = null;
+            var newFileName = "";
+            var imagePath = "";
+
+            photo = WebImage.GetImageFromRequest();
+            if (photo != null)
+            {
+                newFileName = Guid.NewGuid().ToString() + "_" +
+                Path.GetFileName(photo.FileName);
+                imagePath = @"/" + newFileName;
+                
+                photo.Save(@"~/Images" + imagePath);
+                imagePath = photo.FileName;
+            }
+
+            queries.RegisterEmployee(employee, imagePath);
             TempData["Success"] = "Feito! 😄";
             return RedirectToAction("Employee");
         }
@@ -206,11 +240,15 @@ namespace GladiaSystem.Controllers
 
         public ActionResult Payment()
         {
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
             return View();
         }
 
         public ActionResult Receipt()
         {
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
             return View();
         }
 

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using GladiaSystem.Database;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -18,11 +19,11 @@
 
 </head>
 <body>
-    @if (Session["access"] == null || Session["access"] == "0")
+    @*@if (Session["access"] == null || Session["access"] == "0")
     {
         <script>alert('Hacker saia imediatamente')</script>
         <script>window.location.href = "localhost/error/"</script>
-    }
+    }*@
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <img src="~/Content/Imagens/menu.svg" alt="Menu" class="btn-dark" />
@@ -220,12 +221,16 @@
             </div>
         </nav>
 
+        @{string session = (string)Session["userID"];
+            Queries queries = new Queries();
+            ViewBag.Img = queries.GetUserImages(session);
+        }
         <main class="page-content">
             <header>
                 <h2>@ViewBag.Title</h2>
                 <span></span>
                 <small id="personName">@Session["name"]</small>
-                <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
+                <img class="img-fluid avatar-picture" src=@ViewBag.Img />
             </header>
             @RenderBody()
         </main>
