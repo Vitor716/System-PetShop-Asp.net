@@ -6,7 +6,7 @@
 }
 
 <main>
-    @using (Html.BeginForm("CadEmployee", "Home", FormMethod.Post))
+    @using (Html.BeginForm("CadEmployee", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <fieldset>
             <legend>Dados do Funcionário</legend>
@@ -48,8 +48,6 @@
             <div class="textarea-block">
                 <div class="up-img">
                     <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" />
-                    @Html.LabelFor(model => model.img);
-                    @Html.ValidationMessageFor(m => m.img, "", new { @class = "text-danger" })
                     <input type="file" name="imgFile" required>
                 </div>
             </div>

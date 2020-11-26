@@ -10,70 +10,6 @@ namespace GladiaSystem.Database
     {
         Connection con = new Connection();
 
-        public void RegisterCategory(Category category)
-        {
-
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES (@name);", con.ConnectionDB());
-            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = category.name;
-          
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-
-        }
-        
-        public void RegisterProd(Product product)
-        {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`, `fk_category`) VALUES( @Name, @Desc, @Brand, @Price, @Quant, @QuantMin, @CategoryID);", con.ConnectionDB());
-            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = product.Name;
-            cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = product.Desc;
-            cmd.Parameters.Add("@Brand", MySqlDbType.VarChar).Value = product.Brand;
-            cmd.Parameters.Add("@Price", MySqlDbType.VarChar).Value = product.Price;
-            cmd.Parameters.Add("@Quant", MySqlDbType.VarChar).Value = product.Quant;
-            cmd.Parameters.Add("@QuantMin", MySqlDbType.VarChar).Value = product.QuantMin;
-            cmd.Parameters.Add("@CategoryID", MySqlDbType.VarChar).Value = product.CategoryID;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-        }
-
-        public void RegisterPet(Pet pet)
-        {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_pet` (`pet_name`, `pet_owner`, `pet_tell`, `pet_size`, `pet_desc`) VALUES (@Name, @Owner, @Tel , @Size, @Desc);", con.ConnectionDB());
-            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = pet.Name;
-            cmd.Parameters.Add("@Owner", MySqlDbType.VarChar).Value = pet.Owner;
-            cmd.Parameters.Add("@Tel", MySqlDbType.VarChar).Value = pet.Tel;
-            cmd.Parameters.Add("@Size", MySqlDbType.VarChar).Value = pet.Size;
-            cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = pet.Desc;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-
-        }
-
-        public void RegisterEmployee(User employee)
-        {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '0');", con.ConnectionDB());
-            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = employee.name;
-            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = employee.email;
-            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = employee.password;
-            cmd.Parameters.Add("@img", MySqlDbType.VarChar).Value = employee.img;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-        }
-
-        public void RegisterAdm(User adm)
-        {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '1');", con.ConnectionDB());
-            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = adm.name;
-            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = adm.email;
-            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = adm.password;
-            cmd.Parameters.Add("@img", MySqlDbType.VarChar).Value = adm.img;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-        }
-
         public string Login(User user)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT user_lvl FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
@@ -136,7 +72,6 @@ namespace GladiaSystem.Database
             return "error";
         }
 
-
         public string GetUserEmail(User user)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT user_email FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
@@ -168,7 +103,6 @@ namespace GladiaSystem.Database
             reader.Close();
             return "error";
         }
-
 
         public string GetUserID(User user)
         {
@@ -202,6 +136,99 @@ namespace GladiaSystem.Database
             return "error";
         }
 
+        public string GetUserImages(string UserID)
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from img  where user_id = @UserID;", con.ConnectionDB());
+            cmd.Parameters.Add("@UserID", MySqlDbType.VarChar).Value = UserID;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.img = Convert.ToString(reader[0]);
+                        reader.Close();
+                        return dto.img;
+                    }
+                }
+            }
+            else
+            {
+                return null;
+            }
+            reader.Close();
+            return "error";
+
+        }
+
+        public void RegisterCategory(Category category)
+        {
+
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES (@name);", con.ConnectionDB());
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = category.name;
+          
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+
+        }
+        
+        public void RegisterProd(Product product)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`, `fk_category`) VALUES( @Name, @Desc, @Brand, @Price, @Quant, @QuantMin, @CategoryID);", con.ConnectionDB());
+            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = product.Name;
+            cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = product.Desc;
+            cmd.Parameters.Add("@Brand", MySqlDbType.VarChar).Value = product.Brand;
+            cmd.Parameters.Add("@Price", MySqlDbType.VarChar).Value = product.Price;
+            cmd.Parameters.Add("@Quant", MySqlDbType.VarChar).Value = product.Quant;
+            cmd.Parameters.Add("@QuantMin", MySqlDbType.VarChar).Value = product.QuantMin;
+            cmd.Parameters.Add("@CategoryID", MySqlDbType.VarChar).Value = product.CategoryID;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
+        public void RegisterPet(Pet pet)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_pet` (`pet_name`, `pet_owner`, `pet_tell`, `pet_size`, `pet_desc`) VALUES (@Name, @Owner, @Tel , @Size, @Desc);", con.ConnectionDB());
+            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = pet.Name;
+            cmd.Parameters.Add("@Owner", MySqlDbType.VarChar).Value = pet.Owner;
+            cmd.Parameters.Add("@Tel", MySqlDbType.VarChar).Value = pet.Tel;
+            cmd.Parameters.Add("@Size", MySqlDbType.VarChar).Value = pet.Size;
+            cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = pet.Desc;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+
+        }
+
+        public void RegisterEmployee(User employee, string path)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '0');", con.ConnectionDB());
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = employee.name;
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = employee.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = employee.password;
+            cmd.Parameters.Add("@img", MySqlDbType.VarChar).Value = path;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
+        public void RegisterAdm(User adm, string path)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '1');", con.ConnectionDB());
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = adm.name;
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = adm.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = adm.password;
+            cmd.Parameters.Add("@img", MySqlDbType.VarChar).Value = path;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
 
         public void RegisterAgenda(Agenda agenda)
         {
@@ -231,7 +258,6 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
-
         public void ChangePass(string password, string userID)
         {
             MySqlCommand cmd = new MySqlCommand("UPDATE `db_asp`.`tbl_user` SET `user_password` = @password WHERE (`user_id` = @user_id);", con.ConnectionDB());
@@ -252,6 +278,15 @@ namespace GladiaSystem.Database
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
 
+        }
+
+        public void DeleteItemAgenda(int codItem)
+        {
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_agenda` WHERE (`agenda_id` = @codAgenda);", con.ConnectionDB());
+            cmd.Parameters.Add("@codAgenda", MySqlDbType.VarChar).Value = codItem;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
         }
 
         public List<Category> ListCategory()
@@ -303,15 +338,6 @@ namespace GladiaSystem.Database
             }
             dt.Close();
             return AllAgenda;
-        }
-
-        public void DeleteItemAgenda(int codItem)
-        {
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_agenda` WHERE (`agenda_id` = @codAgenda);", con.ConnectionDB());
-            cmd.Parameters.Add("@codAgenda", MySqlDbType.VarChar).Value = codItem;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
         }
     }
 }

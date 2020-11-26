@@ -35,8 +35,8 @@
             <a href="@Url.Action("Logout", "Home")"><img src="~/Content/Imagens/x-circle.svg" alt="Close" /></a>
         }
         <span></span>
-        <small id="personName">@ViewBag.Name Ferdinando Silva</small>
-        <img class="img-fluid avatar-picture" src="~/Content/Imagens/fakePictureProfile.svg" />
+        <small id="personName">@Session["name"]</small>
+        <img class="img-fluid avatar-picture" src=@ViewBag.Img />
     </header>
 
 
