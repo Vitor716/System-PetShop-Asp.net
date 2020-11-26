@@ -7,7 +7,7 @@
     background-color: white;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 4%;
+    padding: 1%;
 }
 
 .content {
@@ -23,24 +23,24 @@
 
 .values {
     margin-top: 4%;
-    padding-top: 3%;
-    padding-left: 4%;
+    padding-left: 1%;
 }
 
 .simple-text {
     color: var(--primary-text-color);
-    font: 400 1.8rem Mulish;
+    font: 400 1.6rem Mulish;
 }
 
 .tot-pay {
     color: var(--primary-text-color);
-    font: 600 2.4rem Mulish;
+    font: 600 1.8rem Mulish;
 }
 
 .input-container {
     display: flex;
     justify-content: center;
-    margin: 4%;
+    margin: 2%;
+    margin-bottom: 10%;
 }
 
 .input-add {
@@ -59,7 +59,7 @@
 }
 
 .info-text {
-    font: 700 2.4rem Mulish;
+    font: 700 1.8rem Mulish;
     color: var( --primary-text-color);
     margin: 0;
 }
@@ -72,14 +72,14 @@
 .item-text {
     display: flex;
     justify-content: space-between;
-    margin: 4%;
+    margin: 1%;
 }
 
 .item-name {
-    margin-top: 10%;
+    margin-top: 2%;
     color: var(--primary-text-color);
     font: 400 2rem Mulish;
-    width:290px;
+    width: 290px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -432,8 +432,7 @@ section {
 
     .container-payment {
         width: 80vw;
-        height: 63%;
-        padding: 5%;
+        height: auto;
         margin-top: -110px;
     }
 
@@ -465,9 +464,8 @@ section {
     }
 
     .values {
-        padding-top: 2%;
-        margin-top: 2%;
-        height: 20%;
+        margin-top: 1%;
+        height: 30%;
     }
 }
 
