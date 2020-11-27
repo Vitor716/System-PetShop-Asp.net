@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace GladiaSystem.Models
 {
@@ -33,13 +34,15 @@ namespace GladiaSystem.Models
         [Required(ErrorMessage = "O campo quantidade minima é obrigatório")]
         public string QuantMin{ get; set; }
 
-        [Display(Name = "Categoria")]
-        public int CategoryID { get; set; }
-
         [Display(Name = "Imagem")]
         public string img { get; set; }
 
+        [Display(Name = "Categoria")]
+        public Category Category { get; set; }
 
-
+        public Product()
+        {
+            Category = new Category();
+        }
     }
 }

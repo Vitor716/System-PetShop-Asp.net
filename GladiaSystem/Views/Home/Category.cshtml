@@ -6,7 +6,7 @@
 }
 
 <main>
-    @using (Html.BeginForm("RegisterCategory", "Home", FormMethod.Post))
+    @using (Html.BeginForm("RegisterCategory", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.ValidationSummary(true)
         <fieldset>
