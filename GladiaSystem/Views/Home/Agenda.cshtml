@@ -1,15 +1,58 @@
-﻿@model IEnumerable<GladiaSystem.Models.Agenda>
+﻿@model GladiaSystem.Models.BigAgenda
 @{
     ViewBag.Title = "Agenda";
-}
+    List<GladiaSystem.Models.Agenda> agendaAll = ViewBag.AllAgenda;
+
+} 
 @Styles.Render("~/Content/agenda.css")
+<div class="create">
+    <img src="~/Content/Imagens/plus.svg" id="plus" data-toggle="modal" data-target="#exampleModal">
+    <span id="create-text" data-toggle="modal" data-target="#exampleModal">Criar</span>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Criar agendamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("CreateAgenda", "Home", FormMethod.Post))
+                {
+                    <fieldset>
+                        <legend>Dados do Agendamento</legend>
+                        <hr class="form-hr" />
+
+                        <div class="input-block">
+                            <label for="client">Nome do Cliente</label>
+                            @Html.EditorFor(model => model.ClientName)
+                            @Html.ValidationMessageFor(m => m.ClientName, "", new { @class = "error-red" })
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" id="btn-cancel-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" id="btn-create-modal" class="btn btn-primary">Criar</button>
+                        </div>
+
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
+
 <table class="table" id="tableBorder">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ClientName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Desc)
+            @Html.DisplayNameFor(model => model.DescAgenda)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Pet)
@@ -22,31 +65,30 @@
         </th>
         <th></th>
     </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Day)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hour)
-            </td>
-            <td>
-                <a href='@Url.Action("DeleteAgenda", "Home", new { codAgenda = item.ID })'>
-                    <img src='~/Content/Imagens/delete.svg' />
-                </a>
-            </td>
-        </tr>
-    }
+        @foreach (GladiaSystem.Models.Agenda item in agendaAll)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescAgenda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hour)
+                </td>
+                <td>
+                    <a href='@Url.Action("DeleteAgenda", "Home", new { codAgenda = item.ID })'>
+                        <img src='~/Content/Imagens/delete.svg' />
+                    </a>
+                </td>
+            </tr>
+        }
 
 </table>

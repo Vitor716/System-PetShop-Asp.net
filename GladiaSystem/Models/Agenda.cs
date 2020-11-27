@@ -17,7 +17,7 @@ namespace GladiaSystem.Models
 
         [Display(Name = "Descrição")]
         [Required(ErrorMessage = "O campo descrição é obrigatório")]
-        public string Desc { get; set; }
+        public string DescAgenda { get; set; }
 
         [Display(Name = "Dia")]
         [Required(ErrorMessage = "O campo de Data é obrigatório")]
@@ -28,5 +28,7 @@ namespace GladiaSystem.Models
         [Required(ErrorMessage = "O campo hora é obrigatório")]
         [DataType(DataType.Time)]
         public DateTime Hour { get; set; }
+
+
     }
 }

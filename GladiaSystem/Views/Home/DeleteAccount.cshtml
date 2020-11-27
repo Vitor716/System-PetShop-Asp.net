@@ -12,10 +12,10 @@
             <p class="text-email">Email </p>
             <p class="desc-email">@Session["email"]</p>
         </div>
-        @using (Html.BeginForm("ChangePhotoPassword", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("ChangePhotoPassword", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "border-less" }))
         {
-            <input type="file" name="imgFile" required>
-            <button class="sub-button" type="submit">Alterar foto</button>
+            <label for="files" class="sub-button">Alterar foto <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" /></label>
+            <input id="files" type="file" name="imgFile" alt="Enviar" style="visibility: hidden;" required>
             @section Scripts{
                 @Scripts.Render("~/bundles/jqueryval");
             }
