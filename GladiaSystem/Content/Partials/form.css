@@ -176,6 +176,10 @@ textarea :focus{
     color: var(--secondary-text-color);
 }
 
+.form-none{
+    display:none;
+}
+
 
 @media (min-width: 1297px) {
     .page-content {

@@ -101,6 +101,13 @@ namespace GladiaSystem.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult POS(Product product)
+        {
+
+            return RedirectToAction("POS");
+        }
+
         public ActionResult Logout()
         {
             Session.Remove("access");
