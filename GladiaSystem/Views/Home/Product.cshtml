@@ -7,7 +7,7 @@
 }
 
 <main>
-    @using (Html.BeginForm("RegisterProd", "Home", FormMethod.Post))
+    @using (Html.BeginForm("RegisterProd", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <fieldset>
             <legend>Dados do produto</legend>
@@ -40,59 +40,62 @@
             </div>
 
             <div class="input-block">
-                <label for="name">Nome completo</label>
-                @Html.LabelFor(model => model.CategoryID)
-                <select id="categories" name="categories" class="form-control combo-box">
+                @Html.LabelFor(model => model.Category)
+                <select id="Category.ID" name="Category.ID" class="form-control combo-box">
                     @foreach (GladiaSystem.Models.Category item in categories)
                     {
                         <option value="@item.ID"
-                                @if (item.ID == Model.CategoryID) { @: selected
+                                @if (item.ID == Model.Category.ID)
+                                { 
+                                    @: selected
                                 }>
                             @item.name
                         </option>
                     }
 
                 </select>
+            </div>
+            <div class="input-block">
+                <label for="currency-field">Preço</label>
+                @Html.EditorFor(model => model.Price)
+                @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+            </div>
 
-                <div class="input-block">
-                    <label for="currency-field">Preço</label>
-                    @Html.EditorFor(model => model.Price)
-                    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
-                </div>
+            <div class="input-block">
+                <label for="quant">
+                    Quantidade
+                </label>
+                @Html.EditorFor(model => model.Quant)
+                @Html.ValidationMessageFor(m => m.Quant, "", new { @class = "text-danger" })
+            </div>
 
-                <div class="input-block">
-                    <label for="quant">
-                        Quantidade
-                    </label>
-                    @Html.EditorFor(model => model.Quant)
-                    @Html.ValidationMessageFor(m => m.Quant, "", new { @class = "text-danger" })
-                </div>
+            <div class="input-block">
+                <label for="quant">
+                    Quantidade mínima
+                </label>
+                @Html.EditorFor(model => model.QuantMin)
+                @Html.ValidationMessageFor(m => m.QuantMin, "", new { @class = "text-danger" })
 
-                <div class="input-block">
-                    <label for="quant">
-                        Quantidade mínima
-                    </label>
-                    @Html.EditorFor(model => model.QuantMin)
-                    @Html.ValidationMessageFor(m => m.QuantMin, "", new { @class = "text-danger" })
+                <div class="textarea-block">
+                    <div id="up-img-tiny" class="up-img">
+                        <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" />
 
-                    <div class="textarea-block">
-                        <div id="up-img-tiny" class="up-img">
-                            <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" />
-                            <p class="send-img">Envie sua foto</p>
-                        </div>
+                        <label for="files" class="btn">Envie sua foto</label>
+                        <input id="files" type="file" name="imgFile" alt="Enviar" style="visibility: hidden;" required>
                     </div>
-
-                    <div class="input-block">
-                        <label id="email-label" for="avatar">
-                            Descrição
-                        </label>
-                        @Html.TextAreaFor(model => model.Desc)
-                        @Html.ValidationMessageFor(m => m.Desc, "", new { @class = "error-red" })
-                    </div>
-
-
                 </div>
-                <button class="sub-button" type="submit">Cadastrar</button>
+
+                <div class="input-block">
+                    <label id="email-label" for="avatar">
+                        Descrição
+                    </label>
+                    @Html.TextAreaFor(model => model.Desc)
+                    @Html.ValidationMessageFor(m => m.Desc, "", new { @class = "error-red" })
+                </div>
+
+
+            </div>
+            <button class="sub-button" type="submit">Cadastrar</button>
         </fieldset>
         @section Scripts{
             @Scripts.Render("~/bundles/jqueryval");

@@ -10,6 +10,24 @@ namespace GladiaSystem.Database
     {
         Connection con = new Connection();
 
+        public bool CategoryExists(Category category)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_category WHERE category_name = @name", con.ConnectionDB());
+            cmd.Parameters.AddWithValue("@name", category.name);
+            MySqlDataReader reader;
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Close();
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                return false;
+            }
+        }
+
         public string Login(User user)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT user_lvl FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
@@ -187,16 +205,17 @@ namespace GladiaSystem.Database
 
         }
         
-        public void RegisterProd(Product product)
+        public void RegisterProd(Product product, string path)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`, `fk_category`) VALUES( @Name, @Desc, @Brand, @Price, @Quant, @QuantMin, @CategoryID);", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES(@Name, @Desc, @Brand, @Price, @Quant, @Img, @QuantMin, @CategoryID);", con.ConnectionDB());
             cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = product.Name;
             cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = product.Desc;
             cmd.Parameters.Add("@Brand", MySqlDbType.VarChar).Value = product.Brand;
             cmd.Parameters.Add("@Price", MySqlDbType.VarChar).Value = product.Price;
             cmd.Parameters.Add("@Quant", MySqlDbType.VarChar).Value = product.Quant;
+            cmd.Parameters.Add("@Img", MySqlDbType.VarChar).Value = path;
             cmd.Parameters.Add("@QuantMin", MySqlDbType.VarChar).Value = product.QuantMin;
-            cmd.Parameters.Add("@CategoryID", MySqlDbType.VarChar).Value = product.CategoryID;
+            cmd.Parameters.Add("@CategoryID", MySqlDbType.VarChar).Value = product.Category.ID;
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();

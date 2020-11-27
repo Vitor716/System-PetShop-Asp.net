@@ -160,17 +160,17 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterCategory(Category category)
         {
-            if (ModelState.IsValid)
+            Queries queries = new Queries();
+            if (ModelState.IsValid && !queries.CategoryExists(category))
             {
                 queries.RegisterCategory(category);
                 TempData["Success"] = "Feito! 😄";
-                return RedirectToAction("Category");
             }
             else
             {
                 ViewData["Error"] = "Opss, algo deu errado 😢.";
-                return View(category);
             }
+                return RedirectToAction("Category");
         }
 
         public ActionResult Product()
@@ -185,8 +185,24 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterProd(Product product)
         {
-            queries.RegisterProd(product);
+            WebImage photo = null;
+            var newFileName = "";
+            var imagePath = "";
+
+            photo = WebImage.GetImageFromRequest();
+            if (photo != null)
+            {
+                newFileName = Guid.NewGuid().ToString() + "_" +
+                Path.GetFileName(photo.FileName);
+                imagePath = @"/" + newFileName;
+
+                photo.Save(@"~/Images" + imagePath);
+                imagePath = photo.FileName;
+            }
+
+            queries.RegisterProd(product, imagePath);
             TempData["Success"] = "Feito! 😄";
+            ViewBag.ListCategory = queries.ListCategory();
             return RedirectToAction("Product");
         }
 
