@@ -61,8 +61,9 @@ namespace GladiaSystem.Controllers
         public ActionResult Agenda()
         {
             var ShowAgenda = new Queries();
-            var AllAgenda = ShowAgenda.ListAgenda();
-            return View(AllAgenda);
+            ViewBag.AllAgenda = ShowAgenda.ListAgenda();
+            BigAgenda bigAgenda = new BigAgenda();
+            return View(bigAgenda);
         }
 
         public ActionResult DeleteAgenda(int codAgenda)

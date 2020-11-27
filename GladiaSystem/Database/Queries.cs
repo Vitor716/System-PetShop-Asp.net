@@ -269,7 +269,7 @@ namespace GladiaSystem.Database
                 cmd.Parameters.Add("@pet", MySqlDbType.VarChar).Value = agenda.Pet;
                 cmd.Parameters.Add("@day", MySqlDbType.VarChar).Value = agenda.Day;
                 cmd.Parameters.Add("@hour", MySqlDbType.VarChar).Value = agenda.Hour;
-                cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = agenda.Desc;
+                cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = agenda.DescAgenda;
 
                 cmd.ExecuteNonQuery();
                 con.DisconnectDB();
@@ -361,7 +361,7 @@ namespace GladiaSystem.Database
                     Pet = dt["agenda_pet"].ToString(),
                     Day = DateTime.Parse(dt["agenda_date"].ToString()),
                     Hour = DateTime.Parse(dt["agenda_hour"].ToString()),
-                    Desc = dt["agenda_desc"].ToString(),
+                    DescAgenda = dt["agenda_desc"].ToString(),
                 };
                 AllAgenda.Add(AlunoTemp);
             }
