@@ -9,6 +9,7 @@ namespace GladiaSystem.Models
 {
     public class Product
     {
+        public int ID { get; set; }
 
         [Display(Name = "Nome do produto")]
         [Required(ErrorMessage = "O campo nome do cliente é obrigatório")]

@@ -93,19 +93,38 @@ namespace GladiaSystem.Controllers
             }
             return RedirectToAction("Agenda");
         }
+        
 
         public ActionResult POS()
         {
             string session = (string)Session["userID"];
             ViewBag.Img = queries.GetUserImages(session);
+
             return View();
         }
 
-        [HttpPost]
-        public ActionResult POS(Product product)
-        {
+        List<int> IDs = new List<int>();
+        List<string> Name = new List<string>();
+        List<string> Price = new List<string>();
+        List<string> Quant = new List<string>();
 
-            return RedirectToAction("POS");
+        [HttpPost]
+        public ActionResult ProductGet(Product product)
+        {
+            product = queries.GetProduct(product.Name);
+
+
+            IDs.Add(product.ID);
+            Name.Add(product.Name);
+            Price.Add(product.Price);
+            Quant.Add(product.Quant);
+
+            ViewBag.IDs = IDs;
+            ViewBag.Name = Name;
+            ViewBag.Price = Price;
+            ViewBag.Quant = Quant;
+
+            return View("POS");
         }
 
         public ActionResult Logout()

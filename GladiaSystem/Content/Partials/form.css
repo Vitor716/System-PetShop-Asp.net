@@ -176,10 +176,22 @@ textarea :focus{
     color: var(--secondary-text-color);
 }
 
-.form-none{
-    display:none;
+.form-none {
+    background: none;
+    border: none;
+    padding: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin: none;
 }
 
+.name-label {
+    display: none;
+}
 
 @media (min-width: 1297px) {
     .page-content {

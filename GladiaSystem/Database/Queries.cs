@@ -318,6 +318,40 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
+        public Product GetProduct(string productName)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.tbl_product WHERE prod_name LIKE @name ;", con.ConnectionDB());
+            string name = productName + "%";
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Product dto = new Product();
+                    {
+                        dto.ID = Convert.ToInt32(reader[0]);
+                        dto.Name = Convert.ToString(reader[1]);
+                        dto.Price = Convert.ToString(reader[4]);
+                        dto.Quant = Convert.ToString(reader[5]);
+
+                        return dto;
+                    }
+                }
+            }
+            else
+            {
+                //return null;
+            }
+            reader.Close();
+            Product a = new Product();
+            return a;
+        }
+
         public List<Category> ListCategory()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT category_name,category_id FROM db_asp.tbl_category;", con.ConnectionDB());

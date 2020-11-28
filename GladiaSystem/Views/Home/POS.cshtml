@@ -3,6 +3,12 @@
     ViewBag.Title = "POS";
     ViewBag.Selected = "pos";
     Layout = null;
+
+    List<int> IDs = ViewBag.IDs;
+    List<string> NameList = ViewBag.Name;
+    List<string> PriceList = ViewBag.Price;
+    List<string> QuantList = ViewBag.Quant;
+
 }
 @Styles.Render("~/Content/css")
 @Styles.Render("~/Content/root.css")
@@ -15,7 +21,6 @@
 @Styles.Render("~/Content/Partials/agenda.css")
 @Styles.Render("~/Content/Partials/pos.css")
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-
 @*@if (Session["access"] == null)
 {
     <script>alert('Hacker saia imediatamente')</script>
@@ -42,51 +47,39 @@
 
 
     <div class="container">
-        @using (Html.BeginForm("RegisterCategory", "Home", FormMethod.Post,new { @class = "form-none"}))
+        @using (Html.BeginForm("ProductGet", "Home", FormMethod.Post, new { @class = "form-none" }))
         {
             <div class="input-container">
-                
-                <input class="input-add" type="number" placeholder="Adicionar produto" name="Adicionar produto">
+                @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "input-add" })
                 <img src="~/Content/Imagens/barcode.svg" class="bar-code" alt="delete" />
             </div>
-         }
-            <div class="info-container">
-                <div class="container-payment">
-                    <p class="info-text">Informações da compra </p>
-                    <div class="item-text">
-                        <div class="about-text">
-                            <p class="opacity-text">1X 53459p093453</p>
-                            <p class="item-name">SABONETE PALMOVILE</p>
-                        </div>
-                        <p class="price">R$ 10,00</p>
-                        <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
-                    </div>
-                    <hr class="divide" />
-                    <div class="item-text">
-                        <div class="about-text">
-                            <p class="opacity-text">1X 53459p093453</p>
-                            <p class="item-name">DESODORANTE AEROSOL.... </p>
-                        </div>
-                        <p class="price">R$ 10,00</p>
-                        <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
-                    </div>
-                    <hr class="divide" />
-                    <div class="item-text">
-                        <div class="about-text">
-                            <p class="opacity-text">1X 53459p093453</p>
-                            <p class="item-name">COLEIRA ANTIALÉRGICO</p>
-                        </div>
-                        <p class="price">R$ 10,00</p>
-                        <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
-                    </div>
-                </div>
-                <div class="container-payment values">
-                    <p class="simple-text">Subtotal: R$ 50,00 </p>
-                    <p class="simple-text">Pagamentos: R$ 0,00 </p>
-                    <p class="tot-pay">Total a pagar: </p>
-                    <p class="tot-pay">R$ 50,00</p>
-                </div>
-                <button class="next-button" type="submit"><a href="@Url.Action("Payment", "Home")">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
+        }
+        <div class="info-container">
+            <div class="container-payment">
+                <p class="info-text">Informações da compra </p>
+                @{if (IDs != null & NameList != null & QuantList != null)
+                    {
+                        for (int i = 0; i < IDs.Count; i++)
+                        {
+                            <div class="item-text">
+                                <div class="about-text">
+                                    <p class="opacity-text">1X Cod @IDs[i]</p>
+                                    <p class="item-name">@NameList[i]</p>
+                                </div>
+                                <p class="price">R$ @PriceList[i]</p>
+                                <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
+                            </div>
+                            <hr class="divide" />
+                            @*@QuantList[i]*@
+                        }
+                    }
+                }
             </div>
+            <div class="container-payment values">
+                <p class="tot-pay">Total a pagar: </p>
+                <p class="tot-pay">R$ 50,00</p>
+            </div>
+            <button class="next-button" type="submit"><a href="@Url.Action("Payment", "Home")">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
         </div>
+    </div>
 </main>
