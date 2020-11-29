@@ -320,7 +320,7 @@ namespace GladiaSystem.Database
 
         public Product GetProduct(string productName)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.tbl_product WHERE prod_name LIKE @name ;", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("SELECT prod_id,prod_name,prod_desc,prod_brand,prod_price,prod_quant,prod_min_quant,fk_category,category_id,category_name, REPLACE(prod_img, '~/', '../') FROM db_asp.tbl_product join tbl_category on tbl_product.fk_category = tbl_category.category_id WHERE prod_name LIKE @name;", con.ConnectionDB());
             string name = productName + "%";
             cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
 
@@ -336,9 +336,51 @@ namespace GladiaSystem.Database
                     {
                         dto.ID = Convert.ToInt32(reader[0]);
                         dto.Name = Convert.ToString(reader[1]);
+                        dto.Desc = Convert.ToString(reader[2]);
+                        dto.Brand = Convert.ToString(reader[3]);
                         dto.Price = Convert.ToString(reader[4]);
                         dto.Quant = Convert.ToString(reader[5]);
+                        dto.QuantMin = Convert.ToString(reader[7]);
+                        dto.Category.name = Convert.ToString(reader[9]);
+                        dto.img = Convert.ToString(reader[10]);
+                        return dto;
+                    }
+                }
+            }
+            else
+            {
+                //return null;
+            }
+            reader.Close();
+            Product a = new Product();
+            return a;
+        }
 
+        public Product GetAllProduct(string productName)
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from allproduct;", con.ConnectionDB());
+            string name = productName + "%";
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Product dto = new Product();
+                    {
+                        dto.ID = Convert.ToInt32(reader[0]);
+                        dto.Name = Convert.ToString(reader[1]);
+                        dto.Desc = Convert.ToString(reader[2]);
+                        dto.Brand = Convert.ToString(reader[3]);
+                        dto.Price = Convert.ToString(reader[4]);
+                        dto.Quant = Convert.ToString(reader[5]);
+                        dto.QuantMin = Convert.ToString(reader[7]);
+                        dto.Category.name = Convert.ToString(reader[9]);
+                        dto.img = Convert.ToString(reader[10]);
                         return dto;
                     }
                 }

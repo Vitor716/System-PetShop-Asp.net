@@ -93,26 +93,23 @@ namespace GladiaSystem.Controllers
             }
             return RedirectToAction("Agenda");
         }
-        
 
         public ActionResult POS()
         {
             string session = (string)Session["userID"];
             ViewBag.Img = queries.GetUserImages(session);
-
             return View();
         }
-
-        List<int> IDs = new List<int>();
-        List<string> Name = new List<string>();
-        List<string> Price = new List<string>();
-        List<string> Quant = new List<string>();
 
         [HttpPost]
         public ActionResult ProductGet(Product product)
         {
             product = queries.GetProduct(product.Name);
 
+            List<int> IDs = new List<int>();
+            List<string> Name = new List<string>();
+            List<string> Price = new List<string>();
+            List<string> Quant = new List<string>();
 
             IDs.Add(product.ID);
             Name.Add(product.Name);
@@ -232,7 +229,6 @@ namespace GladiaSystem.Controllers
             ViewBag.ListCategory = queries.ListCategory();
             return RedirectToAction("Product");
         }
-
 
         public ActionResult ChangePassword()
         {
@@ -382,7 +378,6 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("Login" , "Login");
         }
 
-
         public ActionResult Payment()
         {
             string session = (string)Session["userID"];
@@ -397,9 +392,81 @@ namespace GladiaSystem.Controllers
             return View();
         }
 
-        public ActionResult ProductList()
+        public ActionResult ProductList(Product product)
         {
+            product = queries.GetAllProduct(product.Name);
+
+            List<int> IDs = new List<int>();
+            List<string> Names = new List<string>();
+            List<string> Descs = new List<string>();
+            List<string> Brands = new List<string>();
+            List<string> Prices = new List<string>();
+            List<string> Quants = new List<string>();
+            List<string> QuantMin = new List<string>();
+            List<string> CategoryName = new List<string>();
+            List<string> Images = new List<string>();
+
+
+            IDs.Add(product.ID);
+            Names.Add(product.Name);
+            Descs.Add(product.Desc);
+            Brands.Add(product.Brand);
+            Prices.Add(product.Price);
+            Quants.Add(product.Quant);
+            QuantMin.Add(product.QuantMin);
+            CategoryName.Add(product.Category.name);
+            Images.Add(product.img);
+
+            ViewBag.AllIDs = IDs;
+            ViewBag.AllName = Names;
+            ViewBag.AllBrand = Brands;
+            ViewBag.AllDesc = Descs;
+            ViewBag.AllPrice = Prices;
+            ViewBag.AllQuant = Quants;
+            ViewBag.AllQuantMin = QuantMin;
+            ViewBag.AllCategoryName = CategoryName;
+            ViewBag.AllImages = Images;
+
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchProduct(Product product)
+        {
+            product = queries.GetProduct(product.Name);
+
+            List<int> IDs = new List<int>();
+            List<string> Names = new List<string>();
+            List<string> Descs = new List<string>();
+            List<string> Brands = new List<string>();
+            List<string> Prices = new List<string>();
+            List<string> Quants = new List<string>();
+            List<string> QuantMin = new List<string>();
+            List<string> CategoryName = new List<string>();
+            List<string> Images = new List<string>();
+
+            IDs.Add(product.ID);
+            Names.Add(product.Name);
+            Descs.Add(product.Desc);
+            Brands.Add(product.Brand);
+            Prices.Add(product.Price);
+            Quants.Add(product.Quant);
+            QuantMin.Add(product.QuantMin);
+            CategoryName.Add(product.Category.name);
+            Images.Add(product.img);
+
+
+            ViewBag.IDs = IDs;
+            ViewBag.Name = Names;
+            ViewBag.Brand = Brands;
+            ViewBag.Desc = Descs;
+            ViewBag.Price = Prices;
+            ViewBag.Quant = Quants;
+            ViewBag.QuantMin = QuantMin;
+            ViewBag.CategoryName = CategoryName;
+            ViewBag.Images = Images;
+
+            return View("ProductList");
         }
     }
 }

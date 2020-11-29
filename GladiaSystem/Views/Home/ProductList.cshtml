@@ -1,81 +1,88 @@
-﻿@{
+﻿@model GladiaSystem.Models.Product
+@{
     ViewBag.Title = "ProductList";
     ViewBag.Selected = "productList";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<int> IDs = ViewBag.IDs;
+    List<string> NameList = ViewBag.Name;
+    List<string> Desc = ViewBag.Desc;
+    List<string> PriceList = ViewBag.Price;
+    List<string> QuantList = ViewBag.Quant;
+    List<string> QuantMinList = ViewBag.QuantMin;
+    List<string> Brands = ViewBag.Brand;
+    List<string> Images = ViewBag.Images;
+    List<string> CategoryNames = ViewBag.CategoryName;
+
+    List<int> AllIDs = ViewBag.AllIDs;
+    List<string> AllNameList = ViewBag.AllName;
+    List<string> AllDesc = ViewBag.AllDesc;
+    List<string> AllPriceList = ViewBag.AllPrice;
+    List<string> AllQuantList = ViewBag.AllQuant;
+    List<string> AllQuantMinList = ViewBag.AllQuantMin;
+    List<string> AllBrands = ViewBag.AllBrand;
+    List<string> AllImages = ViewBag.AllImages;
+    List<string> AllCategoryNames = ViewBag.AllCategoryName;
 }
 
 @Styles.Render("~/Content/Partials/List.css")
 
-    <div class="input-group mb-3" id="input-prod">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1"><img src="~/Content/Imagens/search.svg" alt="Search" class="search-img" /></span>
-        </div>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="search-bar">
+<div class="input-group mb-3" id="input-prod">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><img src="~/Content/Imagens/search.svg" alt="Search" class="search-img" /></span>
     </div>
+    @using (Html.BeginForm("SearchProduct", "Home", FormMethod.Post, new { @class = "form-none" }))
+    {
+        @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "form-control" })
+    }
+</div>
 
-    <div class="card-grid">
-        <div class="icon-photo" id="small-card">
-            <div class="info">
-                <img src="~/Content/Imagens/Osso.jpg" alt="Osso" class="avatar-img" />
-                <p id="title-prod">Osso</p>
-                <p id="marc-prod">Bonapet</p>
-                <p id="desc-prod">Osso Bonapet Natural Fêmur para Cães 1 Unidade</p>
-                <p id="tp-prod">Petisco</p>
-                <p id="price-prod">R$12,59</p>
-                <p id="quant-prod">Quant: 12</p>
-                <p id="min-prod">Min: 5</p>
-            </div>
-            <button class="sub-button" type="submit">
-                Deletar
-                <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
-            </button>
-        </div>
-        <div class="icon-photo" id="small-card">
-            <div class="info">
-                <img src="~/Content/Imagens/Osso.jpg" alt="Osso" class="avatar-img" />
-                <p id="title-prod">Osso</p>
-                <p id="marc-prod">Bonapet</p>
-                <p id="desc-prod">Osso Bonapet Natural Fêmur para Cães 1 Unidade</p>
-                <p id="tp-prod">Petisco</p>
-                <p id="price-prod">R$12,59</p>
-                <p id="quant-prod">Quant: 12</p>
-                <p id="min-prod">Min: 5</p>
-            </div>
-            <button class="sub-button" type="submit">
-                Deletar
-                <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
-            </button>
-        </div>
-        <div class="icon-photo" id="small-card">
-            <div class="info">
-                <img src="~/Content/Imagens/Osso.jpg" alt="Osso" class="avatar-img" />
-                <p id="title-prod">Osso</p>
-                <p id="marc-prod">Bonapet</p>
-                <p id="desc-prod">Osso Bonapet Natural Fêmur para Cães 1 Unidade</p>
-                <p id="tp-prod">Petisco</p>
-                <p id="price-prod">R$12,59</p>
-                <p id="quant-prod">Quant: 12</p>
-                <p id="min-prod">Min: 5</p>
-            </div>
-            <button class="sub-button" type="submit">
-                Deletar
-                <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
-            </button>
-        </div>
-        <div class="icon-photo" id="small-card">
-            <div class="info">
-                <img src="~/Content/Imagens/Osso.jpg" alt="Osso" class="avatar-img" />
-                <p id="title-prod">Osso</p>
-                <p id="marc-prod">Bonapet</p>
-                <p id="desc-prod">Osso Bonapet Natural Fêmur para Cães 1 Unidade</p>
-                <p id="tp-prod">Petisco</p>
-                <p id="price-prod">R$12,59</p>
-                <p id="quant-prod">Quant: 12</p>
-                <p id="min-prod">Min: 5</p>
-            </div>
-            <button class="sub-button" type="submit">
-                Deletar
-                <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
-            </button>
-        </div>
-    </div> 
+<div class="card-grid">
+    @{if (IDs != null & NameList != null & QuantList != null)
+        {
+            for (int i = 0; i < IDs.Count; i++)
+            {
+                <div class="icon-photo" id="small-card">
+                    <div class="info">
+                        <img src=@Images[i] alt="Osso" class="avatar-img" />
+                        <p id="title-prod">@NameList[i]</p>
+                        <p id="marc-prod">@Brands[i]</p>
+                        <p id="desc-prod">@Desc[i]</p>
+                        <p id="tp-prod">@CategoryNames[i]</p>
+                        <p id="price-prod">R$ @PriceList[i]</p>
+                        <p id="quant-prod">Quantidade: @QuantList[i]</p>
+                        <p id="min-prod">Qtd Min: @QuantMinList[i]</p>
+                    </div>
+                    <button class="sub-button" type="submit">
+                        Deletar
+                        <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
+                    </button>
+                </div>
+            }
+        }
+        else
+        {
+            for (int j = 0; j < AllIDs.Count; j++)
+            {
+                <div class="icon-photo" id="small-card">
+                    <div class="info">
+                        <img src=@AllImages[j] alt="Osso" class="avatar-img" />
+                        <p id="title-prod">@AllNameList[j]</p>
+                        <p id="marc-prod">@AllBrands[j]</p>
+                        <p id="desc-prod">@AllDesc[j]</p>
+                        <p id="tp-prod">@AllCategoryNames[j]</p>
+                        <p id="price-prod">R$ @AllPriceList[j]</p>
+                        <p id="quant-prod">Quantidade: @AllQuantList[j]</p>
+                        <p id="min-prod">Qtd Min: @AllQuantMinList[j]</p>
+                    </div>
+                    <button class="sub-button" type="submit">
+                        Deletar
+                        <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
+                    </button>
+                </div>
+            }
+        }
+    }
+
+
+</div> 
