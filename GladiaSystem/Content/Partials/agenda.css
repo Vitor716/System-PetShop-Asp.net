@@ -132,6 +132,11 @@
     background: var(--border-color);
 }
 
+#a-agenda {
+    display: flex
+}
+
+
 @media (min-width: 580px) {
     .agenda{
         width: auto;
