@@ -193,6 +193,7 @@ textarea :focus{
     display: none;
 }
 
+
 @media (min-width: 1297px) {
     .page-content {
         max-width: 80%;

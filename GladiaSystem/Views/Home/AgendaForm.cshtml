@@ -1,0 +1,61 @@
+﻿@model GladiaSystem.Models.Agenda
+@{
+    ViewBag.Title = "AgendaForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("CreateAgenda", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Dados do Agendamento</legend>
+        <hr class="form-hr" />
+        @if (TempData.ContainsKey("Error"))
+        {
+            <div>
+                <p class="error-red"><strong>Erro:</strong> @TempData["Error"].ToString()</p>
+            </div>
+        }
+        @if (TempData.ContainsKey("Success"))
+        {
+            <div>
+                <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
+            </div>
+        }
+
+        <div class="input-block">
+            <label for="client">Nome do Cliente</label>
+            @Html.EditorFor(model => model.ClientName)
+            @Html.ValidationMessageFor(m => m.ClientName, "", new { @class = "error-red" })
+        </div>
+        <div class="input-block">
+            <label for="pet">Nome do Pet</label>
+            @Html.EditorFor(model => model.Pet)
+            @Html.ValidationMessageFor(m => m.Pet, "", new { @class = "error-red" })
+        </div>
+
+
+        <div class="input-block">
+            <label for="day">Descrição</label>
+            @Html.EditorFor(model => model.DescAgenda)
+            @Html.ValidationMessageFor(m => m.DescAgenda, "", new { @class = "error-red" })
+        </div>
+
+        <div class="input-block">
+            <label for="day">Dia</label>
+            @Html.EditorFor(model => model.Day)
+            @Html.ValidationMessageFor(m => m.Day, "", new { @class = "error-red" })
+        </div>
+
+        <div class="input-block">
+            <label for="pet">Hora do agendamento</label>
+            @Html.EditorFor(model => model.Hour)
+            @Html.ValidationMessageFor(m => m.Hour, "", new { @class = "error-red" })
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" id="btn-cancel-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" id="btn-create-modal" class="btn btn-primary">Criar</button>
+        </div>
+
+    </fieldset>
+}

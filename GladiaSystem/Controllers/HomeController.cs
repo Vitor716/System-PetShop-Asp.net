@@ -73,11 +73,6 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("Agenda");
         }
 
-        public PartialViewResult CreateAgenda()
-        {
-            return PartialView();
-        }
-
         [HttpPost]
         public ActionResult CreateAgenda(Agenda agenda)
         {
@@ -467,6 +462,11 @@ namespace GladiaSystem.Controllers
             ViewBag.Images = Images;
 
             return View("ProductList");
+        }
+
+        public ActionResult AgendaForm()
+        {
+            return View();
         }
     }
 }
