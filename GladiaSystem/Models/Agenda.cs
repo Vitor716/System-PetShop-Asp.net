@@ -12,9 +12,6 @@ namespace GladiaSystem.Models
         [Required(ErrorMessage = "O campo nome do cliente é obrigatório")]
         public string ClientName { get; set; }
 
-        [Required(ErrorMessage = "O campo pet é obrigatório")]
-        public string Pet { get; set; }
-
         [Display(Name = "Descrição")]
         [Required(ErrorMessage = "O campo descrição é obrigatório")]
         public string DescAgenda { get; set; }
@@ -29,6 +26,14 @@ namespace GladiaSystem.Models
         [DataType(DataType.Time)]
         public DateTime Hour { get; set; }
 
+        [Display(Name = "Pet")]
+        public Pet PetAgenda { get; set; }
 
+        public Agenda()
+        {
+            PetAgenda = new Pet();
+        }
+
+        public string ShowName { get; set; }
     }
 }

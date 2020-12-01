@@ -358,6 +358,7 @@
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Home\ProductList.cshtml" />
     <Content Include="Views\Home\AgendaForm.cshtml" />
+    <Content Include="Views\Home\ShowPets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

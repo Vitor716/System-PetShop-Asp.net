@@ -14,8 +14,16 @@
         </div>
         @using (Html.BeginForm("ChangePhotoPassword", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "border-less" }))
         {
-            <label for="files" class="sub-button">Alterar foto <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" /></label>
-            <input id="files" type="file" name="imgFile" alt="Enviar" style="visibility: hidden;" required>
+
+            <div class="textarea-block-min">
+                <div class="up-img">
+                    <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" />
+
+                    <label for="files" class="btn">Envie sua foto</label>
+                    <input id="files" type="file" name="imgFile" alt="Enviar" style="visibility: hidden;" required>
+                </div>
+            </div>
+            <button class="sub-button" type="submit">Cadastrar</button>
             @section Scripts{
                 @Scripts.Render("~/bundles/jqueryval");
             }

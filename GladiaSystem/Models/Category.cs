@@ -15,6 +15,5 @@ namespace GladiaSystem.Models
         [Required(ErrorMessage = "O Nome é obrigatório!")]
         public string name { get; set; }
 
-
     }
 }

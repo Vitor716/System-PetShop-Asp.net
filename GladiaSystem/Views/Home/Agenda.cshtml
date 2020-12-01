@@ -25,7 +25,7 @@
             @Html.DisplayNameFor(model => model.DescAgenda)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Pet)
+            @Html.DisplayNameFor(model => model.Pet.PetAgenda)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Day)
@@ -39,13 +39,14 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ClientName)
+                    <p class="overflow">@Html.DisplayFor(modelItem => item.ClientName)</p> 
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DescAgenda)
+                    <p class="overflow"> @Html.DisplayFor(modelItem => item.DescAgenda)</p>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Pet)
+                    <p class="overflow"> @Html.DisplayFor(modelItem => item.ShowName) </p>
+               
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Day)
@@ -56,6 +57,9 @@
                 <td>
                     <a href='@Url.Action("DeleteAgenda", "Home", new { codAgenda = item.ID })'>
                         <img src='~/Content/Imagens/delete.svg' />
+                    </a>
+                    <a href='@Url.Action("ShowPets", "Home", new { petName = item.ShowName })'>
+                        <img src='~/Content/Imagens/external-link.svg' />
                     </a>
                 </td>
             </tr>
