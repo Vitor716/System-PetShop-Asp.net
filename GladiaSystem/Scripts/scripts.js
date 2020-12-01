@@ -38,7 +38,9 @@ function drawTitleSubtitle() {
     var materialOptions = {
         chart: {
             title: 'Percentual de cada porte',
-            subtitle: ''
+            subtitle: '',
+            width: 600,
+            height: 400,
         },
         hAxis: {
             title: 'Total Population',
