@@ -32,10 +32,10 @@ textarea {
     height: 100px;
 }
 
-    input,
-    textarea :focus {
-        outline: none;
-    }
+input,
+textarea :focus {
+    outline: none;
+}
 
 
 .select-block label,
@@ -83,6 +83,11 @@ form {
     font: 700 2.4rem Mulish;
     margin-left: auto;
     margin-right: auto;
+    transition: all 0.2s;
+}
+
+.login-btn:hover {
+    background-color: var(--arrow-hover-button-color);
 }
 
 #photo {

@@ -12,7 +12,6 @@
 .firt-graph {
     margin-top: 3vh;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
     background: transparent;
     height: 35vh;
     grid-area: a;
@@ -21,7 +20,6 @@
 .second-graph {
     margin-top: 3vh;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
     background: transparent;
     height: 35vh;
     grid-area: b;
@@ -30,7 +28,6 @@
 .third-graph {
     margin-top: 3vh;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
     background: transparent;
     height: 35vh;
     grid-area: c;
@@ -41,7 +38,6 @@
     justify-content: center;
     margin-top: 3vh;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
     background: transparent;
     height: 35vh;
     grid-area: d;
@@ -68,6 +64,11 @@
     display: flex;
     justify-content: center;
 }
+
+.product-submit:hover{
+    background-color: var(--arrow-hover-button-color);
+}
+
 
 .img-arrow {
     width: 30px;

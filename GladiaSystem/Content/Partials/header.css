@@ -25,6 +25,7 @@ header #personName {
     margin-right: -10%;
     font-size: 1.4rem;
     font-weight: 600;
+    color: var(--primary-text-color);
 }
 
 header .avatar-picture{

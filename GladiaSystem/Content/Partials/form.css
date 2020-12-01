@@ -142,6 +142,10 @@ textarea :focus{
 
 }
 
+#up-photo:hover {
+    animation: slide-top 1s ease both;
+}
+
 #up-img-tiny {
     height: 0%;
     padding: 9%;
@@ -203,6 +207,18 @@ textarea :focus{
     font: 400 2.1rem Mulish;
     color: var(--tertiary-text-color);
 }
+
+@keyframes slide-top {
+    from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    to {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+}
+
 
 @media (min-width: 1297px) {
     .page-content {
