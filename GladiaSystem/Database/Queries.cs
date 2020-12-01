@@ -264,9 +264,9 @@ namespace GladiaSystem.Database
             DateTime actualTime = DateTime.Now;
             if (actualTime < agenda.Day)
             {
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_date`, `agenda_cli`, `agenda_pet`, `agenda_hour`, `agenda_desc`) VALUES (@day, @nameCli, @pet, @hour, @desc);", con.ConnectionDB());
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_date`, `agenda_cli`, `agenda_hour`, `agenda_desc`, `fk_pet_id`) VALUES (@day, @nameCli, @hour, @desc, @petID);", con.ConnectionDB());
                 cmd.Parameters.Add("@nameCli", MySqlDbType.VarChar).Value = agenda.ClientName;
-                cmd.Parameters.Add("@pet", MySqlDbType.VarChar).Value = agenda.Pet;
+                cmd.Parameters.Add("@petID", MySqlDbType.VarChar).Value = agenda.PetAgenda.ID;
                 cmd.Parameters.Add("@day", MySqlDbType.VarChar).Value = agenda.Day;
                 cmd.Parameters.Add("@hour", MySqlDbType.VarChar).Value = agenda.Hour;
                 cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = agenda.DescAgenda;
@@ -274,8 +274,6 @@ namespace GladiaSystem.Database
                 cmd.ExecuteNonQuery();
                 con.DisconnectDB();
             }
-
-
         }
 
         public void DeleteAccount(string deleteID)
@@ -316,6 +314,40 @@ namespace GladiaSystem.Database
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
+        }
+
+        public Pet GetPet(string petName)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT pet_name, pet_owner, pet_tell, pet_size, pet_desc FROM db_asp.tbl_pet; ", con.ConnectionDB());
+            cmd.Parameters.Add("@itemName", MySqlDbType.VarChar).Value = petName;
+
+            MySqlDataReader reader;
+
+
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Pet dto = new Pet();
+                    {
+                        dto.Name = Convert.ToString(reader[0]);
+                        dto.Owner = Convert.ToString(reader[1]);
+                        dto.Tel = Convert.ToString(reader[2]);
+                        dto.Size = Convert.ToString(reader[3]);
+                        dto.Desc = Convert.ToString(reader[4]);
+
+                        return dto;
+                    }
+                }
+            }
+            else
+            {
+                //return null;
+            }
+            reader.Close();
+            Pet a = new Pet();
+            return a;
         }
 
         public Product GetProduct(string productName)
@@ -418,9 +450,39 @@ namespace GladiaSystem.Database
             return AllCategory;
         }
 
+        // aki nklsdjfaklsdfjlaksçdjflasdkjfkçlasdjflçaksdjflçaksdjfdçklsjfasdlpkf
+
+        public List<Pet> ListPet()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT pet_name,pet_id FROM db_asp.tbl_pet;", con.ConnectionDB());
+            var categoryPet = cmd.ExecuteReader();
+            return ListAllPet(categoryPet);
+        }
+
+        private List<Pet> ListAllPet(MySqlDataReader categoryPet)
+        {
+            var AllPet = new List<Pet>();
+
+            while (categoryPet.Read())
+            {
+                var tempPet = new Pet()
+                {
+                    Name = categoryPet["pet_name"].ToString(),
+                    ID = int.Parse(categoryPet["pet_id"].ToString()),
+                };
+                AllPet.Add(tempPet);
+            }
+            categoryPet.Close();
+            return AllPet;
+        }
+
+
+
+        // aki não aklsfjaklsdjfçlasdjflaksdjfçalsdfjaçsldfjaslçdkfjsdçlfjasdlçfkjasdlfkjds
+
         public List<Agenda> ListAgenda()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT left(agenda_date,10) as agenda_date,agenda_id,agenda_cli,agenda_pet,right(agenda_hour,8) as agenda_hour,agenda_desc FROM db_asp.tbl_agenda;", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("SELECT left(agenda_date,10) as agenda_date,agenda_id, tbl_pet.pet_name, agenda_cli,right(agenda_hour,8) as agenda_hour,agenda_desc FROM db_asp.tbl_agenda join tbl_pet where tbl_pet.pet_id = fk_pet_id ;", con.ConnectionDB());
             var DadosAlunos = cmd.ExecuteReader();
             return ListAllAgenda(DadosAlunos);
         }
@@ -434,7 +496,7 @@ namespace GladiaSystem.Database
                 {
                     ID = int.Parse(dt["agenda_id"].ToString()),
                     ClientName = dt["agenda_cli"].ToString(),
-                    Pet = dt["agenda_pet"].ToString(),
+                    ShowName = dt["pet_name"].ToString(),
                     Day = DateTime.Parse(dt["agenda_date"].ToString()),
                     Hour = DateTime.Parse(dt["agenda_hour"].ToString()),
                     DescAgenda = dt["agenda_desc"].ToString(),

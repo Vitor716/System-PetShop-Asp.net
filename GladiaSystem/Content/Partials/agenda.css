@@ -3,8 +3,12 @@
     flex-direction: column;
     margin-bottom: 0;
 }
+
+
 #tableBorder {
     font: 500 1.4rem Mulish;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
 }
 
 .table {
@@ -12,6 +16,15 @@
     border: 1px;
     border-color: var(--border-color);
 }
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
 .create {
     background-color: white;
     border: 1px solid var(--border-color);
@@ -23,6 +36,18 @@
     display: flex;
     align-items: center;
     transition: background 0.2s;
+}
+.overflow {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .create:hover {

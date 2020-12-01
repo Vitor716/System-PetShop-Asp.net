@@ -13,6 +13,12 @@
     margin-bottom: 5%;
 }
 
+.input-block-dark {
+    margin-bottom: 5%;
+    font: 700 3rem Mulish;
+    color: var(--primary-text-color);
+}
+
 form {
     background-color: white;
     border: 1px solid var(--border-color);
@@ -193,6 +199,10 @@ textarea :focus{
     display: none;
 }
 
+.sub-name{
+    font: 400 2.1rem Mulish;
+    color: var(--tertiary-text-color);
+}
 
 @media (min-width: 1297px) {
     .page-content {

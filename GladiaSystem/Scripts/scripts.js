@@ -22,6 +22,37 @@ function formatNumber(n) {
     return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
+google.charts.load('current', { packages: ['corechart', 'bar'] });
+google.charts.setOnLoadCallback(drawTitleSubtitle);
+
+function drawTitleSubtitle() {
+
+
+    var data = google.visualization.arrayToDataTable([
+        ['', '', { role: 'style' }],
+        ['Pequeno', 7.94, '#b87333'],            // RGB value
+        ['Médio', 10.49, 'silver'],
+        ['Grande', 11.49, 'silver'],    // English color name
+    ]);
+
+    var materialOptions = {
+        chart: {
+            title: 'Percentual de cada porte',
+            subtitle: ''
+        },
+        hAxis: {
+            title: 'Total Population',
+            minValue: 0,
+        },
+        vAxis: {
+            title: 'City'
+        },
+        bars: 'horizontal'
+    };
+
+    var materialChart = new google.charts.Bar(document.getElementById('firt-graph'));
+    materialChart.draw(data, materialOptions);
+}
 
 function formatCurrency(input, blur) {
     // appends $ to value, validates decimal side

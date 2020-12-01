@@ -62,8 +62,7 @@ namespace GladiaSystem.Controllers
         {
             var ShowAgenda = new Queries();
             ViewBag.AllAgenda = ShowAgenda.ListAgenda();
-            BigAgenda bigAgenda = new BigAgenda();
-            return View(bigAgenda);
+            return View("Agenda");
         }
 
         public ActionResult DeleteAgenda(int codAgenda)
@@ -76,17 +75,18 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult CreateAgenda(Agenda agenda)
         {
-            bool agendaValid = ModelState.IsValid && (DateTime.Now < agenda.Day);
+            bool agendaValid = (DateTime.Now < agenda.Day);
             if ( agendaValid )
             {
                 queries.RegisterAgenda(agenda);
                 TempData["Success"] = "Agendamento feito! 😄";
+                return RedirectToAction("Agenda");
             }
             else
             {
                 TempData["Error"] = "Opss, algo deu errado 😢";
+                return RedirectToAction("AgendaForm");
             }
-            return RedirectToAction("Agenda");
         }
 
         public ActionResult POS()
@@ -197,7 +197,6 @@ namespace GladiaSystem.Controllers
             Product product = new Product();
 
             ViewBag.ListCategory = queries.ListCategory();
-
             return View(product);
         }
 
@@ -466,7 +465,16 @@ namespace GladiaSystem.Controllers
 
         public ActionResult AgendaForm()
         {
-            return View();
+            Agenda agendaForm = new Agenda();
+            ViewBag.ListPet = queries.ListPet();
+            return View(agendaForm);
+
+        }
+        public ActionResult ShowPets(string petName)
+        {
+            Pet pet = new Pet();
+            pet = queries.GetPet(petName);
+            return View(pet);
         }
     }
 }

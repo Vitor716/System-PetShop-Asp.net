@@ -8,10 +8,14 @@ namespace GladiaSystem.Models
 {
     public class Pet
     {
+        public int ID { get; set; }
+
         [Required(ErrorMessage = "O campo nome do pet é obrigatório")]
+        [Display(Name = "Nome do pet")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "O campo nome do dono é obrigatório")]
+        [Display(Name = "Nome do dono")]
         public string Owner { get; set; }
 
         [Display(Name = "Celular (xx xxxx-xxxx)")]
@@ -19,9 +23,12 @@ namespace GladiaSystem.Models
         public string Tel { get; set; }
 
         [Required(ErrorMessage = "O campo tamanho é obrigatório")]
+        [Display(Name = "Tamanho do pet")]
         public string Size { get; set; }
 
         [Required(ErrorMessage = "O campo descrição é obrigatório")]
+        [Display(Name = "Descrição do pet")]
         public string Desc { get; set; }
+
     }
 }

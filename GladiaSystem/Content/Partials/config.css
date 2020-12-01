@@ -6,6 +6,16 @@
    
 }
 
+.textarea-block-min .up-img {
+    border: 1px dashed var(--border-dotted-color);
+    padding: 19%;
+    height: 13rem;
+    resize: none;
+    border-radius: 8px;
+    background-color: var(--send-img);
+}
+
+
 .change-photo {
     background-color: red;
     height: 100%;
