@@ -266,7 +266,7 @@ namespace GladiaSystem.Database
             {
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_date`, `agenda_cli`, `agenda_hour`, `agenda_desc`, `fk_pet_id`) VALUES (@day, @nameCli, @hour, @desc, @petID);", con.ConnectionDB());
                 cmd.Parameters.Add("@nameCli", MySqlDbType.VarChar).Value = agenda.ClientName;
-                cmd.Parameters.Add("@petID", MySqlDbType.VarChar).Value = agenda.PetAgenda.ID;
+                cmd.Parameters.Add("@petID", MySqlDbType.VarChar).Value = agenda.Pet.ID;
                 cmd.Parameters.Add("@day", MySqlDbType.VarChar).Value = agenda.Day;
                 cmd.Parameters.Add("@hour", MySqlDbType.VarChar).Value = agenda.Hour;
                 cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = agenda.DescAgenda;
@@ -379,9 +379,9 @@ namespace GladiaSystem.Database
                         dto.Name = Convert.ToString(reader[1]);
                         dto.Desc = Convert.ToString(reader[2]);
                         dto.Brand = Convert.ToString(reader[3]);
-                        dto.Price = Convert.ToString(reader[4]);
-                        dto.Quant = Convert.ToString(reader[5]);
-                        dto.QuantMin = Convert.ToString(reader[7]);
+                        dto.Price = Convert.ToInt32(reader[4]);
+                        dto.Quant = Convert.ToInt32(reader[5]);
+                        dto.QuantMin = Convert.ToInt32(reader[6]);
                         dto.Category.name = Convert.ToString(reader[9]);
                         dto.img = Convert.ToString(reader[10]);
                         return dto;
@@ -417,9 +417,9 @@ namespace GladiaSystem.Database
                         dto.Name = Convert.ToString(reader[1]);
                         dto.Desc = Convert.ToString(reader[2]);
                         dto.Brand = Convert.ToString(reader[3]);
-                        dto.Price = Convert.ToString(reader[4]);
-                        dto.Quant = Convert.ToString(reader[5]);
-                        dto.QuantMin = Convert.ToString(reader[7]);
+                        dto.Price = Convert.ToInt32(reader[4]);
+                        dto.Quant = Convert.ToInt32(reader[5]);
+                        dto.QuantMin = Convert.ToInt32(reader[6]);
                         dto.Category.name = Convert.ToString(reader[9]);
                         dto.img = Convert.ToString(reader[10]);
                         return dto;

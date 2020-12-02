@@ -6,8 +6,9 @@
 
     List<int> IDs = ViewBag.IDs;
     List<string> NameList = ViewBag.Name;
-    List<string> PriceList = ViewBag.Price;
-    List<string> QuantList = ViewBag.Quant;
+    List<int> PriceList = ViewBag.Price;
+    List<int> QuantList = ViewBag.Quant;
+
 
 }
 @Styles.Render("~/Content/css")
@@ -49,14 +50,31 @@
     <div class="container">
         @using (Html.BeginForm("ProductGet", "Home", FormMethod.Post, new { @class = "form-none" }))
         {
-            <div class="input-container">
-                @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "input-add" })
-                <img src="~/Content/Imagens/barcode.svg" class="bar-code" alt="delete" />
-            </div>
+        <div class="input-container">
+            @Html.EditorFor(m => m.QuantOrder)
+            @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "input-add" })
+            <button type="submit" style="border: 0; background: transparent">
+              <img src="~/Content/Imagens/barcode.svg" class="bar-code" alt="delete" />
+            </button>
+        </div>
         }
         <div class="info-container">
             <div class="container-payment">
                 <p class="info-text">Informações da compra </p>
+                @{
+                    int price = 0;
+                    int totalPrice = 0;
+                    
+                    int quant = 0;
+                    if (ViewBag.QuantOrder == null)
+                    {
+                        quant = 0;
+                    }
+                    else
+                    {
+                        quant = ViewBag.QuantOrder;
+                    }
+                }
                 @{if (IDs != null & NameList != null & QuantList != null)
                     {
                         for (int i = 0; i < IDs.Count; i++)
@@ -70,16 +88,19 @@
                                 <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
                             </div>
                             <hr class="divide" />
-                            @*@QuantList[i]*@
+
+                            totalPrice += PriceList[i] * quant;
+                            price = totalPrice;
                         }
                     }
                 }
             </div>
             <div class="container-payment values">
                 <p class="tot-pay">Total a pagar: </p>
-                <p class="tot-pay">R$ 50,00</p>
+                <p class="tot-pay">R$ @totalPrice</p>
+
             </div>
-            <button class="next-button" type="submit"><a href="@Url.Action("Payment", "Home")">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
+            <button class="next-button" type="submit"><a href="@Url.Action("Payment", "Home", new { price = price})">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
         </div>
     </div>
 </main>

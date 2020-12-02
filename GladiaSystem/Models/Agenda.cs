@@ -27,11 +27,11 @@ namespace GladiaSystem.Models
         public DateTime Hour { get; set; }
 
         [Display(Name = "Pet")]
-        public Pet PetAgenda { get; set; }
+        public Pet Pet { get; set; }
 
         public Agenda()
         {
-            PetAgenda = new Pet();
+            Pet = new Pet();
         }
 
         public string ShowName { get; set; }
