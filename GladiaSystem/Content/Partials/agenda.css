@@ -26,16 +26,12 @@ table tr:last-child td:last-child {
 }
 
 .create {
-    background-color: white;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    width: 30vw;
-    height: 100%;
-    margin-top: 10%;
-    margin-left: 2.5vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    transition: background 0.2s;
+    align-content: flex-start;
+    width: auto;
+    margin-left: 0%;
 }
 .overflow {
     width: 200px;
@@ -51,24 +47,80 @@ table tr:last-child td:last-child {
 }
 
 .create:hover {
-    background-color: var(--border-color);
     cursor: pointer;
 }
 
 .create:active {
-    background-color: var(--button-color);
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+
 }
 
 #plus {
-    margin-right: 10px;
+    margin-right: 14px;
     cursor: pointer;
+    z-index: 1;
+    margin-left: -4px;
+}
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all .2s ease;
+}
+
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: var(--create-button-color);
+    width: 56px;
+    height: 56px;
+    transition: all .3s ease;
+}
+
+.cta span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #111;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all .3s ease;
+}
+
+.cta:hover:before {
+    width: 100%;
+    background: var(--create-button-color);
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active {
+  transform: scale(0.96);
 }
 
 #create-text {
-    font-size: 2rem;
+    font-size: 1.6rem;
     cursor: pointer;
+    margin-bottom: 4px;
 }
 
 .modal-content {
@@ -176,12 +228,9 @@ table tr:last-child td:last-child {
     }
 }
 @media (min-width: 1297px) {
-    .create {
-        margin-top: 0;
+
+    #create-button{
         margin-left: 0;
-        margin-bottom: 30px;
-        width: 12%;
-        padding: 10px;
     }
 
     .modal-content {

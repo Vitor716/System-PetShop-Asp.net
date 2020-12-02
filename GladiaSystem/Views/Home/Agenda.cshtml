@@ -5,9 +5,9 @@
 
 } 
 @Styles.Render("~/Content/agenda.css")
-<div class="create">
+<div id="create-button" class="create cta">
+    <img src="~/Content/Imagens/plus.png" id="plus">
     <a id="a-agenda" href="@Url.Action("AgendaForm", "Home")">
-        <img src="~/Content/Imagens/plus.svg" id="plus">
         <span id="create-text">Criar</span>
     </a>
 </div>

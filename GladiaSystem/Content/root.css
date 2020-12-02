@@ -22,6 +22,7 @@
     --error-text-color: #FF4242;
     --success-text-color: #3CBA39;
     --arrow-hover-button-color: #abb4ecab;
+    --create-button-color: #95cbff;
 }
 * {
     padding: 0;
