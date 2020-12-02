@@ -7,9 +7,9 @@
     List<int> IDs = ViewBag.IDs;
     List<string> NameList = ViewBag.Name;
     List<string> Desc = ViewBag.Desc;
-    List<string> PriceList = ViewBag.Price;
-    List<string> QuantList = ViewBag.Quant;
-    List<string> QuantMinList = ViewBag.QuantMin;
+    List<int> PriceList = ViewBag.Price;
+    List<int> QuantList = ViewBag.Quant;
+    List<int> QuantMinList = ViewBag.QuantMin;
     List<string> Brands = ViewBag.Brand;
     List<string> Images = ViewBag.Images;
     List<string> CategoryNames = ViewBag.CategoryName;
@@ -17,9 +17,9 @@
     List<int> AllIDs = ViewBag.AllIDs;
     List<string> AllNameList = ViewBag.AllName;
     List<string> AllDesc = ViewBag.AllDesc;
-    List<string> AllPriceList = ViewBag.AllPrice;
-    List<string> AllQuantList = ViewBag.AllQuant;
-    List<string> AllQuantMinList = ViewBag.AllQuantMin;
+    List<int> AllPriceList = ViewBag.AllPrice;
+    List<int> AllQuantList = ViewBag.AllQuant;
+    List<int> AllQuantMinList = ViewBag.AllQuantMin;
     List<string> AllBrands = ViewBag.AllBrand;
     List<string> AllImages = ViewBag.AllImages;
     List<string> AllCategoryNames = ViewBag.AllCategoryName;
@@ -43,16 +43,24 @@
             for (int i = 0; i < IDs.Count; i++)
             {
         <div class="icon-photo" id="small-card">
-            <div class="info">
-                <img src=@Images[i] alt="Osso" class="avatar-img" />
-                <p id="title-prod">@NameList[i]</p>
-                <p id="marc-prod">@Brands[i]</p>
-                <p id="desc-prod">@Desc[i]</p>
-                <p id="tp-prod">@CategoryNames[i]</p>
-                <p id="price-prod">R$ @PriceList[i]</p>
-                <p id="quant-prod">Quantidade: @QuantList[i]</p>
-                <p id="min-prod">Qtd Min: @QuantMinList[i]</p>
-            </div>
+                <div class="info">
+                    <img src=@Images[i] alt="Osso" class="avatar-img" />
+                    <p id="title-prod">@NameList[i]</p>
+                    <p id="marc-prod">@Brands[i]</p>
+                    <p id="desc-prod">@Desc[i]</p>
+                    <p id="tp-prod">@CategoryNames[i]</p>
+                    <p id="price-prod">R$ @PriceList[i]</p>
+                    <p id="quant-prod">Quantidade: @QuantList[i]</p>
+                    @{if (QuantList[i] <= QuantMinList[i])
+                        {
+                            <p id="min-prod" class="red">Qtd Min: @QuantMinList[i]</p>
+                        }
+                        else
+                        {
+                            <p id="min-prod">Qtd Min: @QuantMinList[i]</p>
+                        }
+                    }
+                </div>
             <a href='@Url.Action("DeleteProduct", "Home", new { productId = IDs[i]})'>
                 <button class="sub-button" type="submit">
                     Deletar
@@ -74,7 +82,15 @@
                         <p id="tp-prod">@AllCategoryNames[j]</p>
                         <p id="price-prod">R$ @AllPriceList[j]</p>
                         <p id="quant-prod">Quantidade: @AllQuantList[j]</p>
-                        <p id="min-prod">Qtd Min: @AllQuantMinList[j]</p>
+                        @{if (AllQuantList[j] <= AllQuantMinList[j])
+                            {
+                                <p id="min-prod" class="red">Qtd Min: @AllQuantMinList[j]</p>
+                            }
+                            else
+                            {
+                                <p id="min-prod" >Qtd Min: @AllQuantMinList[j]</p>
+                            }
+                        }
                     </div>
                     <button class="sub-button" type="submit">
                         <a href='@Url.Action("DeleteProduct", "Home", new { productId = AllIDs[j]})'>

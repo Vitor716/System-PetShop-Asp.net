@@ -212,6 +212,10 @@ textarea :focus{
     color: var(--tertiary-text-color);
 }
 
+.red {
+    color: var(--error-text-color);
+}
+
 @keyframes slide-top {
     from {
         -webkit-transform: translateY(0);

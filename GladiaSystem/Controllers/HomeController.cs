@@ -104,12 +104,14 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult ProductGet(Product product)
         {
+            ViewBag.QuantOrder = product.QuantOrder;
+
             product = queries.GetProduct(product.Name);
 
             List<int> IDs = new List<int>();
             List<string> Name = new List<string>();
-            List<string> Price = new List<string>();
-            List<string> Quant = new List<string>();
+            List<int> Price = new List<int>();
+            List<int> Quant = new List<int>();
 
             IDs.Add(product.ID);
             Name.Add(product.Name);
@@ -377,8 +379,9 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("Login" , "Login");
         }
 
-        public ActionResult Payment()
+        public ActionResult Payment(int Price)
         {
+            ViewBag.Price = Price;
             string session = (string)Session["userID"];
             ViewBag.Img = queries.GetUserImages(session);
             return View();
@@ -399,9 +402,9 @@ namespace GladiaSystem.Controllers
             List<string> Names = new List<string>();
             List<string> Descs = new List<string>();
             List<string> Brands = new List<string>();
-            List<string> Prices = new List<string>();
-            List<string> Quants = new List<string>();
-            List<string> QuantMin = new List<string>();
+            List<int> Prices = new List<int>();
+            List<int> Quants = new List<int>();
+            List<int> QuantMin = new List<int>();
             List<string> CategoryName = new List<string>();
             List<string> Images = new List<string>();
 
@@ -438,9 +441,9 @@ namespace GladiaSystem.Controllers
             List<string> Names = new List<string>();
             List<string> Descs = new List<string>();
             List<string> Brands = new List<string>();
-            List<string> Prices = new List<string>();
-            List<string> Quants = new List<string>();
-            List<string> QuantMin = new List<string>();
+            List<int> Prices = new List<int>();
+            List<int> Quants = new List<int>();
+            List<int> QuantMin = new List<int>();
             List<string> CategoryName = new List<string>();
             List<string> Images = new List<string>();
 

@@ -37,7 +37,10 @@
             <span id="money">Dinheiro</span>
         </div>
         <div class="credit">
-            <span id="credit">Cartão de Crétido</span>
+            <label>
+                <input type="checkbox" value="1" />
+                <span id="credit">Cartão de Crétido</span>
+            </label>
         </div>
         <br />
         <div class="debit">
@@ -48,8 +51,8 @@
         </div>
         <div class="buy-value">
             <span id="buy-value">Valor da compra</span>
-            <span id="sub-value">Subtotal: R$ 50,00</span>
-            <span id="total-value">Valor Pago: R$ 0,00</span>
+            <span id="sub-value">Subtotal: R$ @ViewBag.Price</span>
+            <span id="total-value">Valor Pago: R$ 10,00</span>
         </div>
         <div class="money-change">
             <span id="change">Troco</span>

@@ -25,15 +25,18 @@ namespace GladiaSystem.Models
 
         [Display(Name = "Preço")]
         [Required(ErrorMessage = "O campo preço é obrigatório")]
-        public string Price { get; set; }
+        public int Price { get; set; }
 
         [Display(Name = "Quantidade")]
         [Required(ErrorMessage = "O campo quantidade é obrigatório")]
-        public string Quant { get; set; }
+        public int Quant { get; set; }
+
+        [Required(ErrorMessage = "O campo quantidade é obrigatório")]
+        public int QuantOrder { get; set; }
 
         [Display(Name = "Quantidade minima")]
         [Required(ErrorMessage = "O campo quantidade minima é obrigatório")]
-        public string QuantMin{ get; set; }
+        public int QuantMin{ get; set; }
 
         [Display(Name = "Imagem")]
         public string img { get; set; }
