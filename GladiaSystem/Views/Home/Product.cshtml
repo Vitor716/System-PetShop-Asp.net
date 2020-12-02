@@ -45,9 +45,7 @@
                     @foreach (GladiaSystem.Models.Category item in categories)
                     {
                         <option value="@item.ID"
-                                @if (item.ID == Model.Category.ID)
-                                { 
-                                    @: selected
+                                @if (item.ID == Model.Category.ID) { @: selected
                                 }>
                             @item.name
                         </option>
@@ -103,3 +101,12 @@
     }
 </main>
 
+<script src="~/Scripts/cleave.js"></script>
+<script src="~/Scripts/cleave-phone.br.js"></script>
+<script>
+    var cleaveNumeral = new Cleave('#Price', {
+        numeral: true,
+        prefix: 'R$ ',
+        numeralThousandsGroupStyle: 'thousand'
+    });
+</script>

@@ -67,9 +67,14 @@ namespace GladiaSystem.Controllers
 
         public ActionResult DeleteAgenda(int codAgenda)
         {
-            Console.WriteLine(codAgenda);
             queries.DeleteItemAgenda(codAgenda);
             return RedirectToAction("Agenda");
+        }
+
+        public ActionResult DeleteProduct(int codProduct)
+        {
+            queries.DeleteItemProduct(codProduct);
+            return RedirectToAction("ProductList");
         }
 
         [HttpPost]

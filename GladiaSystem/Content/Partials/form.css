@@ -186,6 +186,10 @@ textarea :focus{
     color: var(--secondary-text-color);
 }
 
+.delete-button {
+    background-color: var(--delete-button-color);
+}
+
 .form-none {
     background: none;
     border: none;

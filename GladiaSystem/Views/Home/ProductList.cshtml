@@ -42,22 +42,23 @@
         {
             for (int i = 0; i < IDs.Count; i++)
             {
-                <div class="icon-photo" id="small-card">
-                    <div class="info">
-                        <img src=@Images[i] alt="Osso" class="avatar-img" />
-                        <p id="title-prod">@NameList[i]</p>
-                        <p id="marc-prod">@Brands[i]</p>
-                        <p id="desc-prod">@Desc[i]</p>
-                        <p id="tp-prod">@CategoryNames[i]</p>
-                        <p id="price-prod">R$ @PriceList[i]</p>
-                        <p id="quant-prod">Quantidade: @QuantList[i]</p>
-                        <p id="min-prod">Qtd Min: @QuantMinList[i]</p>
-                    </div>
-                    <button class="sub-button" type="submit">
-                        Deletar
-                        <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
-                    </button>
-                </div>
+        <div class="icon-photo" id="small-card">
+            <div class="info">
+                <img src=@Images[i] alt="Osso" class="avatar-img" />
+                <p id="title-prod">@NameList[i]</p>
+                <p id="marc-prod">@Brands[i]</p>
+                <p id="desc-prod">@Desc[i]</p>
+                <p id="tp-prod">@CategoryNames[i]</p>
+                <p id="price-prod">R$ @PriceList[i]</p>
+                <p id="quant-prod">Quantidade: @QuantList[i]</p>
+                <p id="min-prod">Qtd Min: @QuantMinList[i]</p>
+            </div>
+            <a href='@Url.Action("DeleteProduct", "Home", new { productId = IDs[i]})'>
+                <button class="sub-button" type="submit">
+                    Deletar
+                </button>
+            </a>
+        </div>
             }
         }
         else
@@ -76,8 +77,9 @@
                         <p id="min-prod">Qtd Min: @AllQuantMinList[j]</p>
                     </div>
                     <button class="sub-button" type="submit">
-                        Deletar
-                        <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
+                        <a href='@Url.Action("DeleteProduct", "Home", new { productId = AllIDs[j]})'>
+                                Deletar
+                        </a>
                     </button>
                 </div>
             }
