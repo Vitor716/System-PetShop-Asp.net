@@ -316,6 +316,15 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
+        public void DeleteItemProduct(int codItem)
+        {
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_product` WHERE (`prod_id` = @codAgenda);", con.ConnectionDB());
+            cmd.Parameters.Add("@codAgenda", MySqlDbType.VarChar).Value = codItem;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
         public Pet GetPet(string petName)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT pet_name, pet_owner, pet_tell, pet_size, pet_desc FROM db_asp.tbl_pet; ", con.ConnectionDB());
