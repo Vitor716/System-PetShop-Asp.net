@@ -33,7 +33,6 @@ table tr:last-child td:last-child {
     margin-left: 0%;
 }
 .overflow {
-    width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -259,6 +258,12 @@ table tr:last-child td:last-child {
 
     #date {
         margin-right: 22%;
+    }
+    .overflow {
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
 }

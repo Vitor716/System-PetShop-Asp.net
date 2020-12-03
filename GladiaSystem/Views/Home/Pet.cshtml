@@ -49,23 +49,27 @@
                 <label for="port">
                     Porte do animal
                 </label>
-                <div class="port-pet">
-                    @{string Pequeno = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Pequeno");}
-                    @Html.RadioButtonFor(model => model.Size, "Pequeno", new { id = Pequeno, name = "size", value = "Pequeno", @class = "label-radial" })
-                    <label for="pequeno">Pequeno</label>
+                <div class="form-check">
+                    <div class="radio-hover">
+                        <label for="pequeno" class="small-text">Pequeno</label>
+                        @{string Pequeno = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Pequeno");}
+                        @Html.RadioButtonFor(model => model.Size, "Pequeno", new { id = Pequeno, name = "size", value = "Pequeno", @class = "label-radial" })
+                    </div>
                 </div>
-                <div class="port-pet">
-                    @{string Medio = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Medio");}
-                    @Html.RadioButtonFor(model => model.Size, "Medio", new { id = Medio, name = "size", value = "Medio", @class = "label-radial" })
-                    <label for="medio">Médio</label>
+                <div class="form-check">
+                    <div class="radio-hover">
+                        <label for="medio" class="medium-text">Médio</label>
+                        @{string Medio = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Medio");}
+                        @Html.RadioButtonFor(model => model.Size, "Medio", new { id = Medio, name = "size", value = "Medio", @class = "label-radial" })
+                    </div>
                 </div>
-                <div class="port-pet">
-                    @{string Grande = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Grande");}
-                    @Html.RadioButtonFor(model => model.Size, "Grande", new { id = Grande, name = "size", value = "Grande", @class = "label-radial" })
-                    <label for="grande">Grande</label>
+                <div class="form-check">
+                    <div class="radio-hover">
+                        <label for="grande" class="bigger-text">Grande</label>
+                        @{string Grande = ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId("Grande");}
+                        @Html.RadioButtonFor(model => model.Size, "Grande", new { id = Grande, name = "size", value = "Grande", @class = "label-radial" })
+                    </div>
                 </div>
-                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "error-red" })
-            </div>
             <div class="input-block">
                 <label id="email-label" for="avatar">
                     Descrição (Opcional)

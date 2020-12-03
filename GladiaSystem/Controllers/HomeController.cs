@@ -77,9 +77,9 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("POS");
         }
 
-        public ActionResult DeleteProduct(int codProduct)
+        public ActionResult ProdDelete(int ProductID)
         {
-            queries.DeleteItemProduct(codProduct);
+            queries.DeleteItemProduct(ProductID);
             return RedirectToAction("ProductList");
         }
 

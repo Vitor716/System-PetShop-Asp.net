@@ -46,7 +46,7 @@
         @using (Html.BeginForm("ProductGet", "Home", FormMethod.Post, new { @class = "form-none" }))
         {
         <div class="input-container">
-            @Html.EditorFor(m => m.QuantOrder)
+            @Html.EditorFor(m => m.QuantOrder, new{ @class="quant-order")
             @Html.TextBoxFor(m => m.Product.Name, new { placeholder = "Digite o nome do produto", @class = "input-add" })
             <button type="submit" style="border: 0; background: transparent">
               <img src="~/Content/Imagens/barcode.svg" class="bar-code" alt="delete" />

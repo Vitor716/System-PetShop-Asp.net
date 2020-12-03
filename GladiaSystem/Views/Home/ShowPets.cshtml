@@ -5,7 +5,6 @@
 
 }
 
-
 <main>
     <form action="/" method="post">
         <fieldset>
@@ -52,7 +51,7 @@
                     @Html.DisplayFor(model => model.Desc)
                 </p>
             </div>
-            
+                @Html.ActionLink("Voltar", "Agenda", "Home", null, new { @class = "sub-button", id="button-pet"})
         </fieldset>
     </form>
 </main>
