@@ -29,6 +29,13 @@
             @using (Html.BeginForm("LoginUser", "Login", FormMethod.Post))
             {
                 @Html.ValidationSummary(true)
+            <fieldset>
+                @if (ViewData["error"] != null)
+                {
+                    <div>
+                        <script>alert('Email e senha não coincidem');</script>
+                    </div>
+                }
                 <div class="input-block">
                     <label for="email">Email</label>
                     @Html.EditorFor(model => model.email)
@@ -44,11 +51,12 @@
                 <button class="login-btn" type="submit">
                     <img src="~/Content/Imagens/arrow.svg" alt="Seta">
                 </button>
+            </fieldset>
             }
 
-                @section Scripts{
-                    @Scripts.Render("~/bundles/jqueryval");
-                }
+            @section Scripts{
+                @Scripts.Render("~/bundles/jqueryval");
+            }
         </div>
 
         <div id="photo">

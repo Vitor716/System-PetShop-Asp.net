@@ -43,7 +43,8 @@ namespace GladiaSystem.Controllers
             }
             else
             {
-                return Redirect("Login");
+                ViewData["error"] = "Error";
+                return View("Login");
             }
         }
 
