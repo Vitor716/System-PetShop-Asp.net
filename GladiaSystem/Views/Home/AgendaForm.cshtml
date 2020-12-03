@@ -22,7 +22,6 @@
                     <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
                 </div>
             }
-
             <div class="input-block">
                 <label for="client">Nome do Cliente</label>
                 @Html.EditorFor(model => model.ClientName)
@@ -35,8 +34,7 @@
                     @foreach (GladiaSystem.Models.Pet item in pets)
                     {
                         <option value="@item.ID"
-                                @if (item.ID == Model.Pet.ID) { 
-                                    @: selected
+                                @if (item.ID == Model.Pet.ID) { @: selected
                                 }>
                             @item.Name
                         </option>

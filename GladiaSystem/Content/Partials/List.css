@@ -71,9 +71,8 @@ p {
     color: var(--primary-text-color);
 }
 
-#min-prod {
+.min-prod {
     font: 700 2.2rem Mulish;
-    color: var(--primary-text-color);
 }
 
 .sub-button {

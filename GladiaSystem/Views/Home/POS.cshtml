@@ -1,15 +1,10 @@
-﻿@model GladiaSystem.Models.Product
+﻿@model GladiaSystem.Models.Pos
 @{
     ViewBag.Title = "POS";
     ViewBag.Selected = "pos";
     Layout = null;
 
-    List<int> IDs = ViewBag.IDs;
-    List<string> NameList = ViewBag.Name;
-    List<int> PriceList = ViewBag.Price;
-    List<int> QuantList = ViewBag.Quant;
-
-
+    List<GladiaSystem.Models.Pos> allPos = ViewBag.AllPos;
 }
 @Styles.Render("~/Content/css")
 @Styles.Render("~/Content/root.css")
@@ -22,11 +17,11 @@
 @Styles.Render("~/Content/Partials/agenda.css")
 @Styles.Render("~/Content/Partials/pos.css")
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-@*@if (Session["access"] == null)
+@if (Session["access"] == null)
 {
     <script>alert('Hacker saia imediatamente')</script>
     <script>window.location.href="localhost/error/"</script>
-}*@
+}
 
 <title>PDV - Dom Tchochoro</title>
 
@@ -52,7 +47,7 @@
         {
         <div class="input-container">
             @Html.EditorFor(m => m.QuantOrder)
-            @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "input-add" })
+            @Html.TextBoxFor(m => m.Product.Name, new { placeholder = "Digite o nome do produto", @class = "input-add" })
             <button type="submit" style="border: 0; background: transparent">
               <img src="~/Content/Imagens/barcode.svg" class="bar-code" alt="delete" />
             </button>
@@ -61,46 +56,33 @@
         <div class="info-container">
             <div class="container-payment">
                 <p class="info-text">Informações da compra </p>
-                @{
-                    int price = 0;
+                @{ 
                     int totalPrice = 0;
-                    
-                    int quant = 0;
-                    if (ViewBag.QuantOrder == null)
-                    {
-                        quant = 0;
-                    }
-                    else
-                    {
-                        quant = ViewBag.QuantOrder;
-                    }
                 }
-                @{if (IDs != null & NameList != null & QuantList != null)
+                @{ foreach(GladiaSystem.Models.Pos item in allPos)
                     {
-                        for (int i = 0; i < IDs.Count; i++)
-                        {
-                            <div class="item-text">
-                                <div class="about-text">
-                                    <p class="opacity-text">@quant X Cod @IDs[i]</p>
-                                    <p class="item-name">@NameList[i]</p>
-                                </div>
-                                <p class="price">R$ @PriceList[i]</p>
-                                <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
+                        <div class="item-text">
+                            <div class="about-text">
+                                <p class="opacity-text">@item.QuantOrder X Cod @item.ProdID</p>
+                                <p class="item-name">@item.ProdName</p>
                             </div>
-                            <hr class="divide" />
-
-                            totalPrice += PriceList[i] * quant;
-                            price = totalPrice;
-                        }
+                            <p class="price">R$ @item.ProdPrice</p>
+                            <a href='@Url.Action("DeletePos", "Home", new { codPos = item.ID})'>
+                                <img src="~/Content/Imagens/dif-delete.svg" class="delete" alt="delete" />
+                            </a>
+                        </div>
+                        <hr class="divide" />
+                        totalPrice += item.ProdPrice * item.QuantOrder;
                     }
                 }
+
             </div>
             <div class="container-payment values">
                 <p class="tot-pay">Total a pagar: </p>
                 <p class="tot-pay">R$ @totalPrice</p>
-
             </div>
-            <button class="next-button" type="submit"><a href="@Url.Action("Payment", "Home", new { price = price})">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
+
+            <button class="next-button" type="submit"><a href="@Url.Action("Payment", "Home", new { price = totalPrice})">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
         </div>
     </div>
 </main>

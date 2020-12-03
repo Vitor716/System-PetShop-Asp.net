@@ -71,6 +71,12 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("Agenda");
         }
 
+        public ActionResult DeletePos(int codPos)
+        {
+            queries.DeletePos(codPos);
+            return RedirectToAction("POS");
+        }
+
         public ActionResult DeleteProduct(int codProduct)
         {
             queries.DeleteItemProduct(codProduct);
@@ -96,37 +102,24 @@ namespace GladiaSystem.Controllers
 
         public ActionResult POS()
         {
+            var ShowPos = new Queries();
             string session = (string)Session["userID"];
             ViewBag.Img = queries.GetUserImages(session);
-            return View();
+            ViewBag.AllPos = ShowPos.ListPos();
+            return View("POS");
         }
 
         [HttpPost]
-        public ActionResult ProductGet(Product product)
+        public ActionResult ProductGet(Pos pos)
         {
-            ViewBag.QuantOrder = product.QuantOrder;
+            ViewBag.QuantOrder = pos.QuantOrder;
 
-            product = queries.GetProduct(product.Name);
-
-            List<int> IDs = new List<int>();
-            List<string> Name = new List<string>();
-            List<int> Price = new List<int>();
-            List<int> Quant = new List<int>();
-
-            IDs.Add(product.ID);
-            Name.Add(product.Name);
-            Price.Add(product.Price);
-            Quant.Add(product.Quant);
-
-            ViewBag.IDs = IDs;
-            ViewBag.Name = Name;
-            ViewBag.Price = Price;
-            ViewBag.Quant = Quant;
+            queries.AddProduct(pos);
 
             string session = (string)Session["userID"];
             ViewBag.Img = queries.GetUserImages(session);
 
-            return View("POS");
+            return RedirectToAction("POS");
         }
 
         public ActionResult Logout()
@@ -397,42 +390,11 @@ namespace GladiaSystem.Controllers
             return View("Receipt");
         }
 
-        public ActionResult ProductList(Product product)
+        public ActionResult ProductList()
         {
-            product = queries.GetAllProduct(product.Name);
-
-            List<int> IDs = new List<int>();
-            List<string> Names = new List<string>();
-            List<string> Descs = new List<string>();
-            List<string> Brands = new List<string>();
-            List<int> Prices = new List<int>();
-            List<int> Quants = new List<int>();
-            List<int> QuantMin = new List<int>();
-            List<string> CategoryName = new List<string>();
-            List<string> Images = new List<string>();
-
-
-            IDs.Add(product.ID);
-            Names.Add(product.Name);
-            Descs.Add(product.Desc);
-            Brands.Add(product.Brand);
-            Prices.Add(product.Price);
-            Quants.Add(product.Quant);
-            QuantMin.Add(product.QuantMin);
-            CategoryName.Add(product.Category.name);
-            Images.Add(product.img);
-
-            ViewBag.AllIDs = IDs;
-            ViewBag.AllName = Names;
-            ViewBag.AllBrand = Brands;
-            ViewBag.AllDesc = Descs;
-            ViewBag.AllPrice = Prices;
-            ViewBag.AllQuant = Quants;
-            ViewBag.AllQuantMin = QuantMin;
-            ViewBag.AllCategoryName = CategoryName;
-            ViewBag.AllImages = Images;
-
-            return View();
+            var ShowProducts = new Queries();
+            ViewBag.AllProduct = ShowProducts.ListProduct();
+            return View("ProductList");
         }
 
         [HttpPost]
