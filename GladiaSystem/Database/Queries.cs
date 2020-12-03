@@ -384,6 +384,7 @@ namespace GladiaSystem.Database
                         dto.QuantMin = Convert.ToInt32(reader[6]);
                         dto.Category.name = Convert.ToString(reader[9]);
                         dto.img = Convert.ToString(reader[10]);
+                        reader.Close();
                         return dto;
                     }
                 }

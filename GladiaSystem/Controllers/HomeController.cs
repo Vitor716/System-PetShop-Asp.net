@@ -123,6 +123,9 @@ namespace GladiaSystem.Controllers
             ViewBag.Price = Price;
             ViewBag.Quant = Quant;
 
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
+
             return View("POS");
         }
 
@@ -391,7 +394,7 @@ namespace GladiaSystem.Controllers
         {
             string session = (string)Session["userID"];
             ViewBag.Img = queries.GetUserImages(session);
-            return View();
+            return View("Receipt");
         }
 
         public ActionResult ProductList(Product product)
@@ -478,11 +481,29 @@ namespace GladiaSystem.Controllers
             return View(agendaForm);
 
         }
+
         public ActionResult ShowPets(string petName)
         {
             Pet pet = new Pet();
             pet = queries.GetPet(petName);
             return View(pet);
+        }
+        
+        public ActionResult OtherPayments(int price)
+        {
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
+            ViewBag.Paid = price;
+            ViewBag.Green = true;
+            return View("Payment");
+        }
+
+        public ActionResult Change(Pos pos)
+        {
+            int totalValue = pos.TotalValue;
+            int valuePaid= pos.Paid;
+            ViewBag.Change = valuePaid - totalValue;
+            return View("Payment");
         }
     }
 }
