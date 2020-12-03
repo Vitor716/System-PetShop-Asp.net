@@ -13,6 +13,11 @@
     margin-bottom: 5%;
 }
 
+.radio-hover {
+    display: flex;
+    align-content: center;
+}
+
 .input-block-dark {
     margin-bottom: 5%;
     font: 700 3rem Mulish;
@@ -24,7 +29,14 @@ form {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 5% 3% 3%;
-    margin: 0px 2%;
+    margin: 0px 2% 0 3%;
+}
+.form-check {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin: 10px;
+    width: 100%;
+    margin-top: 2%;
 }
 
 main {
@@ -147,8 +159,13 @@ textarea :focus{
 }
 
 #up-img-tiny {
-    height: 0%;
-    padding: 9%;
+    display: flex;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
 }
 
 .port-pet {
@@ -162,20 +179,37 @@ textarea :focus{
     margin-bottom: 3%;
 }
 
-#pequeno {
-    width: 20px;
+.small-text {
     margin-top: auto;
     margin-bottom: auto;
-    order: -1;
-    margin-left: 10%;
-    margin-top: -6px;
 }
+
+.medium-text {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.bigger-text {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#pequeno {
+    width: 20px;
+    margin: 0;
+    order: -1;
+}
+
 
 #grande {
     width: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 10%;
+    margin: 0;
+    order: -1;
+}
+
+#medio {
+    width: 20px;
+    margin: 0;
     order: -1;
 }
 

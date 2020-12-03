@@ -34,62 +34,66 @@
         {
             for (int i = 0; i < IDs.Count; i++)
             {
-                <div class="icon-photo" id="small-card">
-                    <div class="info">
-                        <img src=@Images[i] alt="Osso" class="avatar-img" />
-                        <p id="title-prod">@NameList[i]</p>
-                        <p id="marc-prod">@Brands[i]</p>
-                        <p id="desc-prod">@Desc[i]</p>
-                        <p id="tp-prod">@CategoryNames[i]</p>
-                        <p id="price-prod">R$ @PriceList[i]</p>
-                        <p id="quant-prod">Quantidade: @QuantList[i]</p>
-                        @{if (QuantList[i] <= QuantMinList[i])
-                            {
-                                <p class="min-prod" class="red">Qtd Min: @QuantMinList[i]</p>
-                            }
-                            else
-                            {
-                                <p class="min-prod">Qtd Min: @QuantMinList[i]</p>
-                            }
+            <div class="icon-photo" id="small-card">
+                <div class="info">
+                    <img src=@Images[i] alt="Osso" class="avatar-img" />
+                    <p id="title-prod">@NameList[i]</p>
+                    <p id="marc-prod">@Brands[i]</p>
+                    <p id="desc-prod">@Desc[i]</p>
+                    <p id="tp-prod">@CategoryNames[i]</p>
+                    <p id="price-prod">R$ @PriceList[i]</p>
+                    <p id="quant-prod">Quantidade: @QuantList[i]</p>
+                    @{if (QuantList[i] <= QuantMinList[i])
+                        {
+                            <p class="min-prod red">Qtd Min: @QuantMinList[i]</p>
                         }
-                    </div>
-                    <a href='@Url.Action("DeleteProduct", "Home", new { productId = IDs[i]})'>
-                        <button class="sub-button" type="submit">
-                            Deletar
-                        </button>
-                    </a>
+                        else
+                        {
+                            <p class="min-prod">Qtd Min: @QuantMinList[i]</p>
+                        }
+                    }
                 </div>
+         
+
+                <a href='@Url.Action("ProdDelete", "Home", new { @class="sub-button", ProductID = IDs[i] })'>
+                    <button class="sub-button" type="submit">
+                        Deletar
+                    </button>
+                </a>
+            </div>
             }
         }
         else
         {
             foreach (GladiaSystem.Models.Product item in products)
             {
-                <div class="icon-photo" id="small-card">
-                    <div class="info">
-                        <img src="@item.img" alt="Osso" class="avatar-img" />
-                        <p id="title-prod">@item.Name</p>
-                        <p id="marc-prod">@item.Brand</p>
-                        <p id="desc-prod">@item.Desc</p>
-                        <p id="tp-prod">@item.Category.name</p>
-                        <p id="price-prod">R$ @item.Price</p>
-                        <p id="quant-prod">Quant: @item.Quant</p>
-                        @{
-                            if (item.Quant <= item.QuantMin)
-                            {
-                                <p class="red min-prod" >Min: @item.QuantMin</p>
-                            }
-                            else
-                            {
-                                <p class="min-prod">Min: @item.QuantMin</p>
-                            }
+            <div class="icon-photo" id="small-card">
+                <div class="info">
+                    <img src="@item.img" alt="Osso" class="avatar-img" />
+                    <p id="title-prod">@item.Name</p>
+                    <p id="marc-prod">@item.Brand</p>
+                    <p id="desc-prod">@item.Desc</p>
+                    <p id="tp-prod">@item.Category.name</p>
+                    <p id="price-prod">R$ @item.Price</p>
+                    <p id="quant-prod">Quant: @item.Quant</p>
+                    @{
+                        if (item.Quant <= item.QuantMin)
+                        {
+                            <p class="red min-prod">Min: @item.QuantMin</p>
                         }
-                    </div>
+                        else
+                        {
+                            <p class="min-prod">Min: @item.QuantMin</p>
+                        }
+                    }
+                </div>
+
+                <a href='@Url.Action("ProdDelete", "Home", new { @class="sub-button", ProductID = item.ID })'>
                     <button class="sub-button" type="submit">
                         Deletar
-                        <img src="~/Content/Imagens/delete.svg" alt="upload img" class="upload-img" />
                     </button>
-                </div>
+                </a>
+            </div>
             }
         }
     }
