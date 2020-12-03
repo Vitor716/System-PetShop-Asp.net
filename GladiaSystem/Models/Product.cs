@@ -31,9 +31,6 @@ namespace GladiaSystem.Models
         [Required(ErrorMessage = "O campo quantidade é obrigatório")]
         public int Quant { get; set; }
 
-        [Required(ErrorMessage = "O campo quantidade é obrigatório")]
-        public int QuantOrder { get; set; }
-
         [Display(Name = "Quantidade minima")]
         [Required(ErrorMessage = "O campo quantidade minima é obrigatório")]
         public int QuantMin{ get; set; }

@@ -56,6 +56,49 @@ function drawTitleSubtitle() {
     materialChart.draw(data, materialOptions);
 }
 
+google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(pet);
+
+function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['Category', 'Product per category'],
+        ['Comida', 11],
+        ['Limpeza', 2],
+        ['Remédio', 2],
+        ['Brinquedo', 2]
+    ]);
+
+    var options = {
+        title: 'Percentual de Categoria'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('second-graph'));
+
+    chart.draw(data, options);
+}
+
+function pet() {
+    var data = google.visualization.arrayToDataTable([
+        ['Pets', 'Pets per Agenda'],
+        ['Léo', 11],
+        ['Paçoca', 2],
+        ['Mel', 2],
+        ['Belinha', 2],
+        ['Bufos', 7]
+    ]);
+
+    var options = {
+        title: 'Agendamentos por pet',
+        pieHole: 0.4,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('third-graph'));
+    chart.draw(data, options);
+}
+
+
 function formatCurrency(input, blur) {
     // appends $ to value, validates decimal side
     // and puts cursor back in right position.

@@ -316,6 +316,15 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
+        public void DeletePos(int codPos)
+        {
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_pos` WHERE (`pos_id` = @codPos);", con.ConnectionDB());
+            cmd.Parameters.Add("@codPos", MySqlDbType.VarChar).Value = codPos;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
         public void DeleteItemProduct(int codItem)
         {
             MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_product` WHERE (`prod_id` = @codAgenda);", con.ConnectionDB());
@@ -398,11 +407,22 @@ namespace GladiaSystem.Database
             return a;
         }
 
-        public Product GetAllProduct(string productName)
+        public void AddProduct(Pos pos)
         {
-            MySqlCommand cmd = new MySqlCommand("select * from allproduct;", con.ConnectionDB());
-            string name = productName + "%";
-            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_pos` (`pos_quant_order`, `fk_product_id`) VALUES (@quantOrder, @prodId);", con.ConnectionDB());
+            cmd.Parameters.Add("@quantOrder", MySqlDbType.VarChar).Value = pos.QuantOrder;
+
+            cmd.Parameters.Add("@prodId", MySqlDbType.VarChar).Value = getProdId(pos.Product.Name);
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
+        public int getProdId(string name)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT prod_id FROM db_asp.tbl_product WHERE prod_name LIKE @prodName;", con.ConnectionDB());
+            string nameProduct = name + "%";
+            cmd.Parameters.Add("@prodName", MySqlDbType.VarChar).Value = nameProduct;
 
             MySqlDataReader reader;
 
@@ -415,25 +435,14 @@ namespace GladiaSystem.Database
                     Product dto = new Product();
                     {
                         dto.ID = Convert.ToInt32(reader[0]);
-                        dto.Name = Convert.ToString(reader[1]);
-                        dto.Desc = Convert.ToString(reader[2]);
-                        dto.Brand = Convert.ToString(reader[3]);
-                        dto.Price = Convert.ToInt32(reader[4]);
-                        dto.Quant = Convert.ToInt32(reader[5]);
-                        dto.QuantMin = Convert.ToInt32(reader[6]);
-                        dto.Category.name = Convert.ToString(reader[9]);
-                        dto.img = Convert.ToString(reader[10]);
-                        return dto;
+                        int id = dto.ID;
+                        reader.Close();
+                        return id;
                     }
                 }
             }
-            else
-            {
-                //return null;
-            }
             reader.Close();
-            Product a = new Product();
-            return a;
+            return 0;
         }
 
         public List<Category> ListCategory()
@@ -460,11 +469,9 @@ namespace GladiaSystem.Database
             return AllCategory;
         }
 
-        // aki nklsdjfaklsdfjlaksçdjflasdkjfkçlasdjflçaksdjflçaksdjfdçklsjfasdlpkf
-
         public List<Pet> ListPet()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT pet_name,pet_id FROM db_asp.tbl_pet;", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("SELECT pet_name,pet_id,pet_owner FROM db_asp.tbl_pet;", con.ConnectionDB());
             var categoryPet = cmd.ExecuteReader();
             return ListAllPet(categoryPet);
         }
@@ -486,9 +493,60 @@ namespace GladiaSystem.Database
             return AllPet;
         }
 
+        public List<Product> ListProduct()
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from allproduct", con.ConnectionDB());
+            var ProductDatas = cmd.ExecuteReader();
+            return ListAllProduct(ProductDatas);
+        }
 
+        public List<Product> ListAllProduct(MySqlDataReader dt)
+        {
+            var AllProduct = new List<Product>();
+            while (dt.Read())
+            {
+                var ProdTemp = new Product()
+                {
+                    ID = int.Parse(dt["prod_id"].ToString()),
+                    Name = (dt["prod_name"].ToString()),
+                    Desc = (dt["prod_desc"].ToString()),
+                    Price = int.Parse(dt["prod_price"].ToString()),
+                    Quant = int.Parse(dt["prod_quant"].ToString()),
+                    QuantMin = int.Parse(dt["prod_min_quant"].ToString()),
+                    Brand = (dt["prod_brand"].ToString()),
+                    img = (dt["img"].ToString()),
+                };
+                AllProduct.Add(ProdTemp);
+            }
+            dt.Close();
+            return AllProduct;
+        }
 
-        // aki não aklsfjaklsdjfçlasdjflaksdjfçalsdfjaçsldfjaslçdkfjsdçlfjasdlçfkjasdlfkjds
+        public  List<Pos> ListPos()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.pos;", con.ConnectionDB());
+            var PosDatas = cmd.ExecuteReader();
+            return ListAllPos(PosDatas);
+        }
+
+        public List<Pos> ListAllPos(MySqlDataReader dt)
+        {
+            var AllPos = new List<Pos>();
+            while (dt.Read())
+            {
+                var PosTemp = new Pos()
+                {
+                    QuantOrder = int.Parse(dt["pos_quant_order"].ToString()),
+                    ProdID = int.Parse(dt["fk_product_id"].ToString()),
+                    ProdName = dt["prod_name"].ToString(),
+                    ProdPrice = int.Parse(dt["prod_price"].ToString()),
+                    ID = int.Parse(dt["pos_id"].ToString()),
+                };
+                AllPos.Add(PosTemp);
+            }
+            dt.Close();
+            return AllPos;
+        }
 
         public List<Agenda> ListAgenda()
         {
