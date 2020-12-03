@@ -16,7 +16,7 @@
             @if (ViewData["Error"] != null)
             {
                 <div>
-                    <p class="error-red"><strong>Erro:</strong> @ViewData["Error"].ToString()</p>
+                    <p class="error-red"><strong>Erro:</strong> @ViewData["Error"]</p>
                 </div>
             }
             @if (TempData["Success"] != null)

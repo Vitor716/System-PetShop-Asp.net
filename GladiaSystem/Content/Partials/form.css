@@ -248,6 +248,10 @@ textarea :focus{
     #grande {
         margin-top: -6px;
     }
+
+    .form-none {
+        width: 60%;
+    }
 }
 
 @media (max-width: 414px){

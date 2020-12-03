@@ -289,7 +289,12 @@ section {
     border-radius: 8px;
     grid-area: a;
     font: 500 1.8rem Mulish;
+    height: 100%;
     color: var(--primary-text-color);
+}
+
+.money:hover{
+    cursor: pointer;
 }
 
 .credit {
@@ -301,7 +306,12 @@ section {
     border-radius: 8px;
     grid-area: c;
     font: 500 1.8rem Mulish;
+    height: 100%;
     color: var(--primary-text-color);
+}
+
+.credit:hover {
+    cursor: pointer;
 }
 
 .debit {
@@ -313,7 +323,12 @@ section {
     border-radius: 8px;
     grid-area: d;
     font: 500 1.8rem Mulish;
+    height: 100%;
     color: var(--primary-text-color);
+}
+
+.debit:hover{
+    cursor: pointer;
 }
 
 .val {
@@ -325,7 +340,12 @@ section {
     border-radius: 8px;
     grid-area: f;
     font: 500 1.8rem Mulish;
+    height: 100%;
     color: var(--primary-text-color);
+}
+
+.val:hover{
+    cursor:pointer;
 }
 
 .buy-value {
@@ -372,7 +392,6 @@ section {
     grid-area: t;
     justify-self: center;
     font: 500 2rem Mulish;
-    color: var(--primary-text-color);
 }
 
 #change {
@@ -409,7 +428,11 @@ section {
     justify-content: space-between;
 }
 
-#value-input {
+.green {
+    color: var(--chage-texto-color);
+}
+
+#Paid {
     height: 70px;
     width: 40%;
     color: var(--secondary-text-color);
@@ -428,42 +451,14 @@ section {
 
 .credit {
     margin: 4px;
-    background-color: #EFEFEF;
+    background-color: white;
     border-radius: 4px;
-    border: 1px solid #D0D0D0;
-    overflow: auto;
-    float: left;
+    border: 1px solid var(--border-buuton-color-cretid);
+    overflow: hidden;
 }
 
-.credit label {
-    float: left;
-    width: 4.0em;
-}
-
-.credit span {
-    text-align: center;
-    padding: 3px 0px;
-    display: block;
-    border-radius: 4px;
-}
-
-.credit label input {
-    position: absolute;
-    top: -20px;
-}
-
-.credit input:hover + span {
-    background-color: #efE0E0;
-}
-
-.credit input:checked + span {
-    background-color: #911;
-    color: #fff;
-}
-
-.credit input:checked:hover + span {
-    background-color: #c11;
-    color: #fff;
+#btn-verify {
+    height: 100%;
 }
 
 @media (min-width: 1297px) {

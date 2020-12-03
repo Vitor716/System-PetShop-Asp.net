@@ -22,11 +22,11 @@
 @Styles.Render("~/Content/Partials/agenda.css")
 @Styles.Render("~/Content/Partials/pos.css")
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-@if (Session["access"] == null)
+@*@if (Session["access"] == null)
 {
     <script>alert('Hacker saia imediatamente')</script>
     <script>window.location.href="localhost/error/"</script>
-}
+}*@
 
 <title>PDV - Dom Tchochoro</title>
 
@@ -81,7 +81,7 @@
                         {
                             <div class="item-text">
                                 <div class="about-text">
-                                    <p class="opacity-text">1X Cod @IDs[i]</p>
+                                    <p class="opacity-text">@quant X Cod @IDs[i]</p>
                                     <p class="item-name">@NameList[i]</p>
                                 </div>
                                 <p class="price">R$ @PriceList[i]</p>
