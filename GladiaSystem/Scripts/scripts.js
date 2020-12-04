@@ -108,6 +108,7 @@ function shortNumber() {
     return res;
 }
 
+
 function formatCurrency(input, blur) {
     // appends $ to value, validates decimal side
     // and puts cursor back in right position.

@@ -45,9 +45,15 @@
     margin-top: 60%;
 }
 #delete-button {
-    margin-top: 60%;
+    margin-top: 14%;
     background-color: var(--delete-button-color);
 }
+
+#delete-button:hover {
+    background-color: var( --hover-button-color-delete);
+    transition: all 1s;
+}
+
 .sub-button{
     display: flex;
     justify-content: center;
@@ -151,5 +157,8 @@ a::selection{
 
     #att-button {
         margin-top: 38%;
+    }
+    #delete-button{
+        margin-top: 60%;
     }
 }
