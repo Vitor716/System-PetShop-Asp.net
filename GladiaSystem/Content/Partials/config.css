@@ -54,6 +54,12 @@
     padding: 5%;
     margin-top: 10%;
 }
+
+.sub-button:hover{
+    background-color: var(--hover-button-color);
+    transition: all 1s;
+}
+
 .avatar-img {
     max-width: 100%;
     height: auto;

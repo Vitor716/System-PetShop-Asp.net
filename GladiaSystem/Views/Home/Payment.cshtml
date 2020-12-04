@@ -108,7 +108,13 @@
                 }
 
 
-                <button class="btn-final" type="submit"><a href="@Url.Action("Receipt", "Home")">Finalizar</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
+
+                <a href='@Url.Action("Receipt", "Home")'>
+                    <button class="btn-final" type="submit">
+                        Finalizar
+                        <img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" />
+                    </button>
+                </a>
             </div>
         </div>
     </section>
