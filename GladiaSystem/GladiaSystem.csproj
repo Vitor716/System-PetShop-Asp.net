@@ -199,6 +199,7 @@
     <Content Include="Content\fontawesome.css" />
     <Content Include="Content\Imagens\x.svg" />
     <Content Include="Content\Partials\agenda.css" />
+    <Content Include="Content\Partials\animation.css" />
     <Content Include="Content\Partials\config.css" />
     <Content Include="Content\Partials\error.css" />
     <Content Include="Content\Partials\form.css" />

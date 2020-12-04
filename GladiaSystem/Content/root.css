@@ -25,6 +25,7 @@
     --create-button-color: #95cbff;
     --chage-texto-color: #34ce6b;
     --hover-button-color: #B5BFFF;
+    --hover-button-color-delete: #F7B1B1;
 }
 * {
     padding: 0;

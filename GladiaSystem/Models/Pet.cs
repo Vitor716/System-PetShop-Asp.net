@@ -8,6 +8,7 @@ namespace GladiaSystem.Models
 {
     public class Pet
     {
+        [Display(Name = "Pet")]
         public int ID { get; set; }
 
         [Required(ErrorMessage = "O campo nome do pet é obrigatório")]
