@@ -63,11 +63,18 @@
             </div>
             <div class="text-price">
                 <span>Total</span>
-                <span>R$ 260
+                <span>
+                    R$ 260
                 </span>
             </div>
         </div>
-        <button class="finish-button" type="submit"><a href="@Url.Action("POS", "Home")">Pagar pedido</a><img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" /></button>
+
+        <a href='@Url.Action("POS", "Home")'>
+            <button class="finish-button" type="submit">
+                Próximo cliente
+                <img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" />
+            </button>
+        </a>
     </div>
 </main>
 
