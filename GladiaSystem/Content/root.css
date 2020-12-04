@@ -13,7 +13,7 @@
     --border-color: #DFE0EB;
     --border-dotted-color: #363740;
     --border-button-color-cash: #9DE185;
-    --border-buuton-color-cretid: #4D5AEA;
+    --border-button-color-cretid: #4D5AEA;
     --border-button-color-debit: #6D75CD;
     --border-button-color-vale: #EB58C2;
     --input-color: #FAFAFC;
@@ -24,6 +24,7 @@
     --arrow-hover-button-color: #abb4ecab;
     --create-button-color: #95cbff;
     --chage-texto-color: #34ce6b;
+    --hover-button-color: #B5BFFF;
 }
 * {
     padding: 0;

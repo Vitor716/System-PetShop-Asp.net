@@ -235,6 +235,7 @@ textarea :focus{
     margin-left: 0px;
     margin-right: 0px;
     margin: none;
+    margin-bottom: auto;
 }
 
 .name-label {
@@ -284,7 +285,7 @@ textarea :focus{
     }
 
     .form-none {
-        width: 60%;
+        width: 80vw;
     }
 }
 

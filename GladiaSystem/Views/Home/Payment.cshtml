@@ -33,32 +33,40 @@
     </header>
 
     <section>
-        <a >
-            <div class="money" >
-                <span id="money">Dinheiro</span>
-            </div>
-        </a>
-        <a href="@Url.Action("OtherPayments", "Home", new { price = ViewBag.Price })">
+        <div class="type-payment">
+            <a>
+                <div class="money">
+                    <span id="money">Dinheiro</span>
+                </div>
+            </a>
+            @* <a href="@Url.Action("OtherPayments", "Home", new { price = ViewBag.Price })">
             <div class="credit">
                 <span id="credit">Cartão de Crétido</span>
             </div>
-        </a>
-        
-        <a href="@Url.Action("OtherPayments","Home", new { price = ViewBag.Price })">
-            <div class="debit">
-                <span id="debit" >Cartão de Débito</span>
-            </div>
-        </a>
+         </a>*@
 
-        <a href="@Url.Action("OtherPayments","Home", new { price = ViewBag.Price })">
-            <div class="val">
-                <span id="val">Vale</span>
-            </div>
-        </a>
-    
+            <a href="@Url.Action("OtherPayments","Home", new { price = ViewBag.Price })">
+                <div class="credit">
+                    <span id="credit">Cartão de Crétido</span>
+                </div>
+            </a>
+
+            <a href="@Url.Action("OtherPayments","Home", new { price = ViewBag.Price })">
+                <div class="debit">
+                    <span id="debit">Cartão de Débito</span>
+                </div>
+            </a>
+
+            <a href="@Url.Action("OtherPayments","Home", new { price = ViewBag.Price })">
+                <div class="val">
+                    <span id="val">Vale</span>
+                </div>
+            </a>
+        </div>
         <div class="buy-value">
             <span id="buy-value">Valor da compra</span>
             <span id="sub-value">Subtotal: R$ @ViewBag.Price @ViewBag.Paid</span>
+
 
             @{ if (ViewBag.Green != null)
                 {
