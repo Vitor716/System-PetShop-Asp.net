@@ -453,6 +453,68 @@ namespace GladiaSystem.Database
             return 0;
         }
 
+        public int SmallPort() {
+            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) as SmallPort FROM db_asp.tbl_pet where pet_size = 'Pequeno';", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
+        public int MediumPort()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) as SmallPort FROM db_asp.tbl_pet where pet_size = 'Medio';", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
+        public int LargePort()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) as SmallPort FROM db_asp.tbl_pet where pet_size = 'Grande';", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
         public List<Category> ListCategory()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT category_name,category_id FROM db_asp.tbl_category;", con.ConnectionDB());

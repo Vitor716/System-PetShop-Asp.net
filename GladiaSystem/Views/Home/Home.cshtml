@@ -24,3 +24,83 @@
         </a>
     </div>
 </div>
+
+
+<script>
+
+    google.charts.load('current', { packages: ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(drawTitleSubtitle);
+
+    function drawTitleSubtitle() {
+
+
+        var data = google.visualization.arrayToDataTable([
+            ['', '', { role: 'style' }],
+            ['Pequeno', @ViewBag.PortSmall, '#b87333'],            // RGB value
+            ['Médio', @ViewBag.PortMedium, 'silver'],
+            ['Grande', @ViewBag.PortLarge, 'silver'],    // English color name
+        ]);
+
+        var materialOptions = {
+            chart: {
+                title: 'Percentual de cada porte',
+                subtitle: '',
+                width: 600,
+                height: 400,
+            },
+            hAxis: {
+                title: 'Total Population',
+                minValue: 0,
+            },
+            vAxis: {
+                title: 'City'
+            },
+            bars: 'horizontal'
+        };
+
+        var materialChart = new google.charts.Bar(document.getElementById('firt-graph'));
+        materialChart.draw(data, materialOptions);
+    }
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(pet);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Category', 'Product per category'],
+            ['Comida', 11],
+            ['Limpeza', 2],
+            ['Remédio', 2],
+            ['Brinquedo', 2]
+        ]);
+
+        var options = {
+            title: 'Percentual de Categoria'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('second-graph'));
+
+        chart.draw(data, options);
+    }
+
+    function pet() {
+        var data = google.visualization.arrayToDataTable([
+            ['Pets', 'Pets per Agenda'],
+            ['Léo', 11],
+            ['Paçoca', 2],
+            ['Mel', 2],
+            ['Belinha', 2],
+            ['Bufos', 7]
+        ]);
+
+        var options = {
+            title: 'Agendamentos por pet',
+            pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('third-graph'));
+        chart.draw(data, options);
+    }
+</script>
