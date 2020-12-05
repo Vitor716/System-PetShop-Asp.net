@@ -418,6 +418,14 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
+        public void Finish()
+        {
+            MySqlCommand cmd = new MySqlCommand("use db_asp;TRUNCATE TABLE tbl_pos;", con.ConnectionDB());
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
         public int getProdId(string name)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT prod_id FROM db_asp.tbl_product WHERE prod_name LIKE @prodName;", con.ConnectionDB());

@@ -39,11 +39,6 @@
                     <span id="money">Dinheiro</span>
                 </div>
             </a>
-            @* <a href="@Url.Action("OtherPayments", "Home", new { price = ViewBag.Price })">
-            <div class="credit">
-                <span id="credit">Cartão de Crétido</span>
-            </div>
-         </a>*@
 
             <a href="@Url.Action("OtherPayments","Home", new { price = ViewBag.Price })">
                 <div class="credit">
@@ -100,23 +95,20 @@
         <div class="total-value">
             <p id="paid">Valor pago:</p>
             <div class="inpbutton">
-                @using (Html.BeginForm("Change", "Home", FormMethod.Post, new { @class = "form-none" }))
+                @using (Html.BeginForm("Change", "Home", FormMethod.Post, new { @class = "form-none form-payment" }))
                 {
                     @Html.EditorFor(m => m.Paid, new { htmlAttributes = new { @value = ViewBag.Paid } })
-                    @Html.EditorFor(m => m.TotalValue)
-                    <button type="submit" id="btn-verify" class="btn-final">Verificar Troco</button>
+                    @Html.TextBoxFor(m => m.TotalValue, new { @Value=ViewBag.Price})
+                    <button type="submit" id="btn-verify" class="btn-verify">Verificar Troco</button>
+
+                    <a href='@Url.Action("Receipt", "Home")'>
+                        <button class="btn-final" type="button">
+                            Finalizar
+                            <img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" />
+                        </button>
+                    </a>
                 }
-
-
-
-                <a href='@Url.Action("Receipt", "Home")'>
-                    <button class="btn-final" type="submit">
-                        Finalizar
-                        <img src="~/Content/Imagens/arrow-right.svg" alt="Arrow right" class="arrow" />
-                    </button>
-                </a>
             </div>
         </div>
     </section>
-
 </main>

@@ -14,6 +14,10 @@
     animation: arrow 1s ease alternate both;
 }
 
+#TotalValue{
+    display:none;
+}
+
 @keyframes arrow {
     0% {
         transform: translateX(0);
@@ -174,6 +178,7 @@
     display: flex;
     justify-content: center;
     padding: 4%;
+    align-items: center;
     margin-top: 3%;
     transition: all 0.2s;
 }
@@ -328,7 +333,7 @@ section {
     grid-template-columns: 1fr 63vw;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "a b" "c b" "d e" "f e" "g g";
-    grid-gap: 20px;
+    grid-gap: 2px;
 }
 
 .money {
@@ -342,7 +347,7 @@ section {
     font: 500 1.8rem Mulish;
     height: 100%;
     color: var(--primary-text-color);
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
 
 .money:hover{
@@ -354,12 +359,13 @@ section {
     justify-content: center;
     align-items: center;
     background-color: white;
-    border: 1px solid var(--border-button-color-credit);
+    border: 1px solid lightorange;
     border-radius: 8px;
     grid-area: f;
     font: 500 1.8rem Mulish;
     height: 100%;
     color: var(--primary-text-color);
+    margin-bottom: 1%;
 }
 
 .credit:hover {
@@ -377,6 +383,7 @@ section {
     font: 500 1.8rem Mulish;
     height: 100%;
     color: var(--primary-text-color);
+    margin-bottom: 1%;
 }
 
 .debit:hover{
@@ -394,6 +401,7 @@ section {
     font: 500 1.8rem Mulish;
     height: 100%;
     color: var(--primary-text-color);
+    margin-bottom: 1%;
 }
 
 .val:hover{
@@ -491,8 +499,9 @@ section {
 }
 
 .btn-final {
-    width: 40%;
+    height: 70px;
     border-style: none;
+    width: 35%;
     border-radius: 8px;
     background-color: var(--button-color);
     font: 700 1.8rem Mulish;
@@ -503,12 +512,8 @@ section {
 .credit {
     background-color: white;
     border-radius: 4px;
-    border: 1px solid var(--border-button-color-credit);
+    border: 1px solid orange;
     overflow: hidden;
-}
-
-#btn-verify {
-    height: 100%;
 }
 
 .bar-buttom {
@@ -516,7 +521,32 @@ section {
     padding-top: 100px;
 }
 
+.btn-verify {
+    border-style: none;
+    border-radius: 8px;
+    background-color: var(--button-color);
+    font: 700 1.8rem Mulish;
+    color: var(--primary-text-color);
+    height: 70px;
+}
+
+.form-payment{
+    width:100% !important;
+}
+
 @media (min-width: 1297px) {
+    .btn-verify {
+        border-style: none;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: 10%;
+        margin-left: 1%;
+        border-radius: 8px;
+        background-color: var(--button-color);
+        font: 700 1.8rem Mulish;
+        color: var(--primary-text-color);
+        height: 70px;
+    }
     .container {
         flex-wrap: wrap;
         align-items: normal;
@@ -641,5 +671,9 @@ section {
 
     #sub-value {
         margin-left: 30px;
+    }
+
+    .page-receipt {
+        max-width: 69%;
     }
 }

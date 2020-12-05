@@ -106,6 +106,30 @@
     transform-box: fill-box;
 }
 
+#Steam1,#Steam2,#Steam3 {
+    animation: Steam 5s alternate linear infinite both;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#EyebrowsSettings {
+    animation: WomanMouth 1s ease-in-out infinite alternate-reverse both;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes Steam {
+    0% {
+        -webkit-transform: rotateZ(0);
+        transform: rotateZ(0);
+    }
+
+    100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
 @keyframes slide-in-left {
     0% {
         transform: translateX(-1000px);

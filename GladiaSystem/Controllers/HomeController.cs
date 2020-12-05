@@ -109,6 +109,15 @@ namespace GladiaSystem.Controllers
             return View("POS");
         }
 
+        public ActionResult FinishOrder()
+        {
+            string session = (string)Session["userID"];
+            queries.Finish();
+            ViewBag.Img = queries.GetUserImages(session);
+            ViewBag.AllPos = queries.ListPos();
+            return View("POS");
+        }
+
         [HttpPost]
         public ActionResult ProductGet(Pos pos)
         {

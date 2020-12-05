@@ -41,7 +41,7 @@
     </header>
 
     <div class="container">
-        @using (Html.BeginForm("ProductGet", "Home", FormMethod.Post, new { @class = "form-none" }))
+        @using (Html.BeginForm("ProductGet", "Home", FormMethod.Post, new { @class = "form-none form-pos" }))
         {
         <div class="input-container">
             @Html.EditorFor(m => m.QuantOrder, new { htmlAttributes = new { @class = "quant-order" } })
