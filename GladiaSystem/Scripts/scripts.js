@@ -98,17 +98,6 @@ function pet() {
     chart.draw(data, options);
 }
 
-
-function shortNumber() {
-    document.getElementById("sub-value").innerHTML = value;
-    var str = value;
-    var length = str.length;
-    var res = str.slice(12, length);
-    document.getElementById("demo").innerHTML = res;
-    return res;
-}
-
-
 function formatCurrency(input, blur) {
     // appends $ to value, validates decimal side
     // and puts cursor back in right position.

@@ -49,6 +49,12 @@ form {
     margin: 10px;
     width: 100%;
     margin-top: 2%;
+    height: 5.6rem;
+    margin-left: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 main {
@@ -210,6 +216,7 @@ textarea :focus{
     width: 20px;
     margin: 0;
     order: -1;
+    height: auto;
 }
 
 
@@ -217,12 +224,14 @@ textarea :focus{
     width: 20px;
     margin: 0;
     order: -1;
+    height: auto;
 }
 
 #medio {
     width: 20px;
     margin: 0;
     order: -1;
+    height: auto;
 }
 
 .label-radial {
@@ -230,6 +239,7 @@ textarea :focus{
     font-weight: 400;
     font-size: 1.4rem;
     color: var(--secondary-text-color);
+    height:auto !important;
 }
 
 .delete-button {
@@ -248,6 +258,7 @@ textarea :focus{
     margin-right: 0px;
     margin: none;
     margin-bottom: auto;
+    width: 60vw;
 }
 
 .name-label {
@@ -261,6 +272,10 @@ textarea :focus{
 
 .red {
     color: var(--error-text-color);
+}
+
+.form-pos{
+    width: 90vw;
 }
 
 @keyframes slide-top {
@@ -297,7 +312,7 @@ textarea :focus{
     }
 
     .form-none {
-        width: 80vw;
+        width: 60vw;
     }
 }
 

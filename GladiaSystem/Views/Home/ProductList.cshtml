@@ -25,7 +25,7 @@
     </div>
     @using (Html.BeginForm("SearchProduct", "Home", FormMethod.Post, new { @class = "form-none" }))
     {
-        @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "form-control" })
+        @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "form-control search" })
     }
 </div>
 
@@ -55,7 +55,7 @@
                 </div>
          
 
-                <a href='@Url.Action("ProdDelete", "Home", new { @class="sub-button", ProductID = IDs[i] })'>
+                <a href='@Url.Action("ProdDelete", "Home", new { @class="sub-button button-product-list", ProductID = IDs[i] })'>
                     <button class="sub-button" type="submit">
                         Deletar
                     </button>
@@ -88,7 +88,7 @@
                     }
                 </div>
 
-                <a href='@Url.Action("ProdDelete", "Home", new { @class="sub-button", ProductID = item.ID })'>
+                <a href='@Url.Action("ProdDelete", "Home", new { @class="sub-button button-product-list", ProductID = item.ID })'>
                     <button class="sub-button" type="submit">
                         Deletar
                     </button>

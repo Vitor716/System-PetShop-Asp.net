@@ -102,7 +102,7 @@ p {
         flex-wrap: nowrap;
         justify-content: center;
         grid-template-columns: 6fr 6fr 6fr;
-        place-items: center;
+        place-items: flex-start;
         margin-top: 3%;
         grid-gap: 55px;
     }
@@ -116,7 +116,7 @@ p {
     }
 
     .icon-photo {
-        height: 99%;
+        height: auto;
         width: 103%;
         padding: 12px;
     }
