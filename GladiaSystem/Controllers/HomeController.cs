@@ -19,6 +19,10 @@ namespace GladiaSystem.Controllers
         // GET: Home
         public ActionResult Home()
         {
+            ViewBag.PortSmall = queries.SmallPort();
+            ViewBag.PortMedium = queries.MediumPort();
+            ViewBag.PortLarge = queries.LargePort();
+
             return View();
         }
 
