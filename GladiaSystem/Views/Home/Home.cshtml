@@ -3,6 +3,7 @@
     ViewBag.Title = "Home";
     ViewBag.Selected = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<GladiaSystem.Models.Product> categoryQuant = ViewBag.CategoryQuant;
 }
 
 
@@ -70,10 +71,15 @@
 
         var data = google.visualization.arrayToDataTable([
             ['Category', 'Product per category'],
-            ['Comida', 11],
-            ['Limpeza', 2],
-            ['Remédio', 2],
-            ['Brinquedo', 2]
+            @{ 
+                foreach(GladiaSystem.Models.Product item in categoryQuant)
+                {
+                    <text>
+                        ['@item.CategoryName', @item.Quant],
+                    </text>
+                }
+            }
+            ['', 0]
         ]);
 
         var options = {

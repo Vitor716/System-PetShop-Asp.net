@@ -38,6 +38,8 @@ namespace GladiaSystem.Models
         [Display(Name = "Imagem")]
         public string img { get; set; }
 
+        public string CategoryName { get; set; }
+
         [Display(Name = "Categoria")]
         public Category Category { get; set; }
 
