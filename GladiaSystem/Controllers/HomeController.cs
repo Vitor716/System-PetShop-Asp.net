@@ -24,6 +24,7 @@ namespace GladiaSystem.Controllers
             ViewBag.PortLarge = queries.LargePort();
             ViewBag.Administrador = queries.Administrator();
             ViewBag.CommonUser = queries.CommonUser();
+            ViewBag.CategoryQuant = queries.ListCategoryQuant();
 
             return View();
         }

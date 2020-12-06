@@ -557,6 +557,30 @@ namespace GladiaSystem.Database
             return 0;
         }
 
+        public List<Product> ListCategoryQuant()
+        {
+            MySqlCommand cmd = new MySqlCommand("select sum(prod_quant) as quant, category_name from db_asp.tbl_product inner join tbl_category on tbl_product.fk_category = tbl_category.category_id group by category_name;", con.ConnectionDB());
+            var categoryData = cmd.ExecuteReader();
+            return ListAllCategoryQuant(categoryData);
+        }
+
+        private List<Product> ListAllCategoryQuant(MySqlDataReader categoryData)
+        {
+            var AllCategoryQuant = new List<Product>();
+
+            while (categoryData.Read())
+            {
+                var tempCategoryQuant = new Product()
+                {
+                    Quant = int.Parse(categoryData["quant"].ToString()),
+                    CategoryName = categoryData["category_name"].ToString(),
+                };
+                AllCategoryQuant.Add(tempCategoryQuant);
+            }
+            categoryData.Close();
+            return AllCategoryQuant;
+        }
+
         public List<Category> ListCategory()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT category_name,category_id FROM db_asp.tbl_category;", con.ConnectionDB());
