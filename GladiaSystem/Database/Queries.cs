@@ -152,7 +152,7 @@ namespace GladiaSystem.Database
             }
             reader.Close();
             return "error";
-        }
+        }   
 
         public string GetUserImages(string UserID)
         {
@@ -424,6 +424,48 @@ namespace GladiaSystem.Database
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
+        }
+
+        public int Administrator()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) AS 'Administrator' FROM db_asp.tbl_user WHERE user_lvl = 1;", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
+        public int CommonUser()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) AS 'CommonUser' FROM db_asp.tbl_user WHERE user_lvl = 0;", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
         }
 
         public int getProdId(string name)

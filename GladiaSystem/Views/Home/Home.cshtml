@@ -88,11 +88,8 @@
     function pet() {
         var data = google.visualization.arrayToDataTable([
             ['Pets', 'Pets per Agenda'],
-            ['Léo', 11],
-            ['Paçoca', 2],
-            ['Mel', 2],
-            ['Belinha', 2],
-            ['Bufos', 7]
+            ['Administrador', @ViewBag.Administrador],
+            ['Usuário Comum', @ViewBag.CommonUser]
         ]);
 
         var options = {
