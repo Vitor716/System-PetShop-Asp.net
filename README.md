@@ -28,10 +28,10 @@ This application was created domining front end, back end and database using c#.
 	</tr>
 	<tr>
 		<td>
-			<img width="800" src=".github/Home.jpg">
+			<img width="800" src=".github/Login.jpg">
 		</td>
 		<td>
-			<img width="800" src=".github/Login.jpg">
+			<img width="800" src=".github/Home.jpg">
 		</td>
 	</tr>
 </table>
@@ -50,7 +50,7 @@ This application was created domining front end, back end and database using c#.
 - [Cleave.js](https://nosir.github.io/cleave.js/)
 - [MySql](https://www.nuget.org/packages/MySql.Data/)
 - [Bootstrap](https://getbootstrap.com)
-- [C#])(https://docs.microsoft.com/en-us/dotnet/csharp/)
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 
 ## ⚙ Database
 It's a Mysql database, the script is named "db_asp.net.sql".
